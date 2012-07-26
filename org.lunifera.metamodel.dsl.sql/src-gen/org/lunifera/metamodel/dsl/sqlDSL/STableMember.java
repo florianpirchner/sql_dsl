@@ -6,22 +6,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>SEntity Member</b></em>'.
+ * A representation of the model object '<em><b>STable Member</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.SEntityMember#getName <em>Name</em>}</li>
- *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.SEntityMember#getProps <em>Props</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.STableMember#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.STableMember#getProps <em>Props</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSEntityMember()
+ * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSTableMember()
  * @model
  * @generated
  */
-public interface SEntityMember extends EObject
+public interface STableMember extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -33,14 +33,14 @@ public interface SEntityMember extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSEntityMember_Name()
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSTableMember_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link org.lunifera.metamodel.dsl.sqlDSL.SEntityMember#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.lunifera.metamodel.dsl.sqlDSL.STableMember#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -59,14 +59,14 @@ public interface SEntityMember extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Props</em>' containment reference.
    * @see #setProps(SColumnProps)
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSEntityMember_Props()
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSTableMember_Props()
    * @model containment="true"
    * @generated
    */
   SColumnProps getProps();
 
   /**
-   * Sets the value of the '{@link org.lunifera.metamodel.dsl.sqlDSL.SEntityMember#getProps <em>Props</em>}' containment reference.
+   * Sets the value of the '{@link org.lunifera.metamodel.dsl.sqlDSL.STableMember#getProps <em>Props</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Props</em>' containment reference.
@@ -75,4 +75,4 @@ public interface SEntityMember extends EObject
    */
   void setProps(SColumnProps value);
 
-} // SEntityMember
+} // STableMember

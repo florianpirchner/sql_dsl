@@ -30,6 +30,7 @@ import org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SModelImpl#getGeneratedFile <em>Generated File</em>}</li>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SModelImpl#getSettings <em>Settings</em>}</li>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SModelImpl#getArtifact <em>Artifact</em>}</li>
  * </ul>
@@ -39,6 +40,26 @@ import org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage;
  */
 public class SModelImpl extends MinimalEObjectImpl.Container implements SModel
 {
+  /**
+   * The default value of the '{@link #getGeneratedFile() <em>Generated File</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGeneratedFile()
+   * @generated
+   * @ordered
+   */
+  protected static final String GENERATED_FILE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getGeneratedFile() <em>Generated File</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGeneratedFile()
+   * @generated
+   * @ordered
+   */
+  protected String generatedFile = GENERATED_FILE_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getSettings() <em>Settings</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -78,6 +99,29 @@ public class SModelImpl extends MinimalEObjectImpl.Container implements SModel
   protected EClass eStaticClass()
   {
     return SqlDSLPackage.Literals.SMODEL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getGeneratedFile()
+  {
+    return generatedFile;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setGeneratedFile(String newGeneratedFile)
+  {
+    String oldGeneratedFile = generatedFile;
+    generatedFile = newGeneratedFile;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SMODEL__GENERATED_FILE, oldGeneratedFile, generatedFile));
   }
 
   /**
@@ -170,6 +214,8 @@ public class SModelImpl extends MinimalEObjectImpl.Container implements SModel
   {
     switch (featureID)
     {
+      case SqlDSLPackage.SMODEL__GENERATED_FILE:
+        return getGeneratedFile();
       case SqlDSLPackage.SMODEL__SETTINGS:
         return getSettings();
       case SqlDSLPackage.SMODEL__ARTIFACT:
@@ -189,6 +235,9 @@ public class SModelImpl extends MinimalEObjectImpl.Container implements SModel
   {
     switch (featureID)
     {
+      case SqlDSLPackage.SMODEL__GENERATED_FILE:
+        setGeneratedFile((String)newValue);
+        return;
       case SqlDSLPackage.SMODEL__SETTINGS:
         setSettings((SSettings)newValue);
         return;
@@ -210,6 +259,9 @@ public class SModelImpl extends MinimalEObjectImpl.Container implements SModel
   {
     switch (featureID)
     {
+      case SqlDSLPackage.SMODEL__GENERATED_FILE:
+        setGeneratedFile(GENERATED_FILE_EDEFAULT);
+        return;
       case SqlDSLPackage.SMODEL__SETTINGS:
         setSettings((SSettings)null);
         return;
@@ -230,12 +282,31 @@ public class SModelImpl extends MinimalEObjectImpl.Container implements SModel
   {
     switch (featureID)
     {
+      case SqlDSLPackage.SMODEL__GENERATED_FILE:
+        return GENERATED_FILE_EDEFAULT == null ? generatedFile != null : !GENERATED_FILE_EDEFAULT.equals(generatedFile);
       case SqlDSLPackage.SMODEL__SETTINGS:
         return settings != null;
       case SqlDSLPackage.SMODEL__ARTIFACT:
         return artifact != null && !artifact.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (generatedFile: ");
+    result.append(generatedFile);
+    result.append(')');
+    return result.toString();
   }
 
 } //SModelImpl

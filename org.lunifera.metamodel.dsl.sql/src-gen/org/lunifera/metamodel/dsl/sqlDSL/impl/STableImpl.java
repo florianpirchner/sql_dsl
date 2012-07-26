@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.lunifera.metamodel.dsl.sqlDSL.SEntityMember;
 import org.lunifera.metamodel.dsl.sqlDSL.SSettings;
 import org.lunifera.metamodel.dsl.sqlDSL.STable;
+import org.lunifera.metamodel.dsl.sqlDSL.STableMember;
 import org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage;
 
 /**
@@ -30,8 +30,10 @@ import org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.STableImpl#getSettings <em>Settings</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.STableImpl#getEntityname <em>Entityname</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.STableImpl#isCached <em>Cached</em>}</li>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.STableImpl#getPrefix <em>Prefix</em>}</li>
- *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.STableImpl#getEntityMembers <em>Entity Members</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.STableImpl#getColumns <em>Columns</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,6 +50,46 @@ public class STableImpl extends SArtifactImpl implements STable
    * @ordered
    */
   protected SSettings settings;
+
+  /**
+   * The default value of the '{@link #getEntityname() <em>Entityname</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEntityname()
+   * @generated
+   * @ordered
+   */
+  protected static final String ENTITYNAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getEntityname() <em>Entityname</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEntityname()
+   * @generated
+   * @ordered
+   */
+  protected String entityname = ENTITYNAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isCached() <em>Cached</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isCached()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean CACHED_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isCached() <em>Cached</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isCached()
+   * @generated
+   * @ordered
+   */
+  protected boolean cached = CACHED_EDEFAULT;
 
   /**
    * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
@@ -70,14 +112,14 @@ public class STableImpl extends SArtifactImpl implements STable
   protected String prefix = PREFIX_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getEntityMembers() <em>Entity Members</em>}' containment reference list.
+   * The cached value of the '{@link #getColumns() <em>Columns</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEntityMembers()
+   * @see #getColumns()
    * @generated
    * @ordered
    */
-  protected EList<SEntityMember> entityMembers;
+  protected EList<STableMember> columns;
 
   /**
    * <!-- begin-user-doc -->
@@ -153,6 +195,52 @@ public class STableImpl extends SArtifactImpl implements STable
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getEntityname()
+  {
+    return entityname;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEntityname(String newEntityname)
+  {
+    String oldEntityname = entityname;
+    entityname = newEntityname;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.STABLE__ENTITYNAME, oldEntityname, entityname));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isCached()
+  {
+    return cached;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCached(boolean newCached)
+  {
+    boolean oldCached = cached;
+    cached = newCached;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.STABLE__CACHED, oldCached, cached));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getPrefix()
   {
     return prefix;
@@ -176,13 +264,13 @@ public class STableImpl extends SArtifactImpl implements STable
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<SEntityMember> getEntityMembers()
+  public EList<STableMember> getColumns()
   {
-    if (entityMembers == null)
+    if (columns == null)
     {
-      entityMembers = new EObjectContainmentEList<SEntityMember>(SEntityMember.class, this, SqlDSLPackage.STABLE__ENTITY_MEMBERS);
+      columns = new EObjectContainmentEList<STableMember>(STableMember.class, this, SqlDSLPackage.STABLE__COLUMNS);
     }
-    return entityMembers;
+    return columns;
   }
 
   /**
@@ -197,8 +285,8 @@ public class STableImpl extends SArtifactImpl implements STable
     {
       case SqlDSLPackage.STABLE__SETTINGS:
         return basicSetSettings(null, msgs);
-      case SqlDSLPackage.STABLE__ENTITY_MEMBERS:
-        return ((InternalEList<?>)getEntityMembers()).basicRemove(otherEnd, msgs);
+      case SqlDSLPackage.STABLE__COLUMNS:
+        return ((InternalEList<?>)getColumns()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -215,10 +303,14 @@ public class STableImpl extends SArtifactImpl implements STable
     {
       case SqlDSLPackage.STABLE__SETTINGS:
         return getSettings();
+      case SqlDSLPackage.STABLE__ENTITYNAME:
+        return getEntityname();
+      case SqlDSLPackage.STABLE__CACHED:
+        return isCached();
       case SqlDSLPackage.STABLE__PREFIX:
         return getPrefix();
-      case SqlDSLPackage.STABLE__ENTITY_MEMBERS:
-        return getEntityMembers();
+      case SqlDSLPackage.STABLE__COLUMNS:
+        return getColumns();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -237,12 +329,18 @@ public class STableImpl extends SArtifactImpl implements STable
       case SqlDSLPackage.STABLE__SETTINGS:
         setSettings((SSettings)newValue);
         return;
+      case SqlDSLPackage.STABLE__ENTITYNAME:
+        setEntityname((String)newValue);
+        return;
+      case SqlDSLPackage.STABLE__CACHED:
+        setCached((Boolean)newValue);
+        return;
       case SqlDSLPackage.STABLE__PREFIX:
         setPrefix((String)newValue);
         return;
-      case SqlDSLPackage.STABLE__ENTITY_MEMBERS:
-        getEntityMembers().clear();
-        getEntityMembers().addAll((Collection<? extends SEntityMember>)newValue);
+      case SqlDSLPackage.STABLE__COLUMNS:
+        getColumns().clear();
+        getColumns().addAll((Collection<? extends STableMember>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -261,11 +359,17 @@ public class STableImpl extends SArtifactImpl implements STable
       case SqlDSLPackage.STABLE__SETTINGS:
         setSettings((SSettings)null);
         return;
+      case SqlDSLPackage.STABLE__ENTITYNAME:
+        setEntityname(ENTITYNAME_EDEFAULT);
+        return;
+      case SqlDSLPackage.STABLE__CACHED:
+        setCached(CACHED_EDEFAULT);
+        return;
       case SqlDSLPackage.STABLE__PREFIX:
         setPrefix(PREFIX_EDEFAULT);
         return;
-      case SqlDSLPackage.STABLE__ENTITY_MEMBERS:
-        getEntityMembers().clear();
+      case SqlDSLPackage.STABLE__COLUMNS:
+        getColumns().clear();
         return;
     }
     super.eUnset(featureID);
@@ -283,10 +387,14 @@ public class STableImpl extends SArtifactImpl implements STable
     {
       case SqlDSLPackage.STABLE__SETTINGS:
         return settings != null;
+      case SqlDSLPackage.STABLE__ENTITYNAME:
+        return ENTITYNAME_EDEFAULT == null ? entityname != null : !ENTITYNAME_EDEFAULT.equals(entityname);
+      case SqlDSLPackage.STABLE__CACHED:
+        return cached != CACHED_EDEFAULT;
       case SqlDSLPackage.STABLE__PREFIX:
         return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
-      case SqlDSLPackage.STABLE__ENTITY_MEMBERS:
-        return entityMembers != null && !entityMembers.isEmpty();
+      case SqlDSLPackage.STABLE__COLUMNS:
+        return columns != null && !columns.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -302,7 +410,11 @@ public class STableImpl extends SArtifactImpl implements STable
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (prefix: ");
+    result.append(" (entityname: ");
+    result.append(entityname);
+    result.append(", cached: ");
+    result.append(cached);
+    result.append(", prefix: ");
     result.append(prefix);
     result.append(')');
     return result.toString();

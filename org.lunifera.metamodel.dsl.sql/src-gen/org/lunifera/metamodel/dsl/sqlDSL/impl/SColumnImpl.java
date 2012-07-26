@@ -10,28 +10,28 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.lunifera.metamodel.dsl.sqlDSL.SColumn;
 import org.lunifera.metamodel.dsl.sqlDSL.SExtDeclaredSQLType;
 import org.lunifera.metamodel.dsl.sqlDSL.SInlinedSQLType;
-import org.lunifera.metamodel.dsl.sqlDSL.SProperty;
 import org.lunifera.metamodel.dsl.sqlDSL.SSimpleTypes;
 import org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SProperty</b></em>'.
+ * An implementation of the model object '<em><b>SColumn</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SPropertyImpl#getExtType <em>Ext Type</em>}</li>
- *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SPropertyImpl#getInlinedType <em>Inlined Type</em>}</li>
- *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SPropertyImpl#getSimpleType <em>Simple Type</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SColumnImpl#getExtType <em>Ext Type</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SColumnImpl#getInlinedType <em>Inlined Type</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SColumnImpl#getSimpleType <em>Simple Type</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SPropertyImpl extends SEntityMemberImpl implements SProperty
+public class SColumnImpl extends STableMemberImpl implements SColumn
 {
   /**
    * The cached value of the '{@link #getExtType() <em>Ext Type</em>}' reference.
@@ -78,7 +78,7 @@ public class SPropertyImpl extends SEntityMemberImpl implements SProperty
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SPropertyImpl()
+  protected SColumnImpl()
   {
     super();
   }
@@ -91,7 +91,7 @@ public class SPropertyImpl extends SEntityMemberImpl implements SProperty
   @Override
   protected EClass eStaticClass()
   {
-    return SqlDSLPackage.Literals.SPROPERTY;
+    return SqlDSLPackage.Literals.SCOLUMN;
   }
 
   /**
@@ -108,7 +108,7 @@ public class SPropertyImpl extends SEntityMemberImpl implements SProperty
       if (extType != oldExtType)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SqlDSLPackage.SPROPERTY__EXT_TYPE, oldExtType, extType));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SqlDSLPackage.SCOLUMN__EXT_TYPE, oldExtType, extType));
       }
     }
     return extType;
@@ -134,7 +134,7 @@ public class SPropertyImpl extends SEntityMemberImpl implements SProperty
     SExtDeclaredSQLType oldExtType = extType;
     extType = newExtType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SPROPERTY__EXT_TYPE, oldExtType, extType));
+      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SCOLUMN__EXT_TYPE, oldExtType, extType));
   }
 
   /**
@@ -158,7 +158,7 @@ public class SPropertyImpl extends SEntityMemberImpl implements SProperty
     inlinedType = newInlinedType;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SPROPERTY__INLINED_TYPE, oldInlinedType, newInlinedType);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SCOLUMN__INLINED_TYPE, oldInlinedType, newInlinedType);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -175,14 +175,14 @@ public class SPropertyImpl extends SEntityMemberImpl implements SProperty
     {
       NotificationChain msgs = null;
       if (inlinedType != null)
-        msgs = ((InternalEObject)inlinedType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SqlDSLPackage.SPROPERTY__INLINED_TYPE, null, msgs);
+        msgs = ((InternalEObject)inlinedType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SqlDSLPackage.SCOLUMN__INLINED_TYPE, null, msgs);
       if (newInlinedType != null)
-        msgs = ((InternalEObject)newInlinedType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SqlDSLPackage.SPROPERTY__INLINED_TYPE, null, msgs);
+        msgs = ((InternalEObject)newInlinedType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SqlDSLPackage.SCOLUMN__INLINED_TYPE, null, msgs);
       msgs = basicSetInlinedType(newInlinedType, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SPROPERTY__INLINED_TYPE, newInlinedType, newInlinedType));
+      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SCOLUMN__INLINED_TYPE, newInlinedType, newInlinedType));
   }
 
   /**
@@ -205,7 +205,7 @@ public class SPropertyImpl extends SEntityMemberImpl implements SProperty
     SSimpleTypes oldSimpleType = simpleType;
     simpleType = newSimpleType == null ? SIMPLE_TYPE_EDEFAULT : newSimpleType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SPROPERTY__SIMPLE_TYPE, oldSimpleType, simpleType));
+      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SCOLUMN__SIMPLE_TYPE, oldSimpleType, simpleType));
   }
 
   /**
@@ -218,7 +218,7 @@ public class SPropertyImpl extends SEntityMemberImpl implements SProperty
   {
     switch (featureID)
     {
-      case SqlDSLPackage.SPROPERTY__INLINED_TYPE:
+      case SqlDSLPackage.SCOLUMN__INLINED_TYPE:
         return basicSetInlinedType(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -234,12 +234,12 @@ public class SPropertyImpl extends SEntityMemberImpl implements SProperty
   {
     switch (featureID)
     {
-      case SqlDSLPackage.SPROPERTY__EXT_TYPE:
+      case SqlDSLPackage.SCOLUMN__EXT_TYPE:
         if (resolve) return getExtType();
         return basicGetExtType();
-      case SqlDSLPackage.SPROPERTY__INLINED_TYPE:
+      case SqlDSLPackage.SCOLUMN__INLINED_TYPE:
         return getInlinedType();
-      case SqlDSLPackage.SPROPERTY__SIMPLE_TYPE:
+      case SqlDSLPackage.SCOLUMN__SIMPLE_TYPE:
         return getSimpleType();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -255,13 +255,13 @@ public class SPropertyImpl extends SEntityMemberImpl implements SProperty
   {
     switch (featureID)
     {
-      case SqlDSLPackage.SPROPERTY__EXT_TYPE:
+      case SqlDSLPackage.SCOLUMN__EXT_TYPE:
         setExtType((SExtDeclaredSQLType)newValue);
         return;
-      case SqlDSLPackage.SPROPERTY__INLINED_TYPE:
+      case SqlDSLPackage.SCOLUMN__INLINED_TYPE:
         setInlinedType((SInlinedSQLType)newValue);
         return;
-      case SqlDSLPackage.SPROPERTY__SIMPLE_TYPE:
+      case SqlDSLPackage.SCOLUMN__SIMPLE_TYPE:
         setSimpleType((SSimpleTypes)newValue);
         return;
     }
@@ -278,13 +278,13 @@ public class SPropertyImpl extends SEntityMemberImpl implements SProperty
   {
     switch (featureID)
     {
-      case SqlDSLPackage.SPROPERTY__EXT_TYPE:
+      case SqlDSLPackage.SCOLUMN__EXT_TYPE:
         setExtType((SExtDeclaredSQLType)null);
         return;
-      case SqlDSLPackage.SPROPERTY__INLINED_TYPE:
+      case SqlDSLPackage.SCOLUMN__INLINED_TYPE:
         setInlinedType((SInlinedSQLType)null);
         return;
-      case SqlDSLPackage.SPROPERTY__SIMPLE_TYPE:
+      case SqlDSLPackage.SCOLUMN__SIMPLE_TYPE:
         setSimpleType(SIMPLE_TYPE_EDEFAULT);
         return;
     }
@@ -301,11 +301,11 @@ public class SPropertyImpl extends SEntityMemberImpl implements SProperty
   {
     switch (featureID)
     {
-      case SqlDSLPackage.SPROPERTY__EXT_TYPE:
+      case SqlDSLPackage.SCOLUMN__EXT_TYPE:
         return extType != null;
-      case SqlDSLPackage.SPROPERTY__INLINED_TYPE:
+      case SqlDSLPackage.SCOLUMN__INLINED_TYPE:
         return inlinedType != null;
-      case SqlDSLPackage.SPROPERTY__SIMPLE_TYPE:
+      case SqlDSLPackage.SCOLUMN__SIMPLE_TYPE:
         return simpleType != SIMPLE_TYPE_EDEFAULT;
     }
     return super.eIsSet(featureID);
@@ -328,4 +328,4 @@ public class SPropertyImpl extends SEntityMemberImpl implements SProperty
     return result.toString();
   }
 
-} //SPropertyImpl
+} //SColumnImpl

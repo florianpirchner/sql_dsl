@@ -34,11 +34,13 @@
       <genEnumLiterals ecoreEnumLiteral="SqlDSL.ecore#//SIndex/SPATIAL"/>
     </genEnums>
     <genClasses ecoreClass="SqlDSL.ecore#//SModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//SModel/generatedFile"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SqlDSL.ecore#//SModel/settings"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SqlDSL.ecore#//SModel/artifact"/>
     </genClasses>
     <genClasses ecoreClass="SqlDSL.ecore#//SSettings">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//SSettings/schema"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//SSettings/javapackage"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//SSettings/engine"/>
     </genClasses>
     <genClasses ecoreClass="SqlDSL.ecore#//SArtifact">
@@ -46,25 +48,28 @@
     </genClasses>
     <genClasses ecoreClass="SqlDSL.ecore#//STable">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SqlDSL.ecore#//STable/settings"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//STable/entityname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//STable/cached"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//STable/prefix"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SqlDSL.ecore#//STable/entityMembers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SqlDSL.ecore#//STable/columns"/>
     </genClasses>
-    <genClasses ecoreClass="SqlDSL.ecore#//SEntityMember">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//SEntityMember/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SqlDSL.ecore#//SEntityMember/props"/>
+    <genClasses ecoreClass="SqlDSL.ecore#//STableMember">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//STableMember/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SqlDSL.ecore#//STableMember/props"/>
     </genClasses>
-    <genClasses ecoreClass="SqlDSL.ecore#//SProperty">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SqlDSL.ecore#//SProperty/extType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SqlDSL.ecore#//SProperty/inlinedType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//SProperty/simpleType"/>
+    <genClasses ecoreClass="SqlDSL.ecore#//SColumn">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SqlDSL.ecore#//SColumn/extType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SqlDSL.ecore#//SColumn/inlinedType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//SColumn/simpleType"/>
     </genClasses>
-    <genClasses ecoreClass="SqlDSL.ecore#//SJoinProperty">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SqlDSL.ecore#//SJoinProperty/type"/>
+    <genClasses ecoreClass="SqlDSL.ecore#//SJoinColumn">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SqlDSL.ecore#//SJoinColumn/referencedType"/>
     </genClasses>
     <genClasses ecoreClass="SqlDSL.ecore#//SColumnProps">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//SColumnProps/nullable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//SColumnProps/aes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//SColumnProps/index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//SColumnProps/javacolumn"/>
     </genClasses>
     <genClasses ecoreClass="SqlDSL.ecore#//SExtDeclaredSQLType"/>
     <genClasses ecoreClass="SqlDSL.ecore#//SInlinedSQLType">

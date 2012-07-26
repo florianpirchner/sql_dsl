@@ -12,24 +12,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.lunifera.metamodel.dsl.sqlDSL.SColumnProps;
-import org.lunifera.metamodel.dsl.sqlDSL.SEntityMember;
+import org.lunifera.metamodel.dsl.sqlDSL.STableMember;
 import org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SEntity Member</b></em>'.
+ * An implementation of the model object '<em><b>STable Member</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SEntityMemberImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SEntityMemberImpl#getProps <em>Props</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.STableMemberImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.STableMemberImpl#getProps <em>Props</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SEntityMemberImpl extends MinimalEObjectImpl.Container implements SEntityMember
+public class STableMemberImpl extends MinimalEObjectImpl.Container implements STableMember
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -66,7 +66,7 @@ public class SEntityMemberImpl extends MinimalEObjectImpl.Container implements S
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SEntityMemberImpl()
+  protected STableMemberImpl()
   {
     super();
   }
@@ -79,7 +79,7 @@ public class SEntityMemberImpl extends MinimalEObjectImpl.Container implements S
   @Override
   protected EClass eStaticClass()
   {
-    return SqlDSLPackage.Literals.SENTITY_MEMBER;
+    return SqlDSLPackage.Literals.STABLE_MEMBER;
   }
 
   /**
@@ -102,7 +102,7 @@ public class SEntityMemberImpl extends MinimalEObjectImpl.Container implements S
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SENTITY_MEMBER__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.STABLE_MEMBER__NAME, oldName, name));
   }
 
   /**
@@ -126,7 +126,7 @@ public class SEntityMemberImpl extends MinimalEObjectImpl.Container implements S
     props = newProps;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SENTITY_MEMBER__PROPS, oldProps, newProps);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SqlDSLPackage.STABLE_MEMBER__PROPS, oldProps, newProps);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -143,14 +143,14 @@ public class SEntityMemberImpl extends MinimalEObjectImpl.Container implements S
     {
       NotificationChain msgs = null;
       if (props != null)
-        msgs = ((InternalEObject)props).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SqlDSLPackage.SENTITY_MEMBER__PROPS, null, msgs);
+        msgs = ((InternalEObject)props).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SqlDSLPackage.STABLE_MEMBER__PROPS, null, msgs);
       if (newProps != null)
-        msgs = ((InternalEObject)newProps).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SqlDSLPackage.SENTITY_MEMBER__PROPS, null, msgs);
+        msgs = ((InternalEObject)newProps).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SqlDSLPackage.STABLE_MEMBER__PROPS, null, msgs);
       msgs = basicSetProps(newProps, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SENTITY_MEMBER__PROPS, newProps, newProps));
+      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.STABLE_MEMBER__PROPS, newProps, newProps));
   }
 
   /**
@@ -163,7 +163,7 @@ public class SEntityMemberImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SqlDSLPackage.SENTITY_MEMBER__PROPS:
+      case SqlDSLPackage.STABLE_MEMBER__PROPS:
         return basicSetProps(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -179,9 +179,9 @@ public class SEntityMemberImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SqlDSLPackage.SENTITY_MEMBER__NAME:
+      case SqlDSLPackage.STABLE_MEMBER__NAME:
         return getName();
-      case SqlDSLPackage.SENTITY_MEMBER__PROPS:
+      case SqlDSLPackage.STABLE_MEMBER__PROPS:
         return getProps();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -197,10 +197,10 @@ public class SEntityMemberImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SqlDSLPackage.SENTITY_MEMBER__NAME:
+      case SqlDSLPackage.STABLE_MEMBER__NAME:
         setName((String)newValue);
         return;
-      case SqlDSLPackage.SENTITY_MEMBER__PROPS:
+      case SqlDSLPackage.STABLE_MEMBER__PROPS:
         setProps((SColumnProps)newValue);
         return;
     }
@@ -217,10 +217,10 @@ public class SEntityMemberImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SqlDSLPackage.SENTITY_MEMBER__NAME:
+      case SqlDSLPackage.STABLE_MEMBER__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case SqlDSLPackage.SENTITY_MEMBER__PROPS:
+      case SqlDSLPackage.STABLE_MEMBER__PROPS:
         setProps((SColumnProps)null);
         return;
     }
@@ -237,9 +237,9 @@ public class SEntityMemberImpl extends MinimalEObjectImpl.Container implements S
   {
     switch (featureID)
     {
-      case SqlDSLPackage.SENTITY_MEMBER__NAME:
+      case SqlDSLPackage.STABLE_MEMBER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case SqlDSLPackage.SENTITY_MEMBER__PROPS:
+      case SqlDSLPackage.STABLE_MEMBER__PROPS:
         return props != null;
     }
     return super.eIsSet(featureID);
@@ -262,4 +262,4 @@ public class SEntityMemberImpl extends MinimalEObjectImpl.Container implements S
     return result.toString();
   }
 
-} //SEntityMemberImpl
+} //STableMemberImpl

@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.SColumnProps#isNullable <em>Nullable</em>}</li>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.SColumnProps#isAes <em>Aes</em>}</li>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.SColumnProps#getIndex <em>Index</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.SColumnProps#getJavacolumn <em>Javacolumn</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,5 +105,31 @@ public interface SColumnProps extends EObject
    * @generated
    */
   void setIndex(SIndex value);
+
+  /**
+   * Returns the value of the '<em><b>Javacolumn</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Javacolumn</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Javacolumn</em>' attribute.
+   * @see #setJavacolumn(String)
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSColumnProps_Javacolumn()
+   * @model
+   * @generated
+   */
+  String getJavacolumn();
+
+  /**
+   * Sets the value of the '{@link org.lunifera.metamodel.dsl.sqlDSL.SColumnProps#getJavacolumn <em>Javacolumn</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Javacolumn</em>' attribute.
+   * @see #getJavacolumn()
+   * @generated
+   */
+  void setJavacolumn(String value);
 
 } // SColumnProps

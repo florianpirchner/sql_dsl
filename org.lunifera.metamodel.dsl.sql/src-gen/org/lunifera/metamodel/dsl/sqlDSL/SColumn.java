@@ -5,23 +5,23 @@ package org.lunifera.metamodel.dsl.sqlDSL;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>SProperty</b></em>'.
+ * A representation of the model object '<em><b>SColumn</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.SProperty#getExtType <em>Ext Type</em>}</li>
- *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.SProperty#getInlinedType <em>Inlined Type</em>}</li>
- *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.SProperty#getSimpleType <em>Simple Type</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.SColumn#getExtType <em>Ext Type</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.SColumn#getInlinedType <em>Inlined Type</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.SColumn#getSimpleType <em>Simple Type</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSProperty()
+ * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSColumn()
  * @model
  * @generated
  */
-public interface SProperty extends SEntityMember
+public interface SColumn extends STableMember
 {
   /**
    * Returns the value of the '<em><b>Ext Type</b></em>' reference.
@@ -33,14 +33,14 @@ public interface SProperty extends SEntityMember
    * <!-- end-user-doc -->
    * @return the value of the '<em>Ext Type</em>' reference.
    * @see #setExtType(SExtDeclaredSQLType)
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSProperty_ExtType()
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSColumn_ExtType()
    * @model
    * @generated
    */
   SExtDeclaredSQLType getExtType();
 
   /**
-   * Sets the value of the '{@link org.lunifera.metamodel.dsl.sqlDSL.SProperty#getExtType <em>Ext Type</em>}' reference.
+   * Sets the value of the '{@link org.lunifera.metamodel.dsl.sqlDSL.SColumn#getExtType <em>Ext Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Ext Type</em>' reference.
@@ -59,14 +59,14 @@ public interface SProperty extends SEntityMember
    * <!-- end-user-doc -->
    * @return the value of the '<em>Inlined Type</em>' containment reference.
    * @see #setInlinedType(SInlinedSQLType)
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSProperty_InlinedType()
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSColumn_InlinedType()
    * @model containment="true"
    * @generated
    */
   SInlinedSQLType getInlinedType();
 
   /**
-   * Sets the value of the '{@link org.lunifera.metamodel.dsl.sqlDSL.SProperty#getInlinedType <em>Inlined Type</em>}' containment reference.
+   * Sets the value of the '{@link org.lunifera.metamodel.dsl.sqlDSL.SColumn#getInlinedType <em>Inlined Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Inlined Type</em>' containment reference.
@@ -87,14 +87,14 @@ public interface SProperty extends SEntityMember
    * @return the value of the '<em>Simple Type</em>' attribute.
    * @see org.lunifera.metamodel.dsl.sqlDSL.SSimpleTypes
    * @see #setSimpleType(SSimpleTypes)
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSProperty_SimpleType()
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSColumn_SimpleType()
    * @model
    * @generated
    */
   SSimpleTypes getSimpleType();
 
   /**
-   * Sets the value of the '{@link org.lunifera.metamodel.dsl.sqlDSL.SProperty#getSimpleType <em>Simple Type</em>}' attribute.
+   * Sets the value of the '{@link org.lunifera.metamodel.dsl.sqlDSL.SColumn#getSimpleType <em>Simple Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Simple Type</em>' attribute.
@@ -104,4 +104,4 @@ public interface SProperty extends SEntityMember
    */
   void setSimpleType(SSimpleTypes value);
 
-} // SProperty
+} // SColumn

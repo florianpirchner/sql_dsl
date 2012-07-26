@@ -11,22 +11,22 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.lunifera.metamodel.dsl.sqlDSL.SArtifact;
+import org.lunifera.metamodel.dsl.sqlDSL.SColumn;
 import org.lunifera.metamodel.dsl.sqlDSL.SColumnProps;
 import org.lunifera.metamodel.dsl.sqlDSL.SDBEngine;
 import org.lunifera.metamodel.dsl.sqlDSL.SDecimal;
-import org.lunifera.metamodel.dsl.sqlDSL.SEntityMember;
 import org.lunifera.metamodel.dsl.sqlDSL.SEnum;
 import org.lunifera.metamodel.dsl.sqlDSL.SEnumLiteral;
 import org.lunifera.metamodel.dsl.sqlDSL.SExtDeclaredSQLType;
 import org.lunifera.metamodel.dsl.sqlDSL.SIndex;
 import org.lunifera.metamodel.dsl.sqlDSL.SInlinedSQLType;
-import org.lunifera.metamodel.dsl.sqlDSL.SJoinProperty;
+import org.lunifera.metamodel.dsl.sqlDSL.SJoinColumn;
 import org.lunifera.metamodel.dsl.sqlDSL.SModel;
-import org.lunifera.metamodel.dsl.sqlDSL.SProperty;
 import org.lunifera.metamodel.dsl.sqlDSL.SSettings;
 import org.lunifera.metamodel.dsl.sqlDSL.SSimpleTypes;
 import org.lunifera.metamodel.dsl.sqlDSL.SString;
 import org.lunifera.metamodel.dsl.sqlDSL.STable;
+import org.lunifera.metamodel.dsl.sqlDSL.STableMember;
 import org.lunifera.metamodel.dsl.sqlDSL.SqlDSLFactory;
 import org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage;
 
@@ -71,21 +71,21 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass sEntityMemberEClass = null;
+  private EClass sTableMemberEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass sPropertyEClass = null;
+  private EClass sColumnEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass sJoinPropertyEClass = null;
+  private EClass sJoinColumnEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -235,9 +235,19 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getSModel_GeneratedFile()
+  {
+    return (EAttribute)sModelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getSModel_Settings()
   {
-    return (EReference)sModelEClass.getEStructuralFeatures().get(0);
+    return (EReference)sModelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -247,7 +257,7 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    */
   public EReference getSModel_Artifact()
   {
-    return (EReference)sModelEClass.getEStructuralFeatures().get(1);
+    return (EReference)sModelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -275,9 +285,19 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSSettings_Engine()
+  public EAttribute getSSettings_Javapackage()
   {
     return (EAttribute)sSettingsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSSettings_Engine()
+  {
+    return (EAttribute)sSettingsEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -325,7 +345,7 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSTable_Prefix()
+  public EAttribute getSTable_Entityname()
   {
     return (EAttribute)sTableEClass.getEStructuralFeatures().get(1);
   }
@@ -335,9 +355,9 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSTable_EntityMembers()
+  public EAttribute getSTable_Cached()
   {
-    return (EReference)sTableEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)sTableEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -345,9 +365,9 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSEntityMember()
+  public EAttribute getSTable_Prefix()
   {
-    return sEntityMemberEClass;
+    return (EAttribute)sTableEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -355,9 +375,9 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSEntityMember_Name()
+  public EReference getSTable_Columns()
   {
-    return (EAttribute)sEntityMemberEClass.getEStructuralFeatures().get(0);
+    return (EReference)sTableEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -365,9 +385,9 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSEntityMember_Props()
+  public EClass getSTableMember()
   {
-    return (EReference)sEntityMemberEClass.getEStructuralFeatures().get(1);
+    return sTableMemberEClass;
   }
 
   /**
@@ -375,9 +395,9 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSProperty()
+  public EAttribute getSTableMember_Name()
   {
-    return sPropertyEClass;
+    return (EAttribute)sTableMemberEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -385,9 +405,9 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSProperty_ExtType()
+  public EReference getSTableMember_Props()
   {
-    return (EReference)sPropertyEClass.getEStructuralFeatures().get(0);
+    return (EReference)sTableMemberEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -395,9 +415,9 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSProperty_InlinedType()
+  public EClass getSColumn()
   {
-    return (EReference)sPropertyEClass.getEStructuralFeatures().get(1);
+    return sColumnEClass;
   }
 
   /**
@@ -405,9 +425,9 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSProperty_SimpleType()
+  public EReference getSColumn_ExtType()
   {
-    return (EAttribute)sPropertyEClass.getEStructuralFeatures().get(2);
+    return (EReference)sColumnEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -415,9 +435,9 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSJoinProperty()
+  public EReference getSColumn_InlinedType()
   {
-    return sJoinPropertyEClass;
+    return (EReference)sColumnEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -425,9 +445,29 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSJoinProperty_Type()
+  public EAttribute getSColumn_SimpleType()
   {
-    return (EReference)sJoinPropertyEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)sColumnEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSJoinColumn()
+  {
+    return sJoinColumnEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSJoinColumn_ReferencedType()
+  {
+    return (EReference)sJoinColumnEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -468,6 +508,16 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
   public EAttribute getSColumnProps_Index()
   {
     return (EAttribute)sColumnPropsEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSColumnProps_Javacolumn()
+  {
+    return (EAttribute)sColumnPropsEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -631,11 +681,13 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
 
     // Create classes and their features
     sModelEClass = createEClass(SMODEL);
+    createEAttribute(sModelEClass, SMODEL__GENERATED_FILE);
     createEReference(sModelEClass, SMODEL__SETTINGS);
     createEReference(sModelEClass, SMODEL__ARTIFACT);
 
     sSettingsEClass = createEClass(SSETTINGS);
     createEAttribute(sSettingsEClass, SSETTINGS__SCHEMA);
+    createEAttribute(sSettingsEClass, SSETTINGS__JAVAPACKAGE);
     createEAttribute(sSettingsEClass, SSETTINGS__ENGINE);
 
     sArtifactEClass = createEClass(SARTIFACT);
@@ -643,25 +695,28 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
 
     sTableEClass = createEClass(STABLE);
     createEReference(sTableEClass, STABLE__SETTINGS);
+    createEAttribute(sTableEClass, STABLE__ENTITYNAME);
+    createEAttribute(sTableEClass, STABLE__CACHED);
     createEAttribute(sTableEClass, STABLE__PREFIX);
-    createEReference(sTableEClass, STABLE__ENTITY_MEMBERS);
+    createEReference(sTableEClass, STABLE__COLUMNS);
 
-    sEntityMemberEClass = createEClass(SENTITY_MEMBER);
-    createEAttribute(sEntityMemberEClass, SENTITY_MEMBER__NAME);
-    createEReference(sEntityMemberEClass, SENTITY_MEMBER__PROPS);
+    sTableMemberEClass = createEClass(STABLE_MEMBER);
+    createEAttribute(sTableMemberEClass, STABLE_MEMBER__NAME);
+    createEReference(sTableMemberEClass, STABLE_MEMBER__PROPS);
 
-    sPropertyEClass = createEClass(SPROPERTY);
-    createEReference(sPropertyEClass, SPROPERTY__EXT_TYPE);
-    createEReference(sPropertyEClass, SPROPERTY__INLINED_TYPE);
-    createEAttribute(sPropertyEClass, SPROPERTY__SIMPLE_TYPE);
+    sColumnEClass = createEClass(SCOLUMN);
+    createEReference(sColumnEClass, SCOLUMN__EXT_TYPE);
+    createEReference(sColumnEClass, SCOLUMN__INLINED_TYPE);
+    createEAttribute(sColumnEClass, SCOLUMN__SIMPLE_TYPE);
 
-    sJoinPropertyEClass = createEClass(SJOIN_PROPERTY);
-    createEReference(sJoinPropertyEClass, SJOIN_PROPERTY__TYPE);
+    sJoinColumnEClass = createEClass(SJOIN_COLUMN);
+    createEReference(sJoinColumnEClass, SJOIN_COLUMN__REFERENCED_TYPE);
 
     sColumnPropsEClass = createEClass(SCOLUMN_PROPS);
     createEAttribute(sColumnPropsEClass, SCOLUMN_PROPS__NULLABLE);
     createEAttribute(sColumnPropsEClass, SCOLUMN_PROPS__AES);
     createEAttribute(sColumnPropsEClass, SCOLUMN_PROPS__INDEX);
+    createEAttribute(sColumnPropsEClass, SCOLUMN_PROPS__JAVACOLUMN);
 
     sExtDeclaredSQLTypeEClass = createEClass(SEXT_DECLARED_SQL_TYPE);
 
@@ -715,8 +770,8 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
 
     // Add supertypes to classes
     sTableEClass.getESuperTypes().add(this.getSArtifact());
-    sPropertyEClass.getESuperTypes().add(this.getSEntityMember());
-    sJoinPropertyEClass.getESuperTypes().add(this.getSEntityMember());
+    sColumnEClass.getESuperTypes().add(this.getSTableMember());
+    sJoinColumnEClass.getESuperTypes().add(this.getSTableMember());
     sEnumEClass.getESuperTypes().add(this.getSArtifact());
     sEnumEClass.getESuperTypes().add(this.getSExtDeclaredSQLType());
     sStringEClass.getESuperTypes().add(this.getSInlinedSQLType());
@@ -724,11 +779,13 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(sModelEClass, SModel.class, "SModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSModel_GeneratedFile(), ecorePackage.getEString(), "generatedFile", null, 0, 1, SModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSModel_Settings(), this.getSSettings(), null, "settings", null, 0, 1, SModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSModel_Artifact(), this.getSArtifact(), null, "artifact", null, 0, -1, SModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sSettingsEClass, SSettings.class, "SSettings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSSettings_Schema(), ecorePackage.getEString(), "schema", null, 0, 1, SSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSSettings_Javapackage(), ecorePackage.getEString(), "javapackage", null, 0, 1, SSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSSettings_Engine(), this.getSDBEngine(), "engine", null, 0, 1, SSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sArtifactEClass, SArtifact.class, "SArtifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -736,25 +793,28 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
 
     initEClass(sTableEClass, STable.class, "STable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSTable_Settings(), this.getSSettings(), null, "settings", null, 0, 1, STable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSTable_Entityname(), ecorePackage.getEString(), "entityname", null, 0, 1, STable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSTable_Cached(), ecorePackage.getEBoolean(), "cached", null, 0, 1, STable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSTable_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, STable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSTable_EntityMembers(), this.getSEntityMember(), null, "entityMembers", null, 0, -1, STable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSTable_Columns(), this.getSTableMember(), null, "columns", null, 0, -1, STable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(sEntityMemberEClass, SEntityMember.class, "SEntityMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSEntityMember_Name(), ecorePackage.getEString(), "name", null, 0, 1, SEntityMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSEntityMember_Props(), this.getSColumnProps(), null, "props", null, 0, 1, SEntityMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(sTableMemberEClass, STableMember.class, "STableMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSTableMember_Name(), ecorePackage.getEString(), "name", null, 0, 1, STableMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSTableMember_Props(), this.getSColumnProps(), null, "props", null, 0, 1, STableMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(sPropertyEClass, SProperty.class, "SProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSProperty_ExtType(), this.getSExtDeclaredSQLType(), null, "extType", null, 0, 1, SProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSProperty_InlinedType(), this.getSInlinedSQLType(), null, "inlinedType", null, 0, 1, SProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSProperty_SimpleType(), this.getSSimpleTypes(), "simpleType", null, 0, 1, SProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(sColumnEClass, SColumn.class, "SColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSColumn_ExtType(), this.getSExtDeclaredSQLType(), null, "extType", null, 0, 1, SColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSColumn_InlinedType(), this.getSInlinedSQLType(), null, "inlinedType", null, 0, 1, SColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSColumn_SimpleType(), this.getSSimpleTypes(), "simpleType", null, 0, 1, SColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(sJoinPropertyEClass, SJoinProperty.class, "SJoinProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSJoinProperty_Type(), this.getSTable(), null, "type", null, 0, 1, SJoinProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(sJoinColumnEClass, SJoinColumn.class, "SJoinColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSJoinColumn_ReferencedType(), this.getSTable(), null, "referencedType", null, 0, 1, SJoinColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sColumnPropsEClass, SColumnProps.class, "SColumnProps", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSColumnProps_Nullable(), ecorePackage.getEBoolean(), "nullable", null, 0, 1, SColumnProps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSColumnProps_Aes(), ecorePackage.getEBoolean(), "aes", null, 0, 1, SColumnProps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSColumnProps_Index(), this.getSIndex(), "index", null, 0, 1, SColumnProps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSColumnProps_Javacolumn(), ecorePackage.getEString(), "javacolumn", null, 0, 1, SColumnProps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sExtDeclaredSQLTypeEClass, SExtDeclaredSQLType.class, "SExtDeclaredSQLType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

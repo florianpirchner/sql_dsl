@@ -95,19 +95,19 @@ public class SqlDSLAdapterFactory extends AdapterFactoryImpl
         return createSTableAdapter();
       }
       @Override
-      public Adapter caseSEntityMember(SEntityMember object)
+      public Adapter caseSTableMember(STableMember object)
       {
-        return createSEntityMemberAdapter();
+        return createSTableMemberAdapter();
       }
       @Override
-      public Adapter caseSProperty(SProperty object)
+      public Adapter caseSColumn(SColumn object)
       {
-        return createSPropertyAdapter();
+        return createSColumnAdapter();
       }
       @Override
-      public Adapter caseSJoinProperty(SJoinProperty object)
+      public Adapter caseSJoinColumn(SJoinColumn object)
       {
-        return createSJoinPropertyAdapter();
+        return createSJoinColumnAdapter();
       }
       @Override
       public Adapter caseSColumnProps(SColumnProps object)
@@ -227,46 +227,46 @@ public class SqlDSLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.lunifera.metamodel.dsl.sqlDSL.SEntityMember <em>SEntity Member</em>}'.
+   * Creates a new adapter for an object of class '{@link org.lunifera.metamodel.dsl.sqlDSL.STableMember <em>STable Member</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SEntityMember
+   * @see org.lunifera.metamodel.dsl.sqlDSL.STableMember
    * @generated
    */
-  public Adapter createSEntityMemberAdapter()
+  public Adapter createSTableMemberAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.lunifera.metamodel.dsl.sqlDSL.SProperty <em>SProperty</em>}'.
+   * Creates a new adapter for an object of class '{@link org.lunifera.metamodel.dsl.sqlDSL.SColumn <em>SColumn</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SProperty
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SColumn
    * @generated
    */
-  public Adapter createSPropertyAdapter()
+  public Adapter createSColumnAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.lunifera.metamodel.dsl.sqlDSL.SJoinProperty <em>SJoin Property</em>}'.
+   * Creates a new adapter for an object of class '{@link org.lunifera.metamodel.dsl.sqlDSL.SJoinColumn <em>SJoin Column</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SJoinProperty
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SJoinColumn
    * @generated
    */
-  public Adapter createSJoinPropertyAdapter()
+  public Adapter createSJoinColumnAdapter()
   {
     return null;
   }

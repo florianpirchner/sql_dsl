@@ -4,6 +4,7 @@ generate sqlDSL "http://www.lunifera.org/metamodel/dsl/SqlDSL"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 SModel:
+	('generatedFile' generatedFile=ID)
 	(settings=SSettings)?
 	artifact+=SArtifact*;
 
@@ -11,6 +12,7 @@ SSettings:
 	{SSettings}
 	'settings {'
 	(('schema=' schema=ID)? &
+	('javapackage=' javapackage=LFQN)? &
 	('engine=' engine=SDBEngine)?)
 	'}';
 
@@ -23,26 +25,29 @@ SArtifact:
 STable:
 	'table' name=ID '{'
 	((settings=SSettings)? &
+	('entityname=' entityname=ID)? &
+	(cached?='cached')? &
 	('prefix' prefix=ID ';')?)
-	entityMembers+=SEntityMember*
+	columns+=STableMember*
 	'}';
 
-SEntityMember:
-	SProperty | SJoinProperty;
+STableMember:
+	SColumn | SJoinColumn;
 
-SProperty:
+SColumn:
 	'column' name=ID (extType=[SExtDeclaredSQLType] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes)
 	(props=SColumnProps)? ';';
 
-SJoinProperty:
-	'joincolumn' name=ID type=[STable] (props=SColumnProps)? ';';
+SJoinColumn:
+	'joincolumn' name=ID referencedType=[STable] (props=SColumnProps)? ';';
 
 SColumnProps:
 	{SColumnProps}
 	'with'
 	((nullable?='nullable')? &
 	(aes?='AES')? &
-	('index=' index=SIndex)?);
+	('index=' index=SIndex)? &
+	('javacolumn=' javacolumn=ID)?);
 
 SExtDeclaredSQLType:
 	SEnum;
@@ -83,3 +88,6 @@ SString:
 
 SDecimal:
 	'Decimal(' value=INT ')';
+
+LFQN:
+	ID ('.' ID)*;

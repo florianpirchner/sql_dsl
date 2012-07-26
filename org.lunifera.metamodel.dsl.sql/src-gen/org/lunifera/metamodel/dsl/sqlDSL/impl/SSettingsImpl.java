@@ -21,6 +21,7 @@ import org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SSettingsImpl#getSchema <em>Schema</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SSettingsImpl#getJavapackage <em>Javapackage</em>}</li>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SSettingsImpl#getEngine <em>Engine</em>}</li>
  * </ul>
  * </p>
@@ -48,6 +49,26 @@ public class SSettingsImpl extends MinimalEObjectImpl.Container implements SSett
    * @ordered
    */
   protected String schema = SCHEMA_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getJavapackage() <em>Javapackage</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getJavapackage()
+   * @generated
+   * @ordered
+   */
+  protected static final String JAVAPACKAGE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getJavapackage() <em>Javapackage</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getJavapackage()
+   * @generated
+   * @ordered
+   */
+  protected String javapackage = JAVAPACKAGE_EDEFAULT;
 
   /**
    * The default value of the '{@link #getEngine() <em>Engine</em>}' attribute.
@@ -118,6 +139,29 @@ public class SSettingsImpl extends MinimalEObjectImpl.Container implements SSett
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getJavapackage()
+  {
+    return javapackage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setJavapackage(String newJavapackage)
+  {
+    String oldJavapackage = javapackage;
+    javapackage = newJavapackage;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SSETTINGS__JAVAPACKAGE, oldJavapackage, javapackage));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public SDBEngine getEngine()
   {
     return engine;
@@ -148,6 +192,8 @@ public class SSettingsImpl extends MinimalEObjectImpl.Container implements SSett
     {
       case SqlDSLPackage.SSETTINGS__SCHEMA:
         return getSchema();
+      case SqlDSLPackage.SSETTINGS__JAVAPACKAGE:
+        return getJavapackage();
       case SqlDSLPackage.SSETTINGS__ENGINE:
         return getEngine();
     }
@@ -166,6 +212,9 @@ public class SSettingsImpl extends MinimalEObjectImpl.Container implements SSett
     {
       case SqlDSLPackage.SSETTINGS__SCHEMA:
         setSchema((String)newValue);
+        return;
+      case SqlDSLPackage.SSETTINGS__JAVAPACKAGE:
+        setJavapackage((String)newValue);
         return;
       case SqlDSLPackage.SSETTINGS__ENGINE:
         setEngine((SDBEngine)newValue);
@@ -187,6 +236,9 @@ public class SSettingsImpl extends MinimalEObjectImpl.Container implements SSett
       case SqlDSLPackage.SSETTINGS__SCHEMA:
         setSchema(SCHEMA_EDEFAULT);
         return;
+      case SqlDSLPackage.SSETTINGS__JAVAPACKAGE:
+        setJavapackage(JAVAPACKAGE_EDEFAULT);
+        return;
       case SqlDSLPackage.SSETTINGS__ENGINE:
         setEngine(ENGINE_EDEFAULT);
         return;
@@ -206,6 +258,8 @@ public class SSettingsImpl extends MinimalEObjectImpl.Container implements SSett
     {
       case SqlDSLPackage.SSETTINGS__SCHEMA:
         return SCHEMA_EDEFAULT == null ? schema != null : !SCHEMA_EDEFAULT.equals(schema);
+      case SqlDSLPackage.SSETTINGS__JAVAPACKAGE:
+        return JAVAPACKAGE_EDEFAULT == null ? javapackage != null : !JAVAPACKAGE_EDEFAULT.equals(javapackage);
       case SqlDSLPackage.SSETTINGS__ENGINE:
         return engine != ENGINE_EDEFAULT;
     }
@@ -225,6 +279,8 @@ public class SSettingsImpl extends MinimalEObjectImpl.Container implements SSett
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (schema: ");
     result.append(schema);
+    result.append(", javapackage: ");
+    result.append(javapackage);
     result.append(", engine: ");
     result.append(engine);
     result.append(')');

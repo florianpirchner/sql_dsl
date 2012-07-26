@@ -59,31 +59,31 @@ public interface SqlDSLFactory extends EFactory
   STable createSTable();
 
   /**
-   * Returns a new object of class '<em>SEntity Member</em>'.
+   * Returns a new object of class '<em>STable Member</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>SEntity Member</em>'.
+   * @return a new object of class '<em>STable Member</em>'.
    * @generated
    */
-  SEntityMember createSEntityMember();
+  STableMember createSTableMember();
 
   /**
-   * Returns a new object of class '<em>SProperty</em>'.
+   * Returns a new object of class '<em>SColumn</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>SProperty</em>'.
+   * @return a new object of class '<em>SColumn</em>'.
    * @generated
    */
-  SProperty createSProperty();
+  SColumn createSColumn();
 
   /**
-   * Returns a new object of class '<em>SJoin Property</em>'.
+   * Returns a new object of class '<em>SJoin Column</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>SJoin Property</em>'.
+   * @return a new object of class '<em>SJoin Column</em>'.
    * @generated
    */
-  SJoinProperty createSJoinProperty();
+  SJoinColumn createSJoinColumn();
 
   /**
    * Returns a new object of class '<em>SColumn Props</em>'.

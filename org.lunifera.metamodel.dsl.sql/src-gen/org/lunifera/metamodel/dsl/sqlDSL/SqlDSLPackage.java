@@ -68,13 +68,22 @@ public interface SqlDSLPackage extends EPackage
   int SMODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Generated File</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SMODEL__GENERATED_FILE = 0;
+
+  /**
    * The feature id for the '<em><b>Settings</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SMODEL__SETTINGS = 0;
+  int SMODEL__SETTINGS = 1;
 
   /**
    * The feature id for the '<em><b>Artifact</b></em>' containment reference list.
@@ -83,7 +92,7 @@ public interface SqlDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SMODEL__ARTIFACT = 1;
+  int SMODEL__ARTIFACT = 2;
 
   /**
    * The number of structural features of the '<em>SModel</em>' class.
@@ -92,7 +101,7 @@ public interface SqlDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SMODEL_FEATURE_COUNT = 2;
+  int SMODEL_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SSettingsImpl <em>SSettings</em>}' class.
@@ -114,13 +123,22 @@ public interface SqlDSLPackage extends EPackage
   int SSETTINGS__SCHEMA = 0;
 
   /**
+   * The feature id for the '<em><b>Javapackage</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SSETTINGS__JAVAPACKAGE = 1;
+
+  /**
    * The feature id for the '<em><b>Engine</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SSETTINGS__ENGINE = 1;
+  int SSETTINGS__ENGINE = 2;
 
   /**
    * The number of structural features of the '<em>SSettings</em>' class.
@@ -129,7 +147,7 @@ public interface SqlDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SSETTINGS_FEATURE_COUNT = 2;
+  int SSETTINGS_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SArtifactImpl <em>SArtifact</em>}' class.
@@ -188,22 +206,40 @@ public interface SqlDSLPackage extends EPackage
   int STABLE__SETTINGS = SARTIFACT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Entityname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STABLE__ENTITYNAME = SARTIFACT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Cached</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STABLE__CACHED = SARTIFACT_FEATURE_COUNT + 2;
+
+  /**
    * The feature id for the '<em><b>Prefix</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STABLE__PREFIX = SARTIFACT_FEATURE_COUNT + 1;
+  int STABLE__PREFIX = SARTIFACT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Entity Members</b></em>' containment reference list.
+   * The feature id for the '<em><b>Columns</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STABLE__ENTITY_MEMBERS = SARTIFACT_FEATURE_COUNT + 2;
+  int STABLE__COLUMNS = SARTIFACT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>STable</em>' class.
@@ -212,54 +248,17 @@ public interface SqlDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STABLE_FEATURE_COUNT = SARTIFACT_FEATURE_COUNT + 3;
+  int STABLE_FEATURE_COUNT = SARTIFACT_FEATURE_COUNT + 5;
 
   /**
-   * The meta object id for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SEntityMemberImpl <em>SEntity Member</em>}' class.
+   * The meta object id for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.STableMemberImpl <em>STable Member</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SEntityMemberImpl
-   * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SqlDSLPackageImpl#getSEntityMember()
+   * @see org.lunifera.metamodel.dsl.sqlDSL.impl.STableMemberImpl
+   * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SqlDSLPackageImpl#getSTableMember()
    * @generated
    */
-  int SENTITY_MEMBER = 4;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SENTITY_MEMBER__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Props</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SENTITY_MEMBER__PROPS = 1;
-
-  /**
-   * The number of structural features of the '<em>SEntity Member</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SENTITY_MEMBER_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SPropertyImpl <em>SProperty</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SPropertyImpl
-   * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SqlDSLPackageImpl#getSProperty()
-   * @generated
-   */
-  int SPROPERTY = 5;
+  int STABLE_MEMBER = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -268,7 +267,7 @@ public interface SqlDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SPROPERTY__NAME = SENTITY_MEMBER__NAME;
+  int STABLE_MEMBER__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Props</b></em>' containment reference.
@@ -277,7 +276,44 @@ public interface SqlDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SPROPERTY__PROPS = SENTITY_MEMBER__PROPS;
+  int STABLE_MEMBER__PROPS = 1;
+
+  /**
+   * The number of structural features of the '<em>STable Member</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STABLE_MEMBER_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SColumnImpl <em>SColumn</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SColumnImpl
+   * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SqlDSLPackageImpl#getSColumn()
+   * @generated
+   */
+  int SCOLUMN = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCOLUMN__NAME = STABLE_MEMBER__NAME;
+
+  /**
+   * The feature id for the '<em><b>Props</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCOLUMN__PROPS = STABLE_MEMBER__PROPS;
 
   /**
    * The feature id for the '<em><b>Ext Type</b></em>' reference.
@@ -286,7 +322,7 @@ public interface SqlDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SPROPERTY__EXT_TYPE = SENTITY_MEMBER_FEATURE_COUNT + 0;
+  int SCOLUMN__EXT_TYPE = STABLE_MEMBER_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Inlined Type</b></em>' containment reference.
@@ -295,7 +331,7 @@ public interface SqlDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SPROPERTY__INLINED_TYPE = SENTITY_MEMBER_FEATURE_COUNT + 1;
+  int SCOLUMN__INLINED_TYPE = STABLE_MEMBER_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Simple Type</b></em>' attribute.
@@ -304,26 +340,26 @@ public interface SqlDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SPROPERTY__SIMPLE_TYPE = SENTITY_MEMBER_FEATURE_COUNT + 2;
+  int SCOLUMN__SIMPLE_TYPE = STABLE_MEMBER_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>SProperty</em>' class.
+   * The number of structural features of the '<em>SColumn</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SPROPERTY_FEATURE_COUNT = SENTITY_MEMBER_FEATURE_COUNT + 3;
+  int SCOLUMN_FEATURE_COUNT = STABLE_MEMBER_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SJoinPropertyImpl <em>SJoin Property</em>}' class.
+   * The meta object id for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SJoinColumnImpl <em>SJoin Column</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SJoinPropertyImpl
-   * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SqlDSLPackageImpl#getSJoinProperty()
+   * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SJoinColumnImpl
+   * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SqlDSLPackageImpl#getSJoinColumn()
    * @generated
    */
-  int SJOIN_PROPERTY = 6;
+  int SJOIN_COLUMN = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -332,7 +368,7 @@ public interface SqlDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SJOIN_PROPERTY__NAME = SENTITY_MEMBER__NAME;
+  int SJOIN_COLUMN__NAME = STABLE_MEMBER__NAME;
 
   /**
    * The feature id for the '<em><b>Props</b></em>' containment reference.
@@ -341,25 +377,25 @@ public interface SqlDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SJOIN_PROPERTY__PROPS = SENTITY_MEMBER__PROPS;
+  int SJOIN_COLUMN__PROPS = STABLE_MEMBER__PROPS;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' reference.
+   * The feature id for the '<em><b>Referenced Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SJOIN_PROPERTY__TYPE = SENTITY_MEMBER_FEATURE_COUNT + 0;
+  int SJOIN_COLUMN__REFERENCED_TYPE = STABLE_MEMBER_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>SJoin Property</em>' class.
+   * The number of structural features of the '<em>SJoin Column</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SJOIN_PROPERTY_FEATURE_COUNT = SENTITY_MEMBER_FEATURE_COUNT + 1;
+  int SJOIN_COLUMN_FEATURE_COUNT = STABLE_MEMBER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SColumnPropsImpl <em>SColumn Props</em>}' class.
@@ -399,13 +435,22 @@ public interface SqlDSLPackage extends EPackage
   int SCOLUMN_PROPS__INDEX = 2;
 
   /**
+   * The feature id for the '<em><b>Javacolumn</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCOLUMN_PROPS__JAVACOLUMN = 3;
+
+  /**
    * The number of structural features of the '<em>SColumn Props</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCOLUMN_PROPS_FEATURE_COUNT = 3;
+  int SCOLUMN_PROPS_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SExtDeclaredSQLTypeImpl <em>SExt Declared SQL Type</em>}' class.
@@ -626,6 +671,17 @@ public interface SqlDSLPackage extends EPackage
   EClass getSModel();
 
   /**
+   * Returns the meta object for the attribute '{@link org.lunifera.metamodel.dsl.sqlDSL.SModel#getGeneratedFile <em>Generated File</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Generated File</em>'.
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SModel#getGeneratedFile()
+   * @see #getSModel()
+   * @generated
+   */
+  EAttribute getSModel_GeneratedFile();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.lunifera.metamodel.dsl.sqlDSL.SModel#getSettings <em>Settings</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -667,6 +723,17 @@ public interface SqlDSLPackage extends EPackage
    * @generated
    */
   EAttribute getSSettings_Schema();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.lunifera.metamodel.dsl.sqlDSL.SSettings#getJavapackage <em>Javapackage</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Javapackage</em>'.
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SSettings#getJavapackage()
+   * @see #getSSettings()
+   * @generated
+   */
+  EAttribute getSSettings_Javapackage();
 
   /**
    * Returns the meta object for the attribute '{@link org.lunifera.metamodel.dsl.sqlDSL.SSettings#getEngine <em>Engine</em>}'.
@@ -722,6 +789,28 @@ public interface SqlDSLPackage extends EPackage
   EReference getSTable_Settings();
 
   /**
+   * Returns the meta object for the attribute '{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getEntityname <em>Entityname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Entityname</em>'.
+   * @see org.lunifera.metamodel.dsl.sqlDSL.STable#getEntityname()
+   * @see #getSTable()
+   * @generated
+   */
+  EAttribute getSTable_Entityname();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.lunifera.metamodel.dsl.sqlDSL.STable#isCached <em>Cached</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Cached</em>'.
+   * @see org.lunifera.metamodel.dsl.sqlDSL.STable#isCached()
+   * @see #getSTable()
+   * @generated
+   */
+  EAttribute getSTable_Cached();
+
+  /**
    * Returns the meta object for the attribute '{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getPrefix <em>Prefix</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -733,111 +822,111 @@ public interface SqlDSLPackage extends EPackage
   EAttribute getSTable_Prefix();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getEntityMembers <em>Entity Members</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getColumns <em>Columns</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Entity Members</em>'.
-   * @see org.lunifera.metamodel.dsl.sqlDSL.STable#getEntityMembers()
+   * @return the meta object for the containment reference list '<em>Columns</em>'.
+   * @see org.lunifera.metamodel.dsl.sqlDSL.STable#getColumns()
    * @see #getSTable()
    * @generated
    */
-  EReference getSTable_EntityMembers();
+  EReference getSTable_Columns();
 
   /**
-   * Returns the meta object for class '{@link org.lunifera.metamodel.dsl.sqlDSL.SEntityMember <em>SEntity Member</em>}'.
+   * Returns the meta object for class '{@link org.lunifera.metamodel.dsl.sqlDSL.STableMember <em>STable Member</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>SEntity Member</em>'.
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SEntityMember
+   * @return the meta object for class '<em>STable Member</em>'.
+   * @see org.lunifera.metamodel.dsl.sqlDSL.STableMember
    * @generated
    */
-  EClass getSEntityMember();
+  EClass getSTableMember();
 
   /**
-   * Returns the meta object for the attribute '{@link org.lunifera.metamodel.dsl.sqlDSL.SEntityMember#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.lunifera.metamodel.dsl.sqlDSL.STableMember#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SEntityMember#getName()
-   * @see #getSEntityMember()
+   * @see org.lunifera.metamodel.dsl.sqlDSL.STableMember#getName()
+   * @see #getSTableMember()
    * @generated
    */
-  EAttribute getSEntityMember_Name();
+  EAttribute getSTableMember_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.lunifera.metamodel.dsl.sqlDSL.SEntityMember#getProps <em>Props</em>}'.
+   * Returns the meta object for the containment reference '{@link org.lunifera.metamodel.dsl.sqlDSL.STableMember#getProps <em>Props</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Props</em>'.
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SEntityMember#getProps()
-   * @see #getSEntityMember()
+   * @see org.lunifera.metamodel.dsl.sqlDSL.STableMember#getProps()
+   * @see #getSTableMember()
    * @generated
    */
-  EReference getSEntityMember_Props();
+  EReference getSTableMember_Props();
 
   /**
-   * Returns the meta object for class '{@link org.lunifera.metamodel.dsl.sqlDSL.SProperty <em>SProperty</em>}'.
+   * Returns the meta object for class '{@link org.lunifera.metamodel.dsl.sqlDSL.SColumn <em>SColumn</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>SProperty</em>'.
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SProperty
+   * @return the meta object for class '<em>SColumn</em>'.
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SColumn
    * @generated
    */
-  EClass getSProperty();
+  EClass getSColumn();
 
   /**
-   * Returns the meta object for the reference '{@link org.lunifera.metamodel.dsl.sqlDSL.SProperty#getExtType <em>Ext Type</em>}'.
+   * Returns the meta object for the reference '{@link org.lunifera.metamodel.dsl.sqlDSL.SColumn#getExtType <em>Ext Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Ext Type</em>'.
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SProperty#getExtType()
-   * @see #getSProperty()
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SColumn#getExtType()
+   * @see #getSColumn()
    * @generated
    */
-  EReference getSProperty_ExtType();
+  EReference getSColumn_ExtType();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.lunifera.metamodel.dsl.sqlDSL.SProperty#getInlinedType <em>Inlined Type</em>}'.
+   * Returns the meta object for the containment reference '{@link org.lunifera.metamodel.dsl.sqlDSL.SColumn#getInlinedType <em>Inlined Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Inlined Type</em>'.
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SProperty#getInlinedType()
-   * @see #getSProperty()
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SColumn#getInlinedType()
+   * @see #getSColumn()
    * @generated
    */
-  EReference getSProperty_InlinedType();
+  EReference getSColumn_InlinedType();
 
   /**
-   * Returns the meta object for the attribute '{@link org.lunifera.metamodel.dsl.sqlDSL.SProperty#getSimpleType <em>Simple Type</em>}'.
+   * Returns the meta object for the attribute '{@link org.lunifera.metamodel.dsl.sqlDSL.SColumn#getSimpleType <em>Simple Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Simple Type</em>'.
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SProperty#getSimpleType()
-   * @see #getSProperty()
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SColumn#getSimpleType()
+   * @see #getSColumn()
    * @generated
    */
-  EAttribute getSProperty_SimpleType();
+  EAttribute getSColumn_SimpleType();
 
   /**
-   * Returns the meta object for class '{@link org.lunifera.metamodel.dsl.sqlDSL.SJoinProperty <em>SJoin Property</em>}'.
+   * Returns the meta object for class '{@link org.lunifera.metamodel.dsl.sqlDSL.SJoinColumn <em>SJoin Column</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>SJoin Property</em>'.
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SJoinProperty
+   * @return the meta object for class '<em>SJoin Column</em>'.
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SJoinColumn
    * @generated
    */
-  EClass getSJoinProperty();
+  EClass getSJoinColumn();
 
   /**
-   * Returns the meta object for the reference '{@link org.lunifera.metamodel.dsl.sqlDSL.SJoinProperty#getType <em>Type</em>}'.
+   * Returns the meta object for the reference '{@link org.lunifera.metamodel.dsl.sqlDSL.SJoinColumn#getReferencedType <em>Referenced Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Type</em>'.
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SJoinProperty#getType()
-   * @see #getSJoinProperty()
+   * @return the meta object for the reference '<em>Referenced Type</em>'.
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SJoinColumn#getReferencedType()
+   * @see #getSJoinColumn()
    * @generated
    */
-  EReference getSJoinProperty_Type();
+  EReference getSJoinColumn_ReferencedType();
 
   /**
    * Returns the meta object for class '{@link org.lunifera.metamodel.dsl.sqlDSL.SColumnProps <em>SColumn Props</em>}'.
@@ -881,6 +970,17 @@ public interface SqlDSLPackage extends EPackage
    * @generated
    */
   EAttribute getSColumnProps_Index();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.lunifera.metamodel.dsl.sqlDSL.SColumnProps#getJavacolumn <em>Javacolumn</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Javacolumn</em>'.
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SColumnProps#getJavacolumn()
+   * @see #getSColumnProps()
+   * @generated
+   */
+  EAttribute getSColumnProps_Javacolumn();
 
   /**
    * Returns the meta object for class '{@link org.lunifera.metamodel.dsl.sqlDSL.SExtDeclaredSQLType <em>SExt Declared SQL Type</em>}'.
@@ -1050,6 +1150,14 @@ public interface SqlDSLPackage extends EPackage
     EClass SMODEL = eINSTANCE.getSModel();
 
     /**
+     * The meta object literal for the '<em><b>Generated File</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SMODEL__GENERATED_FILE = eINSTANCE.getSModel_GeneratedFile();
+
+    /**
      * The meta object literal for the '<em><b>Settings</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1082,6 +1190,14 @@ public interface SqlDSLPackage extends EPackage
      * @generated
      */
     EAttribute SSETTINGS__SCHEMA = eINSTANCE.getSSettings_Schema();
+
+    /**
+     * The meta object literal for the '<em><b>Javapackage</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SSETTINGS__JAVAPACKAGE = eINSTANCE.getSSettings_Javapackage();
 
     /**
      * The meta object literal for the '<em><b>Engine</b></em>' attribute feature.
@@ -1128,6 +1244,22 @@ public interface SqlDSLPackage extends EPackage
     EReference STABLE__SETTINGS = eINSTANCE.getSTable_Settings();
 
     /**
+     * The meta object literal for the '<em><b>Entityname</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STABLE__ENTITYNAME = eINSTANCE.getSTable_Entityname();
+
+    /**
+     * The meta object literal for the '<em><b>Cached</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STABLE__CACHED = eINSTANCE.getSTable_Cached();
+
+    /**
      * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1136,22 +1268,22 @@ public interface SqlDSLPackage extends EPackage
     EAttribute STABLE__PREFIX = eINSTANCE.getSTable_Prefix();
 
     /**
-     * The meta object literal for the '<em><b>Entity Members</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STABLE__ENTITY_MEMBERS = eINSTANCE.getSTable_EntityMembers();
+    EReference STABLE__COLUMNS = eINSTANCE.getSTable_Columns();
 
     /**
-     * The meta object literal for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SEntityMemberImpl <em>SEntity Member</em>}' class.
+     * The meta object literal for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.STableMemberImpl <em>STable Member</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SEntityMemberImpl
-     * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SqlDSLPackageImpl#getSEntityMember()
+     * @see org.lunifera.metamodel.dsl.sqlDSL.impl.STableMemberImpl
+     * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SqlDSLPackageImpl#getSTableMember()
      * @generated
      */
-    EClass SENTITY_MEMBER = eINSTANCE.getSEntityMember();
+    EClass STABLE_MEMBER = eINSTANCE.getSTableMember();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1159,7 +1291,7 @@ public interface SqlDSLPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SENTITY_MEMBER__NAME = eINSTANCE.getSEntityMember_Name();
+    EAttribute STABLE_MEMBER__NAME = eINSTANCE.getSTableMember_Name();
 
     /**
      * The meta object literal for the '<em><b>Props</b></em>' containment reference feature.
@@ -1167,17 +1299,17 @@ public interface SqlDSLPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SENTITY_MEMBER__PROPS = eINSTANCE.getSEntityMember_Props();
+    EReference STABLE_MEMBER__PROPS = eINSTANCE.getSTableMember_Props();
 
     /**
-     * The meta object literal for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SPropertyImpl <em>SProperty</em>}' class.
+     * The meta object literal for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SColumnImpl <em>SColumn</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SPropertyImpl
-     * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SqlDSLPackageImpl#getSProperty()
+     * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SColumnImpl
+     * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SqlDSLPackageImpl#getSColumn()
      * @generated
      */
-    EClass SPROPERTY = eINSTANCE.getSProperty();
+    EClass SCOLUMN = eINSTANCE.getSColumn();
 
     /**
      * The meta object literal for the '<em><b>Ext Type</b></em>' reference feature.
@@ -1185,7 +1317,7 @@ public interface SqlDSLPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SPROPERTY__EXT_TYPE = eINSTANCE.getSProperty_ExtType();
+    EReference SCOLUMN__EXT_TYPE = eINSTANCE.getSColumn_ExtType();
 
     /**
      * The meta object literal for the '<em><b>Inlined Type</b></em>' containment reference feature.
@@ -1193,7 +1325,7 @@ public interface SqlDSLPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SPROPERTY__INLINED_TYPE = eINSTANCE.getSProperty_InlinedType();
+    EReference SCOLUMN__INLINED_TYPE = eINSTANCE.getSColumn_InlinedType();
 
     /**
      * The meta object literal for the '<em><b>Simple Type</b></em>' attribute feature.
@@ -1201,25 +1333,25 @@ public interface SqlDSLPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SPROPERTY__SIMPLE_TYPE = eINSTANCE.getSProperty_SimpleType();
+    EAttribute SCOLUMN__SIMPLE_TYPE = eINSTANCE.getSColumn_SimpleType();
 
     /**
-     * The meta object literal for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SJoinPropertyImpl <em>SJoin Property</em>}' class.
+     * The meta object literal for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SJoinColumnImpl <em>SJoin Column</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SJoinPropertyImpl
-     * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SqlDSLPackageImpl#getSJoinProperty()
+     * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SJoinColumnImpl
+     * @see org.lunifera.metamodel.dsl.sqlDSL.impl.SqlDSLPackageImpl#getSJoinColumn()
      * @generated
      */
-    EClass SJOIN_PROPERTY = eINSTANCE.getSJoinProperty();
+    EClass SJOIN_COLUMN = eINSTANCE.getSJoinColumn();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Referenced Type</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SJOIN_PROPERTY__TYPE = eINSTANCE.getSJoinProperty_Type();
+    EReference SJOIN_COLUMN__REFERENCED_TYPE = eINSTANCE.getSJoinColumn_ReferencedType();
 
     /**
      * The meta object literal for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SColumnPropsImpl <em>SColumn Props</em>}' class.
@@ -1254,6 +1386,14 @@ public interface SqlDSLPackage extends EPackage
      * @generated
      */
     EAttribute SCOLUMN_PROPS__INDEX = eINSTANCE.getSColumnProps_Index();
+
+    /**
+     * The meta object literal for the '<em><b>Javacolumn</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCOLUMN_PROPS__JAVACOLUMN = eINSTANCE.getSColumnProps_Javacolumn();
 
     /**
      * The meta object literal for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SExtDeclaredSQLTypeImpl <em>SExt Declared SQL Type</em>}' class.

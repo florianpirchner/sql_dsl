@@ -22,29 +22,45 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 	public class SModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SModel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cSettingsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cSettingsSSettingsParserRuleCall_0_0 = (RuleCall)cSettingsAssignment_0.eContents().get(0);
-		private final Assignment cArtifactAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cArtifactSArtifactParserRuleCall_1_0 = (RuleCall)cArtifactAssignment_1.eContents().get(0);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cGeneratedFileKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cGeneratedFileAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cGeneratedFileIDTerminalRuleCall_0_1_0 = (RuleCall)cGeneratedFileAssignment_0_1.eContents().get(0);
+		private final Assignment cSettingsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSettingsSSettingsParserRuleCall_1_0 = (RuleCall)cSettingsAssignment_1.eContents().get(0);
+		private final Assignment cArtifactAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cArtifactSArtifactParserRuleCall_2_0 = (RuleCall)cArtifactAssignment_2.eContents().get(0);
 		
 		//SModel:
-		//	settings=SSettings? artifact+=SArtifact*;
+		//	("generatedFile" generatedFile=ID) settings=SSettings? artifact+=SArtifact*;
 		public ParserRule getRule() { return rule; }
 
-		//settings=SSettings? artifact+=SArtifact*
+		//("generatedFile" generatedFile=ID) settings=SSettings? artifact+=SArtifact*
 		public Group getGroup() { return cGroup; }
 
+		//"generatedFile" generatedFile=ID
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"generatedFile"
+		public Keyword getGeneratedFileKeyword_0_0() { return cGeneratedFileKeyword_0_0; }
+
+		//generatedFile=ID
+		public Assignment getGeneratedFileAssignment_0_1() { return cGeneratedFileAssignment_0_1; }
+
+		//ID
+		public RuleCall getGeneratedFileIDTerminalRuleCall_0_1_0() { return cGeneratedFileIDTerminalRuleCall_0_1_0; }
+
 		//settings=SSettings?
-		public Assignment getSettingsAssignment_0() { return cSettingsAssignment_0; }
+		public Assignment getSettingsAssignment_1() { return cSettingsAssignment_1; }
 
 		//SSettings
-		public RuleCall getSettingsSSettingsParserRuleCall_0_0() { return cSettingsSSettingsParserRuleCall_0_0; }
+		public RuleCall getSettingsSSettingsParserRuleCall_1_0() { return cSettingsSSettingsParserRuleCall_1_0; }
 
 		//artifact+=SArtifact*
-		public Assignment getArtifactAssignment_1() { return cArtifactAssignment_1; }
+		public Assignment getArtifactAssignment_2() { return cArtifactAssignment_2; }
 
 		//SArtifact
-		public RuleCall getArtifactSArtifactParserRuleCall_1_0() { return cArtifactSArtifactParserRuleCall_1_0; }
+		public RuleCall getArtifactSArtifactParserRuleCall_2_0() { return cArtifactSArtifactParserRuleCall_2_0; }
 	}
 
 	public class SSettingsElements extends AbstractParserRuleElementFinder {
@@ -58,16 +74,22 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSchemaAssignment_2_0_1 = (Assignment)cGroup_2_0.eContents().get(1);
 		private final RuleCall cSchemaIDTerminalRuleCall_2_0_1_0 = (RuleCall)cSchemaAssignment_2_0_1.eContents().get(0);
 		private final Group cGroup_2_1 = (Group)cUnorderedGroup_2.eContents().get(1);
-		private final Keyword cEngineKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
-		private final Assignment cEngineAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final RuleCall cEngineSDBEngineEnumRuleCall_2_1_1_0 = (RuleCall)cEngineAssignment_2_1_1.eContents().get(0);
+		private final Keyword cJavapackageKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cJavapackageAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cJavapackageLFQNParserRuleCall_2_1_1_0 = (RuleCall)cJavapackageAssignment_2_1_1.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cUnorderedGroup_2.eContents().get(2);
+		private final Keyword cEngineKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cEngineAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cEngineSDBEngineEnumRuleCall_2_2_1_0 = (RuleCall)cEngineAssignment_2_2_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//SSettings:
-		//	{SSettings} "settings {" (("schema=" schema=ID)? & ("engine=" engine=SDBEngine)?) "}";
+		//	{SSettings} "settings {" (("schema=" schema=ID)? & ("javapackage=" javapackage=LFQN)? & ("engine=" engine=SDBEngine)?)
+		//	"}";
 		public ParserRule getRule() { return rule; }
 
-		//{SSettings} "settings {" (("schema=" schema=ID)? & ("engine=" engine=SDBEngine)?) "}"
+		//{SSettings} "settings {" (("schema=" schema=ID)? & ("javapackage=" javapackage=LFQN)? & ("engine=" engine=SDBEngine)?)
+		//"}"
 		public Group getGroup() { return cGroup; }
 
 		//{SSettings}
@@ -76,7 +98,7 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"settings {"
 		public Keyword getSettingsKeyword_1() { return cSettingsKeyword_1; }
 
-		//("schema=" schema=ID)? & ("engine=" engine=SDBEngine)?
+		//("schema=" schema=ID)? & ("javapackage=" javapackage=LFQN)? & ("engine=" engine=SDBEngine)?
 		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
 
 		//("schema=" schema=ID)?
@@ -91,17 +113,29 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSchemaIDTerminalRuleCall_2_0_1_0() { return cSchemaIDTerminalRuleCall_2_0_1_0; }
 
-		//("engine=" engine=SDBEngine)?
+		//("javapackage=" javapackage=LFQN)?
 		public Group getGroup_2_1() { return cGroup_2_1; }
 
+		//"javapackage="
+		public Keyword getJavapackageKeyword_2_1_0() { return cJavapackageKeyword_2_1_0; }
+
+		//javapackage=LFQN
+		public Assignment getJavapackageAssignment_2_1_1() { return cJavapackageAssignment_2_1_1; }
+
+		//LFQN
+		public RuleCall getJavapackageLFQNParserRuleCall_2_1_1_0() { return cJavapackageLFQNParserRuleCall_2_1_1_0; }
+
+		//("engine=" engine=SDBEngine)?
+		public Group getGroup_2_2() { return cGroup_2_2; }
+
 		//"engine="
-		public Keyword getEngineKeyword_2_1_0() { return cEngineKeyword_2_1_0; }
+		public Keyword getEngineKeyword_2_2_0() { return cEngineKeyword_2_2_0; }
 
 		//engine=SDBEngine
-		public Assignment getEngineAssignment_2_1_1() { return cEngineAssignment_2_1_1; }
+		public Assignment getEngineAssignment_2_2_1() { return cEngineAssignment_2_2_1; }
 
 		//SDBEngine
-		public RuleCall getEngineSDBEngineEnumRuleCall_2_1_1_0() { return cEngineSDBEngineEnumRuleCall_2_1_1_0; }
+		public RuleCall getEngineSDBEngineEnumRuleCall_2_2_1_0() { return cEngineSDBEngineEnumRuleCall_2_2_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
@@ -138,19 +172,27 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSettingsAssignment_3_0 = (Assignment)cUnorderedGroup_3.eContents().get(0);
 		private final RuleCall cSettingsSSettingsParserRuleCall_3_0_0 = (RuleCall)cSettingsAssignment_3_0.eContents().get(0);
 		private final Group cGroup_3_1 = (Group)cUnorderedGroup_3.eContents().get(1);
-		private final Keyword cPrefixKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final Assignment cPrefixAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final RuleCall cPrefixIDTerminalRuleCall_3_1_1_0 = (RuleCall)cPrefixAssignment_3_1_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3_1_2 = (Keyword)cGroup_3_1.eContents().get(2);
-		private final Assignment cEntityMembersAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cEntityMembersSEntityMemberParserRuleCall_4_0 = (RuleCall)cEntityMembersAssignment_4.eContents().get(0);
+		private final Keyword cEntitynameKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cEntitynameAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cEntitynameIDTerminalRuleCall_3_1_1_0 = (RuleCall)cEntitynameAssignment_3_1_1.eContents().get(0);
+		private final Assignment cCachedAssignment_3_2 = (Assignment)cUnorderedGroup_3.eContents().get(2);
+		private final Keyword cCachedCachedKeyword_3_2_0 = (Keyword)cCachedAssignment_3_2.eContents().get(0);
+		private final Group cGroup_3_3 = (Group)cUnorderedGroup_3.eContents().get(3);
+		private final Keyword cPrefixKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
+		private final Assignment cPrefixAssignment_3_3_1 = (Assignment)cGroup_3_3.eContents().get(1);
+		private final RuleCall cPrefixIDTerminalRuleCall_3_3_1_0 = (RuleCall)cPrefixAssignment_3_3_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3_3_2 = (Keyword)cGroup_3_3.eContents().get(2);
+		private final Assignment cColumnsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cColumnsSTableMemberParserRuleCall_4_0 = (RuleCall)cColumnsAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//STable:
-		//	"table" name=ID "{" (settings=SSettings? & ("prefix" prefix=ID ";")?) entityMembers+=SEntityMember* "}";
+		//	"table" name=ID "{" (settings=SSettings? & ("entityname=" entityname=ID)? & cached?="cached"? & ("prefix" prefix=ID
+		//	";")?) columns+=STableMember* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"table" name=ID "{" (settings=SSettings? & ("prefix" prefix=ID ";")?) entityMembers+=SEntityMember* "}"
+		//"table" name=ID "{" (settings=SSettings? & ("entityname=" entityname=ID)? & cached?="cached"? & ("prefix" prefix=ID
+		//";")?) columns+=STableMember* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"table"
@@ -165,7 +207,7 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//settings=SSettings? & ("prefix" prefix=ID ";")?
+		//settings=SSettings? & ("entityname=" entityname=ID)? & cached?="cached"? & ("prefix" prefix=ID ";")?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
 		//settings=SSettings?
@@ -174,53 +216,71 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//SSettings
 		public RuleCall getSettingsSSettingsParserRuleCall_3_0_0() { return cSettingsSSettingsParserRuleCall_3_0_0; }
 
-		//("prefix" prefix=ID ";")?
+		//("entityname=" entityname=ID)?
 		public Group getGroup_3_1() { return cGroup_3_1; }
 
-		//"prefix"
-		public Keyword getPrefixKeyword_3_1_0() { return cPrefixKeyword_3_1_0; }
+		//"entityname="
+		public Keyword getEntitynameKeyword_3_1_0() { return cEntitynameKeyword_3_1_0; }
 
-		//prefix=ID
-		public Assignment getPrefixAssignment_3_1_1() { return cPrefixAssignment_3_1_1; }
+		//entityname=ID
+		public Assignment getEntitynameAssignment_3_1_1() { return cEntitynameAssignment_3_1_1; }
 
 		//ID
-		public RuleCall getPrefixIDTerminalRuleCall_3_1_1_0() { return cPrefixIDTerminalRuleCall_3_1_1_0; }
+		public RuleCall getEntitynameIDTerminalRuleCall_3_1_1_0() { return cEntitynameIDTerminalRuleCall_3_1_1_0; }
+
+		//cached?="cached"?
+		public Assignment getCachedAssignment_3_2() { return cCachedAssignment_3_2; }
+
+		//"cached"
+		public Keyword getCachedCachedKeyword_3_2_0() { return cCachedCachedKeyword_3_2_0; }
+
+		//("prefix" prefix=ID ";")?
+		public Group getGroup_3_3() { return cGroup_3_3; }
+
+		//"prefix"
+		public Keyword getPrefixKeyword_3_3_0() { return cPrefixKeyword_3_3_0; }
+
+		//prefix=ID
+		public Assignment getPrefixAssignment_3_3_1() { return cPrefixAssignment_3_3_1; }
+
+		//ID
+		public RuleCall getPrefixIDTerminalRuleCall_3_3_1_0() { return cPrefixIDTerminalRuleCall_3_3_1_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_3_1_2() { return cSemicolonKeyword_3_1_2; }
+		public Keyword getSemicolonKeyword_3_3_2() { return cSemicolonKeyword_3_3_2; }
 
-		//entityMembers+=SEntityMember*
-		public Assignment getEntityMembersAssignment_4() { return cEntityMembersAssignment_4; }
+		//columns+=STableMember*
+		public Assignment getColumnsAssignment_4() { return cColumnsAssignment_4; }
 
-		//SEntityMember
-		public RuleCall getEntityMembersSEntityMemberParserRuleCall_4_0() { return cEntityMembersSEntityMemberParserRuleCall_4_0; }
+		//STableMember
+		public RuleCall getColumnsSTableMemberParserRuleCall_4_0() { return cColumnsSTableMemberParserRuleCall_4_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
-	public class SEntityMemberElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SEntityMember");
+	public class STableMemberElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "STableMember");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSPropertyParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSJoinPropertyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cSColumnParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSJoinColumnParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//SEntityMember:
-		//	SProperty | SJoinProperty;
+		//STableMember:
+		//	SColumn | SJoinColumn;
 		public ParserRule getRule() { return rule; }
 
-		//SProperty | SJoinProperty
+		//SColumn | SJoinColumn
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//SProperty
-		public RuleCall getSPropertyParserRuleCall_0() { return cSPropertyParserRuleCall_0; }
+		//SColumn
+		public RuleCall getSColumnParserRuleCall_0() { return cSColumnParserRuleCall_0; }
 
-		//SJoinProperty
-		public RuleCall getSJoinPropertyParserRuleCall_1() { return cSJoinPropertyParserRuleCall_1; }
+		//SJoinColumn
+		public RuleCall getSJoinColumnParserRuleCall_1() { return cSJoinColumnParserRuleCall_1; }
 	}
 
-	public class SPropertyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SProperty");
+	public class SColumnElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SColumn");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cColumnKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -237,7 +297,7 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPropsSColumnPropsParserRuleCall_3_0 = (RuleCall)cPropsAssignment_3.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//SProperty:
+		//SColumn:
 		//	"column" name=ID (extType=[SExtDeclaredSQLType] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes)
 		//	props=SColumnProps? ";";
 		public ParserRule getRule() { return rule; }
@@ -289,24 +349,24 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 
-	public class SJoinPropertyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SJoinProperty");
+	public class SJoinColumnElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SJoinColumn");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cJoincolumnKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cTypeSTableCrossReference_2_0 = (CrossReference)cTypeAssignment_2.eContents().get(0);
-		private final RuleCall cTypeSTableIDTerminalRuleCall_2_0_1 = (RuleCall)cTypeSTableCrossReference_2_0.eContents().get(1);
+		private final Assignment cReferencedTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cReferencedTypeSTableCrossReference_2_0 = (CrossReference)cReferencedTypeAssignment_2.eContents().get(0);
+		private final RuleCall cReferencedTypeSTableIDTerminalRuleCall_2_0_1 = (RuleCall)cReferencedTypeSTableCrossReference_2_0.eContents().get(1);
 		private final Assignment cPropsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cPropsSColumnPropsParserRuleCall_3_0 = (RuleCall)cPropsAssignment_3.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//SJoinProperty:
-		//	"joincolumn" name=ID type=[STable] props=SColumnProps? ";";
+		//SJoinColumn:
+		//	"joincolumn" name=ID referencedType=[STable] props=SColumnProps? ";";
 		public ParserRule getRule() { return rule; }
 
-		//"joincolumn" name=ID type=[STable] props=SColumnProps? ";"
+		//"joincolumn" name=ID referencedType=[STable] props=SColumnProps? ";"
 		public Group getGroup() { return cGroup; }
 
 		//"joincolumn"
@@ -318,14 +378,14 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//type=[STable]
-		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
+		//referencedType=[STable]
+		public Assignment getReferencedTypeAssignment_2() { return cReferencedTypeAssignment_2; }
 
 		//[STable]
-		public CrossReference getTypeSTableCrossReference_2_0() { return cTypeSTableCrossReference_2_0; }
+		public CrossReference getReferencedTypeSTableCrossReference_2_0() { return cReferencedTypeSTableCrossReference_2_0; }
 
 		//ID
-		public RuleCall getTypeSTableIDTerminalRuleCall_2_0_1() { return cTypeSTableIDTerminalRuleCall_2_0_1; }
+		public RuleCall getReferencedTypeSTableIDTerminalRuleCall_2_0_1() { return cReferencedTypeSTableIDTerminalRuleCall_2_0_1; }
 
 		//props=SColumnProps?
 		public Assignment getPropsAssignment_3() { return cPropsAssignment_3; }
@@ -351,12 +411,17 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cIndexKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
 		private final Assignment cIndexAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
 		private final RuleCall cIndexSIndexEnumRuleCall_2_2_1_0 = (RuleCall)cIndexAssignment_2_2_1.eContents().get(0);
+		private final Group cGroup_2_3 = (Group)cUnorderedGroup_2.eContents().get(3);
+		private final Keyword cJavacolumnKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Assignment cJavacolumnAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final RuleCall cJavacolumnIDTerminalRuleCall_2_3_1_0 = (RuleCall)cJavacolumnAssignment_2_3_1.eContents().get(0);
 		
 		//SColumnProps:
-		//	{SColumnProps} "with" (nullable?="nullable"? & aes?="AES"? & ("index=" index=SIndex)?);
+		//	{SColumnProps} "with" (nullable?="nullable"? & aes?="AES"? & ("index=" index=SIndex)? & ("javacolumn="
+		//	javacolumn=ID)?);
 		public ParserRule getRule() { return rule; }
 
-		//{SColumnProps} "with" (nullable?="nullable"? & aes?="AES"? & ("index=" index=SIndex)?)
+		//{SColumnProps} "with" (nullable?="nullable"? & aes?="AES"? & ("index=" index=SIndex)? & ("javacolumn=" javacolumn=ID)?)
 		public Group getGroup() { return cGroup; }
 
 		//{SColumnProps}
@@ -365,7 +430,7 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"with"
 		public Keyword getWithKeyword_1() { return cWithKeyword_1; }
 
-		//nullable?="nullable"? & aes?="AES"? & ("index=" index=SIndex)?
+		//nullable?="nullable"? & aes?="AES"? & ("index=" index=SIndex)? & ("javacolumn=" javacolumn=ID)?
 		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
 
 		//nullable?="nullable"?
@@ -391,6 +456,18 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 		//SIndex
 		public RuleCall getIndexSIndexEnumRuleCall_2_2_1_0() { return cIndexSIndexEnumRuleCall_2_2_1_0; }
+
+		//("javacolumn=" javacolumn=ID)?
+		public Group getGroup_2_3() { return cGroup_2_3; }
+
+		//"javacolumn="
+		public Keyword getJavacolumnKeyword_2_3_0() { return cJavacolumnKeyword_2_3_0; }
+
+		//javacolumn=ID
+		public Assignment getJavacolumnAssignment_2_3_1() { return cJavacolumnAssignment_2_3_1; }
+
+		//ID
+		public RuleCall getJavacolumnIDTerminalRuleCall_2_3_1_0() { return cJavacolumnIDTerminalRuleCall_2_3_1_0; }
 	}
 
 	public class SExtDeclaredSQLTypeElements extends AbstractParserRuleElementFinder {
@@ -551,6 +628,34 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 		//")"
 		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
+	}
+
+	public class LFQNElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LFQN");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//LFQN:
+		//	ID ("." ID)*;
+		public ParserRule getRule() { return rule; }
+
+		//ID ("." ID)*
+		public Group getGroup() { return cGroup; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+
+		//("." ID)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"."
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
 	
 	
@@ -759,9 +864,9 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 	private SDBEngineElements unknownRuleSDBEngine;
 	private SArtifactElements pSArtifact;
 	private STableElements pSTable;
-	private SEntityMemberElements pSEntityMember;
-	private SPropertyElements pSProperty;
-	private SJoinPropertyElements pSJoinProperty;
+	private STableMemberElements pSTableMember;
+	private SColumnElements pSColumn;
+	private SJoinColumnElements pSJoinColumn;
 	private SColumnPropsElements pSColumnProps;
 	private SExtDeclaredSQLTypeElements pSExtDeclaredSQLType;
 	private SInlinedSQLTypeElements pSInlinedSQLType;
@@ -771,6 +876,7 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 	private SEnumLiteralElements pSEnumLiteral;
 	private SStringElements pSString;
 	private SDecimalElements pSDecimal;
+	private LFQNElements pLFQN;
 	
 	private final Grammar grammar;
 
@@ -811,7 +917,7 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//SModel:
-	//	settings=SSettings? artifact+=SArtifact*;
+	//	("generatedFile" generatedFile=ID) settings=SSettings? artifact+=SArtifact*;
 	public SModelElements getSModelAccess() {
 		return (pSModel != null) ? pSModel : (pSModel = new SModelElements());
 	}
@@ -821,7 +927,8 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SSettings:
-	//	{SSettings} "settings {" (("schema=" schema=ID)? & ("engine=" engine=SDBEngine)?) "}";
+	//	{SSettings} "settings {" (("schema=" schema=ID)? & ("javapackage=" javapackage=LFQN)? & ("engine=" engine=SDBEngine)?)
+	//	"}";
 	public SSettingsElements getSSettingsAccess() {
 		return (pSSettings != null) ? pSSettings : (pSSettings = new SSettingsElements());
 	}
@@ -851,7 +958,8 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//STable:
-	//	"table" name=ID "{" (settings=SSettings? & ("prefix" prefix=ID ";")?) entityMembers+=SEntityMember* "}";
+	//	"table" name=ID "{" (settings=SSettings? & ("entityname=" entityname=ID)? & cached?="cached"? & ("prefix" prefix=ID
+	//	";")?) columns+=STableMember* "}";
 	public STableElements getSTableAccess() {
 		return (pSTable != null) ? pSTable : (pSTable = new STableElements());
 	}
@@ -860,39 +968,40 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		return getSTableAccess().getRule();
 	}
 
-	//SEntityMember:
-	//	SProperty | SJoinProperty;
-	public SEntityMemberElements getSEntityMemberAccess() {
-		return (pSEntityMember != null) ? pSEntityMember : (pSEntityMember = new SEntityMemberElements());
+	//STableMember:
+	//	SColumn | SJoinColumn;
+	public STableMemberElements getSTableMemberAccess() {
+		return (pSTableMember != null) ? pSTableMember : (pSTableMember = new STableMemberElements());
 	}
 	
-	public ParserRule getSEntityMemberRule() {
-		return getSEntityMemberAccess().getRule();
+	public ParserRule getSTableMemberRule() {
+		return getSTableMemberAccess().getRule();
 	}
 
-	//SProperty:
+	//SColumn:
 	//	"column" name=ID (extType=[SExtDeclaredSQLType] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes)
 	//	props=SColumnProps? ";";
-	public SPropertyElements getSPropertyAccess() {
-		return (pSProperty != null) ? pSProperty : (pSProperty = new SPropertyElements());
+	public SColumnElements getSColumnAccess() {
+		return (pSColumn != null) ? pSColumn : (pSColumn = new SColumnElements());
 	}
 	
-	public ParserRule getSPropertyRule() {
-		return getSPropertyAccess().getRule();
+	public ParserRule getSColumnRule() {
+		return getSColumnAccess().getRule();
 	}
 
-	//SJoinProperty:
-	//	"joincolumn" name=ID type=[STable] props=SColumnProps? ";";
-	public SJoinPropertyElements getSJoinPropertyAccess() {
-		return (pSJoinProperty != null) ? pSJoinProperty : (pSJoinProperty = new SJoinPropertyElements());
+	//SJoinColumn:
+	//	"joincolumn" name=ID referencedType=[STable] props=SColumnProps? ";";
+	public SJoinColumnElements getSJoinColumnAccess() {
+		return (pSJoinColumn != null) ? pSJoinColumn : (pSJoinColumn = new SJoinColumnElements());
 	}
 	
-	public ParserRule getSJoinPropertyRule() {
-		return getSJoinPropertyAccess().getRule();
+	public ParserRule getSJoinColumnRule() {
+		return getSJoinColumnAccess().getRule();
 	}
 
 	//SColumnProps:
-	//	{SColumnProps} "with" (nullable?="nullable"? & aes?="AES"? & ("index=" index=SIndex)?);
+	//	{SColumnProps} "with" (nullable?="nullable"? & aes?="AES"? & ("index=" index=SIndex)? & ("javacolumn="
+	//	javacolumn=ID)?);
 	public SColumnPropsElements getSColumnPropsAccess() {
 		return (pSColumnProps != null) ? pSColumnProps : (pSColumnProps = new SColumnPropsElements());
 	}
@@ -981,6 +1090,16 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSDecimalRule() {
 		return getSDecimalAccess().getRule();
+	}
+
+	//LFQN:
+	//	ID ("." ID)*;
+	public LFQNElements getLFQNAccess() {
+		return (pLFQN != null) ? pLFQN : (pLFQN = new LFQNElements());
+	}
+	
+	public ParserRule getLFQNRule() {
+		return getLFQNAccess().getRule();
 	}
 
 	//terminal ID:

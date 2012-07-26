@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.SSettings#getSchema <em>Schema</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.SSettings#getJavapackage <em>Javapackage</em>}</li>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.SSettings#getEngine <em>Engine</em>}</li>
  * </ul>
  * </p>
@@ -48,6 +49,32 @@ public interface SSettings extends EObject
    * @generated
    */
   void setSchema(String value);
+
+  /**
+   * Returns the value of the '<em><b>Javapackage</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Javapackage</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Javapackage</em>' attribute.
+   * @see #setJavapackage(String)
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSSettings_Javapackage()
+   * @model
+   * @generated
+   */
+  String getJavapackage();
+
+  /**
+   * Sets the value of the '{@link org.lunifera.metamodel.dsl.sqlDSL.SSettings#getJavapackage <em>Javapackage</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Javapackage</em>' attribute.
+   * @see #getJavapackage()
+   * @generated
+   */
+  void setJavapackage(String value);
 
   /**
    * Returns the value of the '<em><b>Engine</b></em>' attribute.

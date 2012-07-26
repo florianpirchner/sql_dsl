@@ -69,9 +69,9 @@ public class SqlDSLFactoryImpl extends EFactoryImpl implements SqlDSLFactory
       case SqlDSLPackage.SSETTINGS: return createSSettings();
       case SqlDSLPackage.SARTIFACT: return createSArtifact();
       case SqlDSLPackage.STABLE: return createSTable();
-      case SqlDSLPackage.SENTITY_MEMBER: return createSEntityMember();
-      case SqlDSLPackage.SPROPERTY: return createSProperty();
-      case SqlDSLPackage.SJOIN_PROPERTY: return createSJoinProperty();
+      case SqlDSLPackage.STABLE_MEMBER: return createSTableMember();
+      case SqlDSLPackage.SCOLUMN: return createSColumn();
+      case SqlDSLPackage.SJOIN_COLUMN: return createSJoinColumn();
       case SqlDSLPackage.SCOLUMN_PROPS: return createSColumnProps();
       case SqlDSLPackage.SEXT_DECLARED_SQL_TYPE: return createSExtDeclaredSQLType();
       case SqlDSLPackage.SINLINED_SQL_TYPE: return createSInlinedSQLType();
@@ -175,10 +175,10 @@ public class SqlDSLFactoryImpl extends EFactoryImpl implements SqlDSLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public SEntityMember createSEntityMember()
+  public STableMember createSTableMember()
   {
-    SEntityMemberImpl sEntityMember = new SEntityMemberImpl();
-    return sEntityMember;
+    STableMemberImpl sTableMember = new STableMemberImpl();
+    return sTableMember;
   }
 
   /**
@@ -186,10 +186,10 @@ public class SqlDSLFactoryImpl extends EFactoryImpl implements SqlDSLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public SProperty createSProperty()
+  public SColumn createSColumn()
   {
-    SPropertyImpl sProperty = new SPropertyImpl();
-    return sProperty;
+    SColumnImpl sColumn = new SColumnImpl();
+    return sColumn;
   }
 
   /**
@@ -197,10 +197,10 @@ public class SqlDSLFactoryImpl extends EFactoryImpl implements SqlDSLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public SJoinProperty createSJoinProperty()
+  public SJoinColumn createSJoinColumn()
   {
-    SJoinPropertyImpl sJoinProperty = new SJoinPropertyImpl();
-    return sJoinProperty;
+    SJoinColumnImpl sJoinColumn = new SJoinColumnImpl();
+    return sJoinColumn;
   }
 
   /**

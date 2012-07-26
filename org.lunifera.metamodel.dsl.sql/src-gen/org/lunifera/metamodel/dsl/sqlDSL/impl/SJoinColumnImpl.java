@@ -9,41 +9,41 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.lunifera.metamodel.dsl.sqlDSL.SJoinProperty;
+import org.lunifera.metamodel.dsl.sqlDSL.SJoinColumn;
 import org.lunifera.metamodel.dsl.sqlDSL.STable;
 import org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>SJoin Property</b></em>'.
+ * An implementation of the model object '<em><b>SJoin Column</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SJoinPropertyImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SJoinColumnImpl#getReferencedType <em>Referenced Type</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SJoinPropertyImpl extends SEntityMemberImpl implements SJoinProperty
+public class SJoinColumnImpl extends STableMemberImpl implements SJoinColumn
 {
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * The cached value of the '{@link #getReferencedType() <em>Referenced Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getReferencedType()
    * @generated
    * @ordered
    */
-  protected STable type;
+  protected STable referencedType;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SJoinPropertyImpl()
+  protected SJoinColumnImpl()
   {
     super();
   }
@@ -56,7 +56,7 @@ public class SJoinPropertyImpl extends SEntityMemberImpl implements SJoinPropert
   @Override
   protected EClass eStaticClass()
   {
-    return SqlDSLPackage.Literals.SJOIN_PROPERTY;
+    return SqlDSLPackage.Literals.SJOIN_COLUMN;
   }
 
   /**
@@ -64,19 +64,19 @@ public class SJoinPropertyImpl extends SEntityMemberImpl implements SJoinPropert
    * <!-- end-user-doc -->
    * @generated
    */
-  public STable getType()
+  public STable getReferencedType()
   {
-    if (type != null && type.eIsProxy())
+    if (referencedType != null && referencedType.eIsProxy())
     {
-      InternalEObject oldType = (InternalEObject)type;
-      type = (STable)eResolveProxy(oldType);
-      if (type != oldType)
+      InternalEObject oldReferencedType = (InternalEObject)referencedType;
+      referencedType = (STable)eResolveProxy(oldReferencedType);
+      if (referencedType != oldReferencedType)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SqlDSLPackage.SJOIN_PROPERTY__TYPE, oldType, type));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SqlDSLPackage.SJOIN_COLUMN__REFERENCED_TYPE, oldReferencedType, referencedType));
       }
     }
-    return type;
+    return referencedType;
   }
 
   /**
@@ -84,9 +84,9 @@ public class SJoinPropertyImpl extends SEntityMemberImpl implements SJoinPropert
    * <!-- end-user-doc -->
    * @generated
    */
-  public STable basicGetType()
+  public STable basicGetReferencedType()
   {
-    return type;
+    return referencedType;
   }
 
   /**
@@ -94,12 +94,12 @@ public class SJoinPropertyImpl extends SEntityMemberImpl implements SJoinPropert
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(STable newType)
+  public void setReferencedType(STable newReferencedType)
   {
-    STable oldType = type;
-    type = newType;
+    STable oldReferencedType = referencedType;
+    referencedType = newReferencedType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SJOIN_PROPERTY__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SJOIN_COLUMN__REFERENCED_TYPE, oldReferencedType, referencedType));
   }
 
   /**
@@ -112,9 +112,9 @@ public class SJoinPropertyImpl extends SEntityMemberImpl implements SJoinPropert
   {
     switch (featureID)
     {
-      case SqlDSLPackage.SJOIN_PROPERTY__TYPE:
-        if (resolve) return getType();
-        return basicGetType();
+      case SqlDSLPackage.SJOIN_COLUMN__REFERENCED_TYPE:
+        if (resolve) return getReferencedType();
+        return basicGetReferencedType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -129,8 +129,8 @@ public class SJoinPropertyImpl extends SEntityMemberImpl implements SJoinPropert
   {
     switch (featureID)
     {
-      case SqlDSLPackage.SJOIN_PROPERTY__TYPE:
-        setType((STable)newValue);
+      case SqlDSLPackage.SJOIN_COLUMN__REFERENCED_TYPE:
+        setReferencedType((STable)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -146,8 +146,8 @@ public class SJoinPropertyImpl extends SEntityMemberImpl implements SJoinPropert
   {
     switch (featureID)
     {
-      case SqlDSLPackage.SJOIN_PROPERTY__TYPE:
-        setType((STable)null);
+      case SqlDSLPackage.SJOIN_COLUMN__REFERENCED_TYPE:
+        setReferencedType((STable)null);
         return;
     }
     super.eUnset(featureID);
@@ -163,10 +163,10 @@ public class SJoinPropertyImpl extends SEntityMemberImpl implements SJoinPropert
   {
     switch (featureID)
     {
-      case SqlDSLPackage.SJOIN_PROPERTY__TYPE:
-        return type != null;
+      case SqlDSLPackage.SJOIN_COLUMN__REFERENCED_TYPE:
+        return referencedType != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //SJoinPropertyImpl
+} //SJoinColumnImpl

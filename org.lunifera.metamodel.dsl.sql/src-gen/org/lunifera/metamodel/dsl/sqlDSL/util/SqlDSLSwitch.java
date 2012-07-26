@@ -101,26 +101,26 @@ public class SqlDSLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SqlDSLPackage.SENTITY_MEMBER:
+      case SqlDSLPackage.STABLE_MEMBER:
       {
-        SEntityMember sEntityMember = (SEntityMember)theEObject;
-        T result = caseSEntityMember(sEntityMember);
+        STableMember sTableMember = (STableMember)theEObject;
+        T result = caseSTableMember(sTableMember);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SqlDSLPackage.SPROPERTY:
+      case SqlDSLPackage.SCOLUMN:
       {
-        SProperty sProperty = (SProperty)theEObject;
-        T result = caseSProperty(sProperty);
-        if (result == null) result = caseSEntityMember(sProperty);
+        SColumn sColumn = (SColumn)theEObject;
+        T result = caseSColumn(sColumn);
+        if (result == null) result = caseSTableMember(sColumn);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SqlDSLPackage.SJOIN_PROPERTY:
+      case SqlDSLPackage.SJOIN_COLUMN:
       {
-        SJoinProperty sJoinProperty = (SJoinProperty)theEObject;
-        T result = caseSJoinProperty(sJoinProperty);
-        if (result == null) result = caseSEntityMember(sJoinProperty);
+        SJoinColumn sJoinColumn = (SJoinColumn)theEObject;
+        T result = caseSJoinColumn(sJoinColumn);
+        if (result == null) result = caseSTableMember(sJoinColumn);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -246,49 +246,49 @@ public class SqlDSLSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>SEntity Member</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>STable Member</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>SEntity Member</em>'.
+   * @return the result of interpreting the object as an instance of '<em>STable Member</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSEntityMember(SEntityMember object)
+  public T caseSTableMember(STableMember object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>SProperty</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>SColumn</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>SProperty</em>'.
+   * @return the result of interpreting the object as an instance of '<em>SColumn</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSProperty(SProperty object)
+  public T caseSColumn(SColumn object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>SJoin Property</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>SJoin Column</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>SJoin Property</em>'.
+   * @return the result of interpreting the object as an instance of '<em>SJoin Column</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSJoinProperty(SJoinProperty object)
+  public T caseSJoinColumn(SJoinColumn object)
   {
     return null;
   }

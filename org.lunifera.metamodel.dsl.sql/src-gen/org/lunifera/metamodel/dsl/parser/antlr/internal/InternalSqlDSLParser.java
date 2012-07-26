@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'settings {'", "'schema='", "'engine='", "'}'", "'table'", "'{'", "'prefix'", "';'", "'column'", "'joincolumn'", "'with'", "'nullable'", "'AES'", "'index='", "'enum'", "'='", "'String('", "')'", "'Decimal('", "'InnoDB'", "'MyISAM'", "'Int'", "'Tinyint'", "'Smallint'", "'Mediumint'", "'Boolean'", "'Blob'", "'Datetime'", "'Date'", "'Time'", "'Polygon'", "'Point'", "'Foto'", "'Currency'", "'Coordinate'", "'No'", "'Yes'", "'Unique'", "'Spatial'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'generatedFile'", "'settings {'", "'schema='", "'javapackage='", "'engine='", "'}'", "'table'", "'{'", "'entityname='", "'cached'", "'prefix'", "';'", "'column'", "'joincolumn'", "'with'", "'nullable'", "'AES'", "'index='", "'javacolumn='", "'enum'", "'='", "'String('", "')'", "'Decimal('", "'.'", "'InnoDB'", "'MyISAM'", "'Int'", "'Tinyint'", "'Smallint'", "'Mediumint'", "'Boolean'", "'Blob'", "'Datetime'", "'Date'", "'Time'", "'Polygon'", "'Point'", "'Foto'", "'Currency'", "'Coordinate'", "'No'", "'Yes'", "'Unique'", "'Spatial'"
     };
     public static final int RULE_ID=4;
     public static final int T__29=29;
@@ -37,16 +37,22 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
     public static final int T__21=21;
     public static final int T__20=20;
     public static final int EOF=-1;
+    public static final int T__55=55;
     public static final int T__19=19;
+    public static final int T__51=51;
     public static final int T__16=16;
+    public static final int T__52=52;
     public static final int T__15=15;
+    public static final int T__53=53;
     public static final int T__18=18;
+    public static final int T__54=54;
     public static final int T__17=17;
     public static final int T__12=12;
     public static final int T__11=11;
     public static final int T__14=14;
     public static final int T__13=13;
     public static final int RULE_INT=5;
+    public static final int T__50=50;
     public static final int T__42=42;
     public static final int T__43=43;
     public static final int T__40=40;
@@ -147,43 +153,81 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSModel"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:77:1: ruleSModel returns [EObject current=null] : ( ( (lv_settings_0_0= ruleSSettings ) )? ( (lv_artifact_1_0= ruleSArtifact ) )* ) ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:77:1: ruleSModel returns [EObject current=null] : ( (otherlv_0= 'generatedFile' ( (lv_generatedFile_1_0= RULE_ID ) ) ) ( (lv_settings_2_0= ruleSSettings ) )? ( (lv_artifact_3_0= ruleSArtifact ) )* ) ;
     public final EObject ruleSModel() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_settings_0_0 = null;
+        Token otherlv_0=null;
+        Token lv_generatedFile_1_0=null;
+        EObject lv_settings_2_0 = null;
 
-        EObject lv_artifact_1_0 = null;
+        EObject lv_artifact_3_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:80:28: ( ( ( (lv_settings_0_0= ruleSSettings ) )? ( (lv_artifact_1_0= ruleSArtifact ) )* ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:81:1: ( ( (lv_settings_0_0= ruleSSettings ) )? ( (lv_artifact_1_0= ruleSArtifact ) )* )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:80:28: ( ( (otherlv_0= 'generatedFile' ( (lv_generatedFile_1_0= RULE_ID ) ) ) ( (lv_settings_2_0= ruleSSettings ) )? ( (lv_artifact_3_0= ruleSArtifact ) )* ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:81:1: ( (otherlv_0= 'generatedFile' ( (lv_generatedFile_1_0= RULE_ID ) ) ) ( (lv_settings_2_0= ruleSSettings ) )? ( (lv_artifact_3_0= ruleSArtifact ) )* )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:81:1: ( ( (lv_settings_0_0= ruleSSettings ) )? ( (lv_artifact_1_0= ruleSArtifact ) )* )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:81:2: ( (lv_settings_0_0= ruleSSettings ) )? ( (lv_artifact_1_0= ruleSArtifact ) )*
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:81:1: ( (otherlv_0= 'generatedFile' ( (lv_generatedFile_1_0= RULE_ID ) ) ) ( (lv_settings_2_0= ruleSSettings ) )? ( (lv_artifact_3_0= ruleSArtifact ) )* )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:81:2: (otherlv_0= 'generatedFile' ( (lv_generatedFile_1_0= RULE_ID ) ) ) ( (lv_settings_2_0= ruleSSettings ) )? ( (lv_artifact_3_0= ruleSArtifact ) )*
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:81:2: ( (lv_settings_0_0= ruleSSettings ) )?
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:81:2: (otherlv_0= 'generatedFile' ( (lv_generatedFile_1_0= RULE_ID ) ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:81:4: otherlv_0= 'generatedFile' ( (lv_generatedFile_1_0= RULE_ID ) )
+            {
+            otherlv_0=(Token)match(input,11,FOLLOW_11_in_ruleSModel123); 
+
+                	newLeafNode(otherlv_0, grammarAccess.getSModelAccess().getGeneratedFileKeyword_0_0());
+                
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:85:1: ( (lv_generatedFile_1_0= RULE_ID ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:86:1: (lv_generatedFile_1_0= RULE_ID )
+            {
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:86:1: (lv_generatedFile_1_0= RULE_ID )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:87:3: lv_generatedFile_1_0= RULE_ID
+            {
+            lv_generatedFile_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSModel140); 
+
+            			newLeafNode(lv_generatedFile_1_0, grammarAccess.getSModelAccess().getGeneratedFileIDTerminalRuleCall_0_1_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getSModelRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"generatedFile",
+                    		lv_generatedFile_1_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+
+            }
+
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:103:3: ( (lv_settings_2_0= ruleSSettings ) )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
-            if ( (LA1_0==11) ) {
+            if ( (LA1_0==12) ) {
                 alt1=1;
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:82:1: (lv_settings_0_0= ruleSSettings )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:104:1: (lv_settings_2_0= ruleSSettings )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:82:1: (lv_settings_0_0= ruleSSettings )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:83:3: lv_settings_0_0= ruleSSettings
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:104:1: (lv_settings_2_0= ruleSSettings )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:105:3: lv_settings_2_0= ruleSSettings
                     {
                      
-                    	        newCompositeNode(grammarAccess.getSModelAccess().getSettingsSSettingsParserRuleCall_0_0()); 
+                    	        newCompositeNode(grammarAccess.getSModelAccess().getSettingsSSettingsParserRuleCall_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleSSettings_in_ruleSModel131);
-                    lv_settings_0_0=ruleSSettings();
+                    pushFollow(FOLLOW_ruleSSettings_in_ruleSModel167);
+                    lv_settings_2_0=ruleSSettings();
 
                     state._fsp--;
 
@@ -194,7 +238,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                            		set(
                            			current, 
                            			"settings",
-                            		lv_settings_0_0, 
+                            		lv_settings_2_0, 
                             		"SSettings");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -207,29 +251,29 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:99:3: ( (lv_artifact_1_0= ruleSArtifact ) )*
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:121:3: ( (lv_artifact_3_0= ruleSArtifact ) )*
             loop2:
             do {
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( (LA2_0==15||LA2_0==25) ) {
+                if ( (LA2_0==17||LA2_0==30) ) {
                     alt2=1;
                 }
 
 
                 switch (alt2) {
             	case 1 :
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:100:1: (lv_artifact_1_0= ruleSArtifact )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:122:1: (lv_artifact_3_0= ruleSArtifact )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:100:1: (lv_artifact_1_0= ruleSArtifact )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:101:3: lv_artifact_1_0= ruleSArtifact
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:122:1: (lv_artifact_3_0= ruleSArtifact )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:123:3: lv_artifact_3_0= ruleSArtifact
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getSModelAccess().getArtifactSArtifactParserRuleCall_1_0()); 
+            	    	        newCompositeNode(grammarAccess.getSModelAccess().getArtifactSArtifactParserRuleCall_2_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleSArtifact_in_ruleSModel153);
-            	    lv_artifact_1_0=ruleSArtifact();
+            	    pushFollow(FOLLOW_ruleSArtifact_in_ruleSModel189);
+            	    lv_artifact_3_0=ruleSArtifact();
 
             	    state._fsp--;
 
@@ -240,7 +284,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
             	           		add(
             	           			current, 
             	           			"artifact",
-            	            		lv_artifact_1_0, 
+            	            		lv_artifact_3_0, 
             	            		"SArtifact");
             	    	        afterParserOrEnumRuleCall();
             	    	    
@@ -277,7 +321,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSSettings"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:125:1: entryRuleSSettings returns [EObject current=null] : iv_ruleSSettings= ruleSSettings EOF ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:147:1: entryRuleSSettings returns [EObject current=null] : iv_ruleSSettings= ruleSSettings EOF ;
     public final EObject entryRuleSSettings() throws RecognitionException {
         EObject current = null;
 
@@ -285,17 +329,17 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:126:2: (iv_ruleSSettings= ruleSSettings EOF )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:127:2: iv_ruleSSettings= ruleSSettings EOF
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:148:2: (iv_ruleSSettings= ruleSSettings EOF )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:149:2: iv_ruleSSettings= ruleSSettings EOF
             {
              newCompositeNode(grammarAccess.getSSettingsRule()); 
-            pushFollow(FOLLOW_ruleSSettings_in_entryRuleSSettings190);
+            pushFollow(FOLLOW_ruleSSettings_in_entryRuleSSettings226);
             iv_ruleSSettings=ruleSSettings();
 
             state._fsp--;
 
              current =iv_ruleSSettings; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSSettings200); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSSettings236); 
 
             }
 
@@ -313,7 +357,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSSettings"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:134:1: ruleSSettings returns [EObject current=null] : ( () otherlv_1= 'settings {' ( ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) ) ) )* ) ) ) otherlv_7= '}' ) ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:156:1: ruleSSettings returns [EObject current=null] : ( () otherlv_1= 'settings {' ( ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) ) ) )* ) ) ) otherlv_9= '}' ) ;
     public final EObject ruleSSettings() throws RecognitionException {
         EObject current = null;
 
@@ -322,20 +366,23 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
         Token lv_schema_4_0=null;
         Token otherlv_5=null;
         Token otherlv_7=null;
-        Enumerator lv_engine_6_0 = null;
+        Token otherlv_9=null;
+        AntlrDatatypeRuleToken lv_javapackage_6_0 = null;
+
+        Enumerator lv_engine_8_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:137:28: ( ( () otherlv_1= 'settings {' ( ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) ) ) )* ) ) ) otherlv_7= '}' ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:138:1: ( () otherlv_1= 'settings {' ( ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) ) ) )* ) ) ) otherlv_7= '}' )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:159:28: ( ( () otherlv_1= 'settings {' ( ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) ) ) )* ) ) ) otherlv_9= '}' ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:160:1: ( () otherlv_1= 'settings {' ( ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) ) ) )* ) ) ) otherlv_9= '}' )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:138:1: ( () otherlv_1= 'settings {' ( ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) ) ) )* ) ) ) otherlv_7= '}' )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:138:2: () otherlv_1= 'settings {' ( ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) ) ) )* ) ) ) otherlv_7= '}'
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:160:1: ( () otherlv_1= 'settings {' ( ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) ) ) )* ) ) ) otherlv_9= '}' )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:160:2: () otherlv_1= 'settings {' ( ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) ) ) )* ) ) ) otherlv_9= '}'
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:138:2: ()
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:139:5: 
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:160:2: ()
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:161:5: 
             {
 
                     current = forceCreateModelElement(
@@ -345,72 +392,75 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,11,FOLLOW_11_in_ruleSSettings246); 
+            otherlv_1=(Token)match(input,12,FOLLOW_12_in_ruleSSettings282); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getSSettingsAccess().getSettingsKeyword_1());
                 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:148:1: ( ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) ) ) )* ) ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:150:1: ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) ) ) )* ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:170:1: ( ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) ) ) )* ) ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:172:1: ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) ) ) )* ) )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:150:1: ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) ) ) )* ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:151:2: ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) ) ) )* )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:172:1: ( ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) ) ) )* ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:173:2: ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) ) ) )* )
             {
              
             	  getUnorderedGroupHelper().enter(grammarAccess.getSSettingsAccess().getUnorderedGroup_2());
             	
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:154:2: ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) ) ) )* )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:155:3: ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) ) ) )*
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:176:2: ( ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) ) ) )* )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:177:3: ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) ) ) )*
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:155:3: ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) ) ) )*
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:177:3: ( ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) ) ) )*
             loop3:
             do {
-                int alt3=3;
+                int alt3=4;
                 int LA3_0 = input.LA(1);
 
-                if ( LA3_0 ==12 && getUnorderedGroupHelper().canSelect(grammarAccess.getSSettingsAccess().getUnorderedGroup_2(), 0) ) {
+                if ( LA3_0 ==13 && getUnorderedGroupHelper().canSelect(grammarAccess.getSSettingsAccess().getUnorderedGroup_2(), 0) ) {
                     alt3=1;
                 }
-                else if ( LA3_0 ==13 && getUnorderedGroupHelper().canSelect(grammarAccess.getSSettingsAccess().getUnorderedGroup_2(), 1) ) {
+                else if ( LA3_0 ==14 && getUnorderedGroupHelper().canSelect(grammarAccess.getSSettingsAccess().getUnorderedGroup_2(), 1) ) {
                     alt3=2;
+                }
+                else if ( LA3_0 ==15 && getUnorderedGroupHelper().canSelect(grammarAccess.getSSettingsAccess().getUnorderedGroup_2(), 2) ) {
+                    alt3=3;
                 }
 
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:157:4: ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:179:4: ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:157:4: ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:158:5: {...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:179:4: ({...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:180:5: {...}? => ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSSettingsAccess().getUnorderedGroup_2(), 0) ) {
             	        throw new FailedPredicateException(input, "ruleSSettings", "getUnorderedGroupHelper().canSelect(grammarAccess.getSSettingsAccess().getUnorderedGroup_2(), 0)");
             	    }
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:158:106: ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:159:6: ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:180:106: ( ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:181:6: ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSSettingsAccess().getUnorderedGroup_2(), 0);
             	    	 				
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:162:6: ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:162:7: {...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:184:6: ({...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:184:7: {...}? => (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleSSettings", "true");
             	    }
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:162:16: (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:162:18: otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:184:16: (otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:184:18: otherlv_3= 'schema=' ( (lv_schema_4_0= RULE_ID ) )
             	    {
-            	    otherlv_3=(Token)match(input,12,FOLLOW_12_in_ruleSSettings304); 
+            	    otherlv_3=(Token)match(input,13,FOLLOW_13_in_ruleSSettings340); 
 
             	        	newLeafNode(otherlv_3, grammarAccess.getSSettingsAccess().getSchemaKeyword_2_0_0());
             	        
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:166:1: ( (lv_schema_4_0= RULE_ID ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:167:1: (lv_schema_4_0= RULE_ID )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:188:1: ( (lv_schema_4_0= RULE_ID ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:189:1: (lv_schema_4_0= RULE_ID )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:167:1: (lv_schema_4_0= RULE_ID )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:168:3: lv_schema_4_0= RULE_ID
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:189:1: (lv_schema_4_0= RULE_ID )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:190:3: lv_schema_4_0= RULE_ID
             	    {
-            	    lv_schema_4_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSSettings321); 
+            	    lv_schema_4_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSSettings357); 
 
             	    			newLeafNode(lv_schema_4_0, grammarAccess.getSSettingsAccess().getSchemaIDTerminalRuleCall_2_0_1_0()); 
             	    		
@@ -449,44 +499,121 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:191:4: ({...}? => ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:213:4: ({...}? => ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) ) )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:191:4: ({...}? => ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:192:5: {...}? => ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:213:4: ({...}? => ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:214:5: {...}? => ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSSettingsAccess().getUnorderedGroup_2(), 1) ) {
             	        throw new FailedPredicateException(input, "ruleSSettings", "getUnorderedGroupHelper().canSelect(grammarAccess.getSSettingsAccess().getUnorderedGroup_2(), 1)");
             	    }
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:192:106: ( ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:193:6: ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:214:106: ( ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:215:6: ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSSettingsAccess().getUnorderedGroup_2(), 1);
             	    	 				
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:196:6: ({...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:196:7: {...}? => (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:218:6: ({...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:218:7: {...}? => (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleSSettings", "true");
             	    }
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:196:16: (otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:196:18: otherlv_5= 'engine=' ( (lv_engine_6_0= ruleSDBEngine ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:218:16: (otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:218:18: otherlv_5= 'javapackage=' ( (lv_javapackage_6_0= ruleLFQN ) )
             	    {
-            	    otherlv_5=(Token)match(input,13,FOLLOW_13_in_ruleSSettings394); 
+            	    otherlv_5=(Token)match(input,14,FOLLOW_14_in_ruleSSettings430); 
 
-            	        	newLeafNode(otherlv_5, grammarAccess.getSSettingsAccess().getEngineKeyword_2_1_0());
+            	        	newLeafNode(otherlv_5, grammarAccess.getSSettingsAccess().getJavapackageKeyword_2_1_0());
             	        
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:200:1: ( (lv_engine_6_0= ruleSDBEngine ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:201:1: (lv_engine_6_0= ruleSDBEngine )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:222:1: ( (lv_javapackage_6_0= ruleLFQN ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:223:1: (lv_javapackage_6_0= ruleLFQN )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:201:1: (lv_engine_6_0= ruleSDBEngine )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:202:3: lv_engine_6_0= ruleSDBEngine
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:223:1: (lv_javapackage_6_0= ruleLFQN )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:224:3: lv_javapackage_6_0= ruleLFQN
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getSSettingsAccess().getEngineSDBEngineEnumRuleCall_2_1_1_0()); 
+            	    	        newCompositeNode(grammarAccess.getSSettingsAccess().getJavapackageLFQNParserRuleCall_2_1_1_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleSDBEngine_in_ruleSSettings415);
-            	    lv_engine_6_0=ruleSDBEngine();
+            	    pushFollow(FOLLOW_ruleLFQN_in_ruleSSettings451);
+            	    lv_javapackage_6_0=ruleLFQN();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getSSettingsRule());
+            	    	        }
+            	           		set(
+            	           			current, 
+            	           			"javapackage",
+            	            		lv_javapackage_6_0, 
+            	            		"LFQN");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+            	     
+            	    	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSSettingsAccess().getUnorderedGroup_2());
+            	    	 				
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 3 :
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:247:4: ({...}? => ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) ) )
+            	    {
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:247:4: ({...}? => ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:248:5: {...}? => ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) )
+            	    {
+            	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSSettingsAccess().getUnorderedGroup_2(), 2) ) {
+            	        throw new FailedPredicateException(input, "ruleSSettings", "getUnorderedGroupHelper().canSelect(grammarAccess.getSSettingsAccess().getUnorderedGroup_2(), 2)");
+            	    }
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:248:106: ( ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:249:6: ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) )
+            	    {
+            	     
+            	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSSettingsAccess().getUnorderedGroup_2(), 2);
+            	    	 				
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:252:6: ({...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:252:7: {...}? => (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) )
+            	    {
+            	    if ( !((true)) ) {
+            	        throw new FailedPredicateException(input, "ruleSSettings", "true");
+            	    }
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:252:16: (otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:252:18: otherlv_7= 'engine=' ( (lv_engine_8_0= ruleSDBEngine ) )
+            	    {
+            	    otherlv_7=(Token)match(input,15,FOLLOW_15_in_ruleSSettings519); 
+
+            	        	newLeafNode(otherlv_7, grammarAccess.getSSettingsAccess().getEngineKeyword_2_2_0());
+            	        
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:256:1: ( (lv_engine_8_0= ruleSDBEngine ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:257:1: (lv_engine_8_0= ruleSDBEngine )
+            	    {
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:257:1: (lv_engine_8_0= ruleSDBEngine )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:258:3: lv_engine_8_0= ruleSDBEngine
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getSSettingsAccess().getEngineSDBEngineEnumRuleCall_2_2_1_0()); 
+            	    	    
+            	    pushFollow(FOLLOW_ruleSDBEngine_in_ruleSSettings540);
+            	    lv_engine_8_0=ruleSDBEngine();
 
             	    state._fsp--;
 
@@ -497,7 +624,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
             	           		set(
             	           			current, 
             	           			"engine",
-            	            		lv_engine_6_0, 
+            	            		lv_engine_8_0, 
             	            		"SDBEngine");
             	    	        afterParserOrEnumRuleCall();
             	    	    
@@ -543,9 +670,9 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,14,FOLLOW_14_in_ruleSSettings468); 
+            otherlv_9=(Token)match(input,16,FOLLOW_16_in_ruleSSettings593); 
 
-                	newLeafNode(otherlv_7, grammarAccess.getSSettingsAccess().getRightCurlyBracketKeyword_3());
+                	newLeafNode(otherlv_9, grammarAccess.getSSettingsAccess().getRightCurlyBracketKeyword_3());
                 
 
             }
@@ -568,7 +695,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSArtifact"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:244:1: entryRuleSArtifact returns [EObject current=null] : iv_ruleSArtifact= ruleSArtifact EOF ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:300:1: entryRuleSArtifact returns [EObject current=null] : iv_ruleSArtifact= ruleSArtifact EOF ;
     public final EObject entryRuleSArtifact() throws RecognitionException {
         EObject current = null;
 
@@ -576,17 +703,17 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:245:2: (iv_ruleSArtifact= ruleSArtifact EOF )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:246:2: iv_ruleSArtifact= ruleSArtifact EOF
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:301:2: (iv_ruleSArtifact= ruleSArtifact EOF )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:302:2: iv_ruleSArtifact= ruleSArtifact EOF
             {
              newCompositeNode(grammarAccess.getSArtifactRule()); 
-            pushFollow(FOLLOW_ruleSArtifact_in_entryRuleSArtifact504);
+            pushFollow(FOLLOW_ruleSArtifact_in_entryRuleSArtifact629);
             iv_ruleSArtifact=ruleSArtifact();
 
             state._fsp--;
 
              current =iv_ruleSArtifact; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSArtifact514); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSArtifact639); 
 
             }
 
@@ -604,7 +731,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSArtifact"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:253:1: ruleSArtifact returns [EObject current=null] : (this_STable_0= ruleSTable | this_SEnum_1= ruleSEnum ) ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:309:1: ruleSArtifact returns [EObject current=null] : (this_STable_0= ruleSTable | this_SEnum_1= ruleSEnum ) ;
     public final EObject ruleSArtifact() throws RecognitionException {
         EObject current = null;
 
@@ -616,17 +743,17 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:256:28: ( (this_STable_0= ruleSTable | this_SEnum_1= ruleSEnum ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:257:1: (this_STable_0= ruleSTable | this_SEnum_1= ruleSEnum )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:312:28: ( (this_STable_0= ruleSTable | this_SEnum_1= ruleSEnum ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:313:1: (this_STable_0= ruleSTable | this_SEnum_1= ruleSEnum )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:257:1: (this_STable_0= ruleSTable | this_SEnum_1= ruleSEnum )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:313:1: (this_STable_0= ruleSTable | this_SEnum_1= ruleSEnum )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==15) ) {
+            if ( (LA4_0==17) ) {
                 alt4=1;
             }
-            else if ( (LA4_0==25) ) {
+            else if ( (LA4_0==30) ) {
                 alt4=2;
             }
             else {
@@ -637,12 +764,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
             }
             switch (alt4) {
                 case 1 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:258:5: this_STable_0= ruleSTable
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:314:5: this_STable_0= ruleSTable
                     {
                      
                             newCompositeNode(grammarAccess.getSArtifactAccess().getSTableParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleSTable_in_ruleSArtifact561);
+                    pushFollow(FOLLOW_ruleSTable_in_ruleSArtifact686);
                     this_STable_0=ruleSTable();
 
                     state._fsp--;
@@ -655,12 +782,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:268:5: this_SEnum_1= ruleSEnum
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:324:5: this_SEnum_1= ruleSEnum
                     {
                      
                             newCompositeNode(grammarAccess.getSArtifactAccess().getSEnumParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleSEnum_in_ruleSArtifact588);
+                    pushFollow(FOLLOW_ruleSEnum_in_ruleSArtifact713);
                     this_SEnum_1=ruleSEnum();
 
                     state._fsp--;
@@ -693,7 +820,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSTable"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:284:1: entryRuleSTable returns [EObject current=null] : iv_ruleSTable= ruleSTable EOF ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:340:1: entryRuleSTable returns [EObject current=null] : iv_ruleSTable= ruleSTable EOF ;
     public final EObject entryRuleSTable() throws RecognitionException {
         EObject current = null;
 
@@ -701,17 +828,17 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:285:2: (iv_ruleSTable= ruleSTable EOF )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:286:2: iv_ruleSTable= ruleSTable EOF
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:341:2: (iv_ruleSTable= ruleSTable EOF )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:342:2: iv_ruleSTable= ruleSTable EOF
             {
              newCompositeNode(grammarAccess.getSTableRule()); 
-            pushFollow(FOLLOW_ruleSTable_in_entryRuleSTable623);
+            pushFollow(FOLLOW_ruleSTable_in_entryRuleSTable748);
             iv_ruleSTable=ruleSTable();
 
             state._fsp--;
 
              current =iv_ruleSTable; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSTable633); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSTable758); 
 
             }
 
@@ -729,7 +856,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSTable"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:293:1: ruleSTable returns [EObject current=null] : (otherlv_0= 'table' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) ) ) )* ) ) ) ( (lv_entityMembers_8_0= ruleSEntityMember ) )* otherlv_9= '}' ) ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:349:1: ruleSTable returns [EObject current=null] : (otherlv_0= 'table' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) ) ) )* ) ) ) ( (lv_columns_11_0= ruleSTableMember ) )* otherlv_12= '}' ) ;
     public final EObject ruleSTable() throws RecognitionException {
         EObject current = null;
 
@@ -737,34 +864,37 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
         Token lv_name_1_0=null;
         Token otherlv_2=null;
         Token otherlv_5=null;
-        Token lv_prefix_6_0=null;
-        Token otherlv_7=null;
-        Token otherlv_9=null;
+        Token lv_entityname_6_0=null;
+        Token lv_cached_7_0=null;
+        Token otherlv_8=null;
+        Token lv_prefix_9_0=null;
+        Token otherlv_10=null;
+        Token otherlv_12=null;
         EObject lv_settings_4_0 = null;
 
-        EObject lv_entityMembers_8_0 = null;
+        EObject lv_columns_11_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:296:28: ( (otherlv_0= 'table' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) ) ) )* ) ) ) ( (lv_entityMembers_8_0= ruleSEntityMember ) )* otherlv_9= '}' ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:297:1: (otherlv_0= 'table' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) ) ) )* ) ) ) ( (lv_entityMembers_8_0= ruleSEntityMember ) )* otherlv_9= '}' )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:352:28: ( (otherlv_0= 'table' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) ) ) )* ) ) ) ( (lv_columns_11_0= ruleSTableMember ) )* otherlv_12= '}' ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:353:1: (otherlv_0= 'table' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) ) ) )* ) ) ) ( (lv_columns_11_0= ruleSTableMember ) )* otherlv_12= '}' )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:297:1: (otherlv_0= 'table' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) ) ) )* ) ) ) ( (lv_entityMembers_8_0= ruleSEntityMember ) )* otherlv_9= '}' )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:297:3: otherlv_0= 'table' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) ) ) )* ) ) ) ( (lv_entityMembers_8_0= ruleSEntityMember ) )* otherlv_9= '}'
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:353:1: (otherlv_0= 'table' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) ) ) )* ) ) ) ( (lv_columns_11_0= ruleSTableMember ) )* otherlv_12= '}' )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:353:3: otherlv_0= 'table' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) ) ) )* ) ) ) ( (lv_columns_11_0= ruleSTableMember ) )* otherlv_12= '}'
             {
-            otherlv_0=(Token)match(input,15,FOLLOW_15_in_ruleSTable670); 
+            otherlv_0=(Token)match(input,17,FOLLOW_17_in_ruleSTable795); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getSTableAccess().getTableKeyword_0());
                 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:301:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:302:1: (lv_name_1_0= RULE_ID )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:357:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:358:1: (lv_name_1_0= RULE_ID )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:302:1: (lv_name_1_0= RULE_ID )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:303:3: lv_name_1_0= RULE_ID
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:358:1: (lv_name_1_0= RULE_ID )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:359:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSTable687); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSTable812); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getSTableAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -784,68 +914,74 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,16,FOLLOW_16_in_ruleSTable704); 
+            otherlv_2=(Token)match(input,18,FOLLOW_18_in_ruleSTable829); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getSTableAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:323:1: ( ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) ) ) )* ) ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:325:1: ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) ) ) )* ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:379:1: ( ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) ) ) )* ) ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:381:1: ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) ) ) )* ) )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:325:1: ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) ) ) )* ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:326:2: ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) ) ) )* )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:381:1: ( ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) ) ) )* ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:382:2: ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) ) ) )* )
             {
              
             	  getUnorderedGroupHelper().enter(grammarAccess.getSTableAccess().getUnorderedGroup_3());
             	
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:329:2: ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) ) ) )* )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:330:3: ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) ) ) )*
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:385:2: ( ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) ) ) )* )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:386:3: ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) ) ) )*
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:330:3: ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) ) ) )*
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:386:3: ( ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) ) ) )*
             loop5:
             do {
-                int alt5=3;
+                int alt5=5;
                 int LA5_0 = input.LA(1);
 
-                if ( LA5_0 ==11 && getUnorderedGroupHelper().canSelect(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 0) ) {
+                if ( LA5_0 ==12 && getUnorderedGroupHelper().canSelect(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 0) ) {
                     alt5=1;
                 }
-                else if ( LA5_0 ==17 && getUnorderedGroupHelper().canSelect(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 1) ) {
+                else if ( LA5_0 ==19 && getUnorderedGroupHelper().canSelect(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 1) ) {
                     alt5=2;
+                }
+                else if ( LA5_0 ==20 && getUnorderedGroupHelper().canSelect(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 2) ) {
+                    alt5=3;
+                }
+                else if ( LA5_0 ==21 && getUnorderedGroupHelper().canSelect(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 3) ) {
+                    alt5=4;
                 }
 
 
                 switch (alt5) {
             	case 1 :
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:332:4: ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:388:4: ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:332:4: ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:333:5: {...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:388:4: ({...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:389:5: {...}? => ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 0) ) {
             	        throw new FailedPredicateException(input, "ruleSTable", "getUnorderedGroupHelper().canSelect(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 0)");
             	    }
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:333:103: ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:334:6: ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:389:103: ( ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:390:6: ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 0);
             	    	 				
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:337:6: ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:337:7: {...}? => ( (lv_settings_4_0= ruleSSettings ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:393:6: ({...}? => ( (lv_settings_4_0= ruleSSettings ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:393:7: {...}? => ( (lv_settings_4_0= ruleSSettings ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleSTable", "true");
             	    }
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:337:16: ( (lv_settings_4_0= ruleSSettings ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:338:1: (lv_settings_4_0= ruleSSettings )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:393:16: ( (lv_settings_4_0= ruleSSettings ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:394:1: (lv_settings_4_0= ruleSSettings )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:338:1: (lv_settings_4_0= ruleSSettings )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:339:3: lv_settings_4_0= ruleSSettings
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:394:1: (lv_settings_4_0= ruleSSettings )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:395:3: lv_settings_4_0= ruleSSettings
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getSTableAccess().getSettingsSSettingsParserRuleCall_3_0_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleSSettings_in_ruleSTable770);
+            	    pushFollow(FOLLOW_ruleSSettings_in_ruleSTable895);
             	    lv_settings_4_0=ruleSSettings();
 
             	    state._fsp--;
@@ -883,42 +1019,42 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:362:4: ({...}? => ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:418:4: ({...}? => ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) ) )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:362:4: ({...}? => ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:363:5: {...}? => ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:418:4: ({...}? => ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:419:5: {...}? => ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 1) ) {
             	        throw new FailedPredicateException(input, "ruleSTable", "getUnorderedGroupHelper().canSelect(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 1)");
             	    }
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:363:103: ( ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:364:6: ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:419:103: ( ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:420:6: ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 1);
             	    	 				
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:367:6: ({...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:367:7: {...}? => (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:423:6: ({...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:423:7: {...}? => (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleSTable", "true");
             	    }
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:367:16: (otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';' )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:367:18: otherlv_5= 'prefix' ( (lv_prefix_6_0= RULE_ID ) ) otherlv_7= ';'
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:423:16: (otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:423:18: otherlv_5= 'entityname=' ( (lv_entityname_6_0= RULE_ID ) )
             	    {
-            	    otherlv_5=(Token)match(input,17,FOLLOW_17_in_ruleSTable837); 
+            	    otherlv_5=(Token)match(input,19,FOLLOW_19_in_ruleSTable962); 
 
-            	        	newLeafNode(otherlv_5, grammarAccess.getSTableAccess().getPrefixKeyword_3_1_0());
+            	        	newLeafNode(otherlv_5, grammarAccess.getSTableAccess().getEntitynameKeyword_3_1_0());
             	        
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:371:1: ( (lv_prefix_6_0= RULE_ID ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:372:1: (lv_prefix_6_0= RULE_ID )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:427:1: ( (lv_entityname_6_0= RULE_ID ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:428:1: (lv_entityname_6_0= RULE_ID )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:372:1: (lv_prefix_6_0= RULE_ID )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:373:3: lv_prefix_6_0= RULE_ID
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:428:1: (lv_entityname_6_0= RULE_ID )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:429:3: lv_entityname_6_0= RULE_ID
             	    {
-            	    lv_prefix_6_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSTable854); 
+            	    lv_entityname_6_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSTable979); 
 
-            	    			newLeafNode(lv_prefix_6_0, grammarAccess.getSTableAccess().getPrefixIDTerminalRuleCall_3_1_1_0()); 
+            	    			newLeafNode(lv_entityname_6_0, grammarAccess.getSTableAccess().getEntitynameIDTerminalRuleCall_3_1_1_0()); 
             	    		
 
             	    	        if (current==null) {
@@ -926,8 +1062,8 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
             	    	        }
             	           		setWithLastConsumed(
             	           			current, 
-            	           			"prefix",
-            	            		lv_prefix_6_0, 
+            	           			"entityname",
+            	            		lv_entityname_6_0, 
             	            		"ID");
             	    	    
 
@@ -936,9 +1072,139 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_7=(Token)match(input,18,FOLLOW_18_in_ruleSTable871); 
 
-            	        	newLeafNode(otherlv_7, grammarAccess.getSTableAccess().getSemicolonKeyword_3_1_2());
+            	    }
+
+
+            	    }
+
+            	     
+            	    	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSTableAccess().getUnorderedGroup_3());
+            	    	 				
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 3 :
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:452:4: ({...}? => ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) ) )
+            	    {
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:452:4: ({...}? => ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:453:5: {...}? => ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) )
+            	    {
+            	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 2) ) {
+            	        throw new FailedPredicateException(input, "ruleSTable", "getUnorderedGroupHelper().canSelect(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 2)");
+            	    }
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:453:103: ( ({...}? => ( (lv_cached_7_0= 'cached' ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:454:6: ({...}? => ( (lv_cached_7_0= 'cached' ) ) )
+            	    {
+            	     
+            	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 2);
+            	    	 				
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:457:6: ({...}? => ( (lv_cached_7_0= 'cached' ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:457:7: {...}? => ( (lv_cached_7_0= 'cached' ) )
+            	    {
+            	    if ( !((true)) ) {
+            	        throw new FailedPredicateException(input, "ruleSTable", "true");
+            	    }
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:457:16: ( (lv_cached_7_0= 'cached' ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:458:1: (lv_cached_7_0= 'cached' )
+            	    {
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:458:1: (lv_cached_7_0= 'cached' )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:459:3: lv_cached_7_0= 'cached'
+            	    {
+            	    lv_cached_7_0=(Token)match(input,20,FOLLOW_20_in_ruleSTable1057); 
+
+            	            newLeafNode(lv_cached_7_0, grammarAccess.getSTableAccess().getCachedCachedKeyword_3_2_0());
+            	        
+
+            	    	        if (current==null) {
+            	    	            current = createModelElement(grammarAccess.getSTableRule());
+            	    	        }
+            	           		setWithLastConsumed(current, "cached", true, "cached");
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+            	     
+            	    	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSTableAccess().getUnorderedGroup_3());
+            	    	 				
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 4 :
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:479:4: ({...}? => ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) ) )
+            	    {
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:479:4: ({...}? => ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:480:5: {...}? => ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) )
+            	    {
+            	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 3) ) {
+            	        throw new FailedPredicateException(input, "ruleSTable", "getUnorderedGroupHelper().canSelect(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 3)");
+            	    }
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:480:103: ( ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:481:6: ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) )
+            	    {
+            	     
+            	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSTableAccess().getUnorderedGroup_3(), 3);
+            	    	 				
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:484:6: ({...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:484:7: {...}? => (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' )
+            	    {
+            	    if ( !((true)) ) {
+            	        throw new FailedPredicateException(input, "ruleSTable", "true");
+            	    }
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:484:16: (otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';' )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:484:18: otherlv_8= 'prefix' ( (lv_prefix_9_0= RULE_ID ) ) otherlv_10= ';'
+            	    {
+            	    otherlv_8=(Token)match(input,21,FOLLOW_21_in_ruleSTable1137); 
+
+            	        	newLeafNode(otherlv_8, grammarAccess.getSTableAccess().getPrefixKeyword_3_3_0());
+            	        
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:488:1: ( (lv_prefix_9_0= RULE_ID ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:489:1: (lv_prefix_9_0= RULE_ID )
+            	    {
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:489:1: (lv_prefix_9_0= RULE_ID )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:490:3: lv_prefix_9_0= RULE_ID
+            	    {
+            	    lv_prefix_9_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSTable1154); 
+
+            	    			newLeafNode(lv_prefix_9_0, grammarAccess.getSTableAccess().getPrefixIDTerminalRuleCall_3_3_1_0()); 
+            	    		
+
+            	    	        if (current==null) {
+            	    	            current = createModelElement(grammarAccess.getSTableRule());
+            	    	        }
+            	           		setWithLastConsumed(
+            	           			current, 
+            	           			"prefix",
+            	            		lv_prefix_9_0, 
+            	            		"ID");
+            	    	    
+
+            	    }
+
+
+            	    }
+
+            	    otherlv_10=(Token)match(input,22,FOLLOW_22_in_ruleSTable1171); 
+
+            	        	newLeafNode(otherlv_10, grammarAccess.getSTableAccess().getSemicolonKeyword_3_3_2());
             	        
 
             	    }
@@ -976,29 +1242,29 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:407:2: ( (lv_entityMembers_8_0= ruleSEntityMember ) )*
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:524:2: ( (lv_columns_11_0= ruleSTableMember ) )*
             loop6:
             do {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( ((LA6_0>=19 && LA6_0<=20)) ) {
+                if ( ((LA6_0>=23 && LA6_0<=24)) ) {
                     alt6=1;
                 }
 
 
                 switch (alt6) {
             	case 1 :
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:408:1: (lv_entityMembers_8_0= ruleSEntityMember )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:525:1: (lv_columns_11_0= ruleSTableMember )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:408:1: (lv_entityMembers_8_0= ruleSEntityMember )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:409:3: lv_entityMembers_8_0= ruleSEntityMember
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:525:1: (lv_columns_11_0= ruleSTableMember )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:526:3: lv_columns_11_0= ruleSTableMember
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getSTableAccess().getEntityMembersSEntityMemberParserRuleCall_4_0()); 
+            	    	        newCompositeNode(grammarAccess.getSTableAccess().getColumnsSTableMemberParserRuleCall_4_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleSEntityMember_in_ruleSTable933);
-            	    lv_entityMembers_8_0=ruleSEntityMember();
+            	    pushFollow(FOLLOW_ruleSTableMember_in_ruleSTable1233);
+            	    lv_columns_11_0=ruleSTableMember();
 
             	    state._fsp--;
 
@@ -1008,9 +1274,9 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
             	    	        }
             	           		add(
             	           			current, 
-            	           			"entityMembers",
-            	            		lv_entityMembers_8_0, 
-            	            		"SEntityMember");
+            	           			"columns",
+            	            		lv_columns_11_0, 
+            	            		"STableMember");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -1025,9 +1291,9 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_9=(Token)match(input,14,FOLLOW_14_in_ruleSTable946); 
+            otherlv_12=(Token)match(input,16,FOLLOW_16_in_ruleSTable1246); 
 
-                	newLeafNode(otherlv_9, grammarAccess.getSTableAccess().getRightCurlyBracketKeyword_5());
+                	newLeafNode(otherlv_12, grammarAccess.getSTableAccess().getRightCurlyBracketKeyword_5());
                 
 
             }
@@ -1049,26 +1315,26 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleSTable"
 
 
-    // $ANTLR start "entryRuleSEntityMember"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:437:1: entryRuleSEntityMember returns [EObject current=null] : iv_ruleSEntityMember= ruleSEntityMember EOF ;
-    public final EObject entryRuleSEntityMember() throws RecognitionException {
+    // $ANTLR start "entryRuleSTableMember"
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:554:1: entryRuleSTableMember returns [EObject current=null] : iv_ruleSTableMember= ruleSTableMember EOF ;
+    public final EObject entryRuleSTableMember() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSEntityMember = null;
+        EObject iv_ruleSTableMember = null;
 
 
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:438:2: (iv_ruleSEntityMember= ruleSEntityMember EOF )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:439:2: iv_ruleSEntityMember= ruleSEntityMember EOF
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:555:2: (iv_ruleSTableMember= ruleSTableMember EOF )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:556:2: iv_ruleSTableMember= ruleSTableMember EOF
             {
-             newCompositeNode(grammarAccess.getSEntityMemberRule()); 
-            pushFollow(FOLLOW_ruleSEntityMember_in_entryRuleSEntityMember982);
-            iv_ruleSEntityMember=ruleSEntityMember();
+             newCompositeNode(grammarAccess.getSTableMemberRule()); 
+            pushFollow(FOLLOW_ruleSTableMember_in_entryRuleSTableMember1282);
+            iv_ruleSTableMember=ruleSTableMember();
 
             state._fsp--;
 
-             current =iv_ruleSEntityMember; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSEntityMember992); 
+             current =iv_ruleSTableMember; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSTableMember1292); 
 
             }
 
@@ -1082,33 +1348,33 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSEntityMember"
+    // $ANTLR end "entryRuleSTableMember"
 
 
-    // $ANTLR start "ruleSEntityMember"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:446:1: ruleSEntityMember returns [EObject current=null] : (this_SProperty_0= ruleSProperty | this_SJoinProperty_1= ruleSJoinProperty ) ;
-    public final EObject ruleSEntityMember() throws RecognitionException {
+    // $ANTLR start "ruleSTableMember"
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:563:1: ruleSTableMember returns [EObject current=null] : (this_SColumn_0= ruleSColumn | this_SJoinColumn_1= ruleSJoinColumn ) ;
+    public final EObject ruleSTableMember() throws RecognitionException {
         EObject current = null;
 
-        EObject this_SProperty_0 = null;
+        EObject this_SColumn_0 = null;
 
-        EObject this_SJoinProperty_1 = null;
+        EObject this_SJoinColumn_1 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:449:28: ( (this_SProperty_0= ruleSProperty | this_SJoinProperty_1= ruleSJoinProperty ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:450:1: (this_SProperty_0= ruleSProperty | this_SJoinProperty_1= ruleSJoinProperty )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:566:28: ( (this_SColumn_0= ruleSColumn | this_SJoinColumn_1= ruleSJoinColumn ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:567:1: (this_SColumn_0= ruleSColumn | this_SJoinColumn_1= ruleSJoinColumn )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:450:1: (this_SProperty_0= ruleSProperty | this_SJoinProperty_1= ruleSJoinProperty )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:567:1: (this_SColumn_0= ruleSColumn | this_SJoinColumn_1= ruleSJoinColumn )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==19) ) {
+            if ( (LA7_0==23) ) {
                 alt7=1;
             }
-            else if ( (LA7_0==20) ) {
+            else if ( (LA7_0==24) ) {
                 alt7=2;
             }
             else {
@@ -1119,36 +1385,36 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:451:5: this_SProperty_0= ruleSProperty
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:568:5: this_SColumn_0= ruleSColumn
                     {
                      
-                            newCompositeNode(grammarAccess.getSEntityMemberAccess().getSPropertyParserRuleCall_0()); 
+                            newCompositeNode(grammarAccess.getSTableMemberAccess().getSColumnParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleSProperty_in_ruleSEntityMember1039);
-                    this_SProperty_0=ruleSProperty();
+                    pushFollow(FOLLOW_ruleSColumn_in_ruleSTableMember1339);
+                    this_SColumn_0=ruleSColumn();
 
                     state._fsp--;
 
                      
-                            current = this_SProperty_0; 
+                            current = this_SColumn_0; 
                             afterParserOrEnumRuleCall();
                         
 
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:461:5: this_SJoinProperty_1= ruleSJoinProperty
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:578:5: this_SJoinColumn_1= ruleSJoinColumn
                     {
                      
-                            newCompositeNode(grammarAccess.getSEntityMemberAccess().getSJoinPropertyParserRuleCall_1()); 
+                            newCompositeNode(grammarAccess.getSTableMemberAccess().getSJoinColumnParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleSJoinProperty_in_ruleSEntityMember1066);
-                    this_SJoinProperty_1=ruleSJoinProperty();
+                    pushFollow(FOLLOW_ruleSJoinColumn_in_ruleSTableMember1366);
+                    this_SJoinColumn_1=ruleSJoinColumn();
 
                     state._fsp--;
 
                      
-                            current = this_SJoinProperty_1; 
+                            current = this_SJoinColumn_1; 
                             afterParserOrEnumRuleCall();
                         
 
@@ -1171,29 +1437,29 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSEntityMember"
+    // $ANTLR end "ruleSTableMember"
 
 
-    // $ANTLR start "entryRuleSProperty"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:477:1: entryRuleSProperty returns [EObject current=null] : iv_ruleSProperty= ruleSProperty EOF ;
-    public final EObject entryRuleSProperty() throws RecognitionException {
+    // $ANTLR start "entryRuleSColumn"
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:594:1: entryRuleSColumn returns [EObject current=null] : iv_ruleSColumn= ruleSColumn EOF ;
+    public final EObject entryRuleSColumn() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSProperty = null;
+        EObject iv_ruleSColumn = null;
 
 
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:478:2: (iv_ruleSProperty= ruleSProperty EOF )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:479:2: iv_ruleSProperty= ruleSProperty EOF
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:595:2: (iv_ruleSColumn= ruleSColumn EOF )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:596:2: iv_ruleSColumn= ruleSColumn EOF
             {
-             newCompositeNode(grammarAccess.getSPropertyRule()); 
-            pushFollow(FOLLOW_ruleSProperty_in_entryRuleSProperty1101);
-            iv_ruleSProperty=ruleSProperty();
+             newCompositeNode(grammarAccess.getSColumnRule()); 
+            pushFollow(FOLLOW_ruleSColumn_in_entryRuleSColumn1401);
+            iv_ruleSColumn=ruleSColumn();
 
             state._fsp--;
 
-             current =iv_ruleSProperty; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSProperty1111); 
+             current =iv_ruleSColumn; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSColumn1411); 
 
             }
 
@@ -1207,12 +1473,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSProperty"
+    // $ANTLR end "entryRuleSColumn"
 
 
-    // $ANTLR start "ruleSProperty"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:486:1: ruleSProperty returns [EObject current=null] : (otherlv_0= 'column' ( (lv_name_1_0= RULE_ID ) ) ( ( (otherlv_2= RULE_ID ) ) | ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) ) | ( (lv_simpleType_4_0= ruleSSimpleTypes ) ) ) ( (lv_props_5_0= ruleSColumnProps ) )? otherlv_6= ';' ) ;
-    public final EObject ruleSProperty() throws RecognitionException {
+    // $ANTLR start "ruleSColumn"
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:603:1: ruleSColumn returns [EObject current=null] : (otherlv_0= 'column' ( (lv_name_1_0= RULE_ID ) ) ( ( (otherlv_2= RULE_ID ) ) | ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) ) | ( (lv_simpleType_4_0= ruleSSimpleTypes ) ) ) ( (lv_props_5_0= ruleSColumnProps ) )? otherlv_6= ';' ) ;
+    public final EObject ruleSColumn() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -1229,29 +1495,29 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:489:28: ( (otherlv_0= 'column' ( (lv_name_1_0= RULE_ID ) ) ( ( (otherlv_2= RULE_ID ) ) | ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) ) | ( (lv_simpleType_4_0= ruleSSimpleTypes ) ) ) ( (lv_props_5_0= ruleSColumnProps ) )? otherlv_6= ';' ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:490:1: (otherlv_0= 'column' ( (lv_name_1_0= RULE_ID ) ) ( ( (otherlv_2= RULE_ID ) ) | ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) ) | ( (lv_simpleType_4_0= ruleSSimpleTypes ) ) ) ( (lv_props_5_0= ruleSColumnProps ) )? otherlv_6= ';' )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:606:28: ( (otherlv_0= 'column' ( (lv_name_1_0= RULE_ID ) ) ( ( (otherlv_2= RULE_ID ) ) | ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) ) | ( (lv_simpleType_4_0= ruleSSimpleTypes ) ) ) ( (lv_props_5_0= ruleSColumnProps ) )? otherlv_6= ';' ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:607:1: (otherlv_0= 'column' ( (lv_name_1_0= RULE_ID ) ) ( ( (otherlv_2= RULE_ID ) ) | ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) ) | ( (lv_simpleType_4_0= ruleSSimpleTypes ) ) ) ( (lv_props_5_0= ruleSColumnProps ) )? otherlv_6= ';' )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:490:1: (otherlv_0= 'column' ( (lv_name_1_0= RULE_ID ) ) ( ( (otherlv_2= RULE_ID ) ) | ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) ) | ( (lv_simpleType_4_0= ruleSSimpleTypes ) ) ) ( (lv_props_5_0= ruleSColumnProps ) )? otherlv_6= ';' )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:490:3: otherlv_0= 'column' ( (lv_name_1_0= RULE_ID ) ) ( ( (otherlv_2= RULE_ID ) ) | ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) ) | ( (lv_simpleType_4_0= ruleSSimpleTypes ) ) ) ( (lv_props_5_0= ruleSColumnProps ) )? otherlv_6= ';'
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:607:1: (otherlv_0= 'column' ( (lv_name_1_0= RULE_ID ) ) ( ( (otherlv_2= RULE_ID ) ) | ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) ) | ( (lv_simpleType_4_0= ruleSSimpleTypes ) ) ) ( (lv_props_5_0= ruleSColumnProps ) )? otherlv_6= ';' )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:607:3: otherlv_0= 'column' ( (lv_name_1_0= RULE_ID ) ) ( ( (otherlv_2= RULE_ID ) ) | ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) ) | ( (lv_simpleType_4_0= ruleSSimpleTypes ) ) ) ( (lv_props_5_0= ruleSColumnProps ) )? otherlv_6= ';'
             {
-            otherlv_0=(Token)match(input,19,FOLLOW_19_in_ruleSProperty1148); 
+            otherlv_0=(Token)match(input,23,FOLLOW_23_in_ruleSColumn1448); 
 
-                	newLeafNode(otherlv_0, grammarAccess.getSPropertyAccess().getColumnKeyword_0());
+                	newLeafNode(otherlv_0, grammarAccess.getSColumnAccess().getColumnKeyword_0());
                 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:494:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:495:1: (lv_name_1_0= RULE_ID )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:611:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:612:1: (lv_name_1_0= RULE_ID )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:495:1: (lv_name_1_0= RULE_ID )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:496:3: lv_name_1_0= RULE_ID
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:612:1: (lv_name_1_0= RULE_ID )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:613:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSProperty1165); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSColumn1465); 
 
-            			newLeafNode(lv_name_1_0, grammarAccess.getSPropertyAccess().getNameIDTerminalRuleCall_1_0()); 
+            			newLeafNode(lv_name_1_0, grammarAccess.getSColumnAccess().getNameIDTerminalRuleCall_1_0()); 
             		
 
             	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getSPropertyRule());
+            	            current = createModelElement(grammarAccess.getSColumnRule());
             	        }
                    		setWithLastConsumed(
                    			current, 
@@ -1265,7 +1531,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:512:2: ( ( (otherlv_2= RULE_ID ) ) | ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) ) | ( (lv_simpleType_4_0= ruleSSimpleTypes ) ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:629:2: ( ( (otherlv_2= RULE_ID ) ) | ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) ) | ( (lv_simpleType_4_0= ruleSSimpleTypes ) ) )
             int alt8=3;
             switch ( input.LA(1) ) {
             case RULE_ID:
@@ -1273,18 +1539,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                 alt8=1;
                 }
                 break;
-            case 27:
-            case 29:
+            case 32:
+            case 34:
                 {
                 alt8=2;
                 }
                 break;
-            case 32:
-            case 33:
-            case 34:
-            case 35:
-            case 36:
-            case 37:
             case 38:
             case 39:
             case 40:
@@ -1293,6 +1553,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
             case 43:
             case 44:
             case 45:
+            case 46:
+            case 47:
+            case 48:
+            case 49:
+            case 50:
+            case 51:
                 {
                 alt8=3;
                 }
@@ -1306,22 +1572,22 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             switch (alt8) {
                 case 1 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:512:3: ( (otherlv_2= RULE_ID ) )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:629:3: ( (otherlv_2= RULE_ID ) )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:512:3: ( (otherlv_2= RULE_ID ) )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:513:1: (otherlv_2= RULE_ID )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:629:3: ( (otherlv_2= RULE_ID ) )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:630:1: (otherlv_2= RULE_ID )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:513:1: (otherlv_2= RULE_ID )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:514:3: otherlv_2= RULE_ID
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:630:1: (otherlv_2= RULE_ID )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:631:3: otherlv_2= RULE_ID
                     {
 
                     			if (current==null) {
-                    	            current = createModelElement(grammarAccess.getSPropertyRule());
+                    	            current = createModelElement(grammarAccess.getSColumnRule());
                     	        }
                             
-                    otherlv_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSProperty1191); 
+                    otherlv_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSColumn1491); 
 
-                    		newLeafNode(otherlv_2, grammarAccess.getSPropertyAccess().getExtTypeSExtDeclaredSQLTypeCrossReference_2_0_0()); 
+                    		newLeafNode(otherlv_2, grammarAccess.getSColumnAccess().getExtTypeSExtDeclaredSQLTypeCrossReference_2_0_0()); 
                     	
 
                     }
@@ -1333,25 +1599,25 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:526:6: ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:643:6: ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:526:6: ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:527:1: (lv_inlinedType_3_0= ruleSInlinedSQLType )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:643:6: ( (lv_inlinedType_3_0= ruleSInlinedSQLType ) )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:644:1: (lv_inlinedType_3_0= ruleSInlinedSQLType )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:527:1: (lv_inlinedType_3_0= ruleSInlinedSQLType )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:528:3: lv_inlinedType_3_0= ruleSInlinedSQLType
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:644:1: (lv_inlinedType_3_0= ruleSInlinedSQLType )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:645:3: lv_inlinedType_3_0= ruleSInlinedSQLType
                     {
                      
-                    	        newCompositeNode(grammarAccess.getSPropertyAccess().getInlinedTypeSInlinedSQLTypeParserRuleCall_2_1_0()); 
+                    	        newCompositeNode(grammarAccess.getSColumnAccess().getInlinedTypeSInlinedSQLTypeParserRuleCall_2_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleSInlinedSQLType_in_ruleSProperty1218);
+                    pushFollow(FOLLOW_ruleSInlinedSQLType_in_ruleSColumn1518);
                     lv_inlinedType_3_0=ruleSInlinedSQLType();
 
                     state._fsp--;
 
 
                     	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getSPropertyRule());
+                    	            current = createModelElementForParent(grammarAccess.getSColumnRule());
                     	        }
                            		set(
                            			current, 
@@ -1370,25 +1636,25 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:545:6: ( (lv_simpleType_4_0= ruleSSimpleTypes ) )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:662:6: ( (lv_simpleType_4_0= ruleSSimpleTypes ) )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:545:6: ( (lv_simpleType_4_0= ruleSSimpleTypes ) )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:546:1: (lv_simpleType_4_0= ruleSSimpleTypes )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:662:6: ( (lv_simpleType_4_0= ruleSSimpleTypes ) )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:663:1: (lv_simpleType_4_0= ruleSSimpleTypes )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:546:1: (lv_simpleType_4_0= ruleSSimpleTypes )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:547:3: lv_simpleType_4_0= ruleSSimpleTypes
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:663:1: (lv_simpleType_4_0= ruleSSimpleTypes )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:664:3: lv_simpleType_4_0= ruleSSimpleTypes
                     {
                      
-                    	        newCompositeNode(grammarAccess.getSPropertyAccess().getSimpleTypeSSimpleTypesEnumRuleCall_2_2_0()); 
+                    	        newCompositeNode(grammarAccess.getSColumnAccess().getSimpleTypeSSimpleTypesEnumRuleCall_2_2_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleSSimpleTypes_in_ruleSProperty1245);
+                    pushFollow(FOLLOW_ruleSSimpleTypes_in_ruleSColumn1545);
                     lv_simpleType_4_0=ruleSSimpleTypes();
 
                     state._fsp--;
 
 
                     	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getSPropertyRule());
+                    	            current = createModelElementForParent(grammarAccess.getSColumnRule());
                     	        }
                            		set(
                            			current, 
@@ -1409,31 +1675,31 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:563:3: ( (lv_props_5_0= ruleSColumnProps ) )?
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:680:3: ( (lv_props_5_0= ruleSColumnProps ) )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==21) ) {
+            if ( (LA9_0==25) ) {
                 alt9=1;
             }
             switch (alt9) {
                 case 1 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:564:1: (lv_props_5_0= ruleSColumnProps )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:681:1: (lv_props_5_0= ruleSColumnProps )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:564:1: (lv_props_5_0= ruleSColumnProps )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:565:3: lv_props_5_0= ruleSColumnProps
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:681:1: (lv_props_5_0= ruleSColumnProps )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:682:3: lv_props_5_0= ruleSColumnProps
                     {
                      
-                    	        newCompositeNode(grammarAccess.getSPropertyAccess().getPropsSColumnPropsParserRuleCall_3_0()); 
+                    	        newCompositeNode(grammarAccess.getSColumnAccess().getPropsSColumnPropsParserRuleCall_3_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleSColumnProps_in_ruleSProperty1267);
+                    pushFollow(FOLLOW_ruleSColumnProps_in_ruleSColumn1567);
                     lv_props_5_0=ruleSColumnProps();
 
                     state._fsp--;
 
 
                     	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getSPropertyRule());
+                    	            current = createModelElementForParent(grammarAccess.getSColumnRule());
                     	        }
                            		set(
                            			current, 
@@ -1451,9 +1717,9 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,18,FOLLOW_18_in_ruleSProperty1280); 
+            otherlv_6=(Token)match(input,22,FOLLOW_22_in_ruleSColumn1580); 
 
-                	newLeafNode(otherlv_6, grammarAccess.getSPropertyAccess().getSemicolonKeyword_4());
+                	newLeafNode(otherlv_6, grammarAccess.getSColumnAccess().getSemicolonKeyword_4());
                 
 
             }
@@ -1472,29 +1738,29 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSProperty"
+    // $ANTLR end "ruleSColumn"
 
 
-    // $ANTLR start "entryRuleSJoinProperty"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:593:1: entryRuleSJoinProperty returns [EObject current=null] : iv_ruleSJoinProperty= ruleSJoinProperty EOF ;
-    public final EObject entryRuleSJoinProperty() throws RecognitionException {
+    // $ANTLR start "entryRuleSJoinColumn"
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:710:1: entryRuleSJoinColumn returns [EObject current=null] : iv_ruleSJoinColumn= ruleSJoinColumn EOF ;
+    public final EObject entryRuleSJoinColumn() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSJoinProperty = null;
+        EObject iv_ruleSJoinColumn = null;
 
 
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:594:2: (iv_ruleSJoinProperty= ruleSJoinProperty EOF )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:595:2: iv_ruleSJoinProperty= ruleSJoinProperty EOF
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:711:2: (iv_ruleSJoinColumn= ruleSJoinColumn EOF )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:712:2: iv_ruleSJoinColumn= ruleSJoinColumn EOF
             {
-             newCompositeNode(grammarAccess.getSJoinPropertyRule()); 
-            pushFollow(FOLLOW_ruleSJoinProperty_in_entryRuleSJoinProperty1316);
-            iv_ruleSJoinProperty=ruleSJoinProperty();
+             newCompositeNode(grammarAccess.getSJoinColumnRule()); 
+            pushFollow(FOLLOW_ruleSJoinColumn_in_entryRuleSJoinColumn1616);
+            iv_ruleSJoinColumn=ruleSJoinColumn();
 
             state._fsp--;
 
-             current =iv_ruleSJoinProperty; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSJoinProperty1326); 
+             current =iv_ruleSJoinColumn; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSJoinColumn1626); 
 
             }
 
@@ -1508,12 +1774,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSJoinProperty"
+    // $ANTLR end "entryRuleSJoinColumn"
 
 
-    // $ANTLR start "ruleSJoinProperty"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:602:1: ruleSJoinProperty returns [EObject current=null] : (otherlv_0= 'joincolumn' ( (lv_name_1_0= RULE_ID ) ) ( (otherlv_2= RULE_ID ) ) ( (lv_props_3_0= ruleSColumnProps ) )? otherlv_4= ';' ) ;
-    public final EObject ruleSJoinProperty() throws RecognitionException {
+    // $ANTLR start "ruleSJoinColumn"
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:719:1: ruleSJoinColumn returns [EObject current=null] : (otherlv_0= 'joincolumn' ( (lv_name_1_0= RULE_ID ) ) ( (otherlv_2= RULE_ID ) ) ( (lv_props_3_0= ruleSColumnProps ) )? otherlv_4= ';' ) ;
+    public final EObject ruleSJoinColumn() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -1526,29 +1792,29 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:605:28: ( (otherlv_0= 'joincolumn' ( (lv_name_1_0= RULE_ID ) ) ( (otherlv_2= RULE_ID ) ) ( (lv_props_3_0= ruleSColumnProps ) )? otherlv_4= ';' ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:606:1: (otherlv_0= 'joincolumn' ( (lv_name_1_0= RULE_ID ) ) ( (otherlv_2= RULE_ID ) ) ( (lv_props_3_0= ruleSColumnProps ) )? otherlv_4= ';' )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:722:28: ( (otherlv_0= 'joincolumn' ( (lv_name_1_0= RULE_ID ) ) ( (otherlv_2= RULE_ID ) ) ( (lv_props_3_0= ruleSColumnProps ) )? otherlv_4= ';' ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:723:1: (otherlv_0= 'joincolumn' ( (lv_name_1_0= RULE_ID ) ) ( (otherlv_2= RULE_ID ) ) ( (lv_props_3_0= ruleSColumnProps ) )? otherlv_4= ';' )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:606:1: (otherlv_0= 'joincolumn' ( (lv_name_1_0= RULE_ID ) ) ( (otherlv_2= RULE_ID ) ) ( (lv_props_3_0= ruleSColumnProps ) )? otherlv_4= ';' )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:606:3: otherlv_0= 'joincolumn' ( (lv_name_1_0= RULE_ID ) ) ( (otherlv_2= RULE_ID ) ) ( (lv_props_3_0= ruleSColumnProps ) )? otherlv_4= ';'
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:723:1: (otherlv_0= 'joincolumn' ( (lv_name_1_0= RULE_ID ) ) ( (otherlv_2= RULE_ID ) ) ( (lv_props_3_0= ruleSColumnProps ) )? otherlv_4= ';' )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:723:3: otherlv_0= 'joincolumn' ( (lv_name_1_0= RULE_ID ) ) ( (otherlv_2= RULE_ID ) ) ( (lv_props_3_0= ruleSColumnProps ) )? otherlv_4= ';'
             {
-            otherlv_0=(Token)match(input,20,FOLLOW_20_in_ruleSJoinProperty1363); 
+            otherlv_0=(Token)match(input,24,FOLLOW_24_in_ruleSJoinColumn1663); 
 
-                	newLeafNode(otherlv_0, grammarAccess.getSJoinPropertyAccess().getJoincolumnKeyword_0());
+                	newLeafNode(otherlv_0, grammarAccess.getSJoinColumnAccess().getJoincolumnKeyword_0());
                 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:610:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:611:1: (lv_name_1_0= RULE_ID )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:727:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:728:1: (lv_name_1_0= RULE_ID )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:611:1: (lv_name_1_0= RULE_ID )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:612:3: lv_name_1_0= RULE_ID
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:728:1: (lv_name_1_0= RULE_ID )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:729:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSJoinProperty1380); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSJoinColumn1680); 
 
-            			newLeafNode(lv_name_1_0, grammarAccess.getSJoinPropertyAccess().getNameIDTerminalRuleCall_1_0()); 
+            			newLeafNode(lv_name_1_0, grammarAccess.getSJoinColumnAccess().getNameIDTerminalRuleCall_1_0()); 
             		
 
             	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getSJoinPropertyRule());
+            	            current = createModelElement(grammarAccess.getSJoinColumnRule());
             	        }
                    		setWithLastConsumed(
                    			current, 
@@ -1562,20 +1828,20 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:628:2: ( (otherlv_2= RULE_ID ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:629:1: (otherlv_2= RULE_ID )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:745:2: ( (otherlv_2= RULE_ID ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:746:1: (otherlv_2= RULE_ID )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:629:1: (otherlv_2= RULE_ID )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:630:3: otherlv_2= RULE_ID
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:746:1: (otherlv_2= RULE_ID )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:747:3: otherlv_2= RULE_ID
             {
 
             			if (current==null) {
-            	            current = createModelElement(grammarAccess.getSJoinPropertyRule());
+            	            current = createModelElement(grammarAccess.getSJoinColumnRule());
             	        }
                     
-            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSJoinProperty1405); 
+            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSJoinColumn1705); 
 
-            		newLeafNode(otherlv_2, grammarAccess.getSJoinPropertyAccess().getTypeSTableCrossReference_2_0()); 
+            		newLeafNode(otherlv_2, grammarAccess.getSJoinColumnAccess().getReferencedTypeSTableCrossReference_2_0()); 
             	
 
             }
@@ -1583,31 +1849,31 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:641:2: ( (lv_props_3_0= ruleSColumnProps ) )?
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:758:2: ( (lv_props_3_0= ruleSColumnProps ) )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==21) ) {
+            if ( (LA10_0==25) ) {
                 alt10=1;
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:642:1: (lv_props_3_0= ruleSColumnProps )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:759:1: (lv_props_3_0= ruleSColumnProps )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:642:1: (lv_props_3_0= ruleSColumnProps )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:643:3: lv_props_3_0= ruleSColumnProps
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:759:1: (lv_props_3_0= ruleSColumnProps )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:760:3: lv_props_3_0= ruleSColumnProps
                     {
                      
-                    	        newCompositeNode(grammarAccess.getSJoinPropertyAccess().getPropsSColumnPropsParserRuleCall_3_0()); 
+                    	        newCompositeNode(grammarAccess.getSJoinColumnAccess().getPropsSColumnPropsParserRuleCall_3_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleSColumnProps_in_ruleSJoinProperty1426);
+                    pushFollow(FOLLOW_ruleSColumnProps_in_ruleSJoinColumn1726);
                     lv_props_3_0=ruleSColumnProps();
 
                     state._fsp--;
 
 
                     	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getSJoinPropertyRule());
+                    	            current = createModelElementForParent(grammarAccess.getSJoinColumnRule());
                     	        }
                            		set(
                            			current, 
@@ -1625,9 +1891,9 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,18,FOLLOW_18_in_ruleSJoinProperty1439); 
+            otherlv_4=(Token)match(input,22,FOLLOW_22_in_ruleSJoinColumn1739); 
 
-                	newLeafNode(otherlv_4, grammarAccess.getSJoinPropertyAccess().getSemicolonKeyword_4());
+                	newLeafNode(otherlv_4, grammarAccess.getSJoinColumnAccess().getSemicolonKeyword_4());
                 
 
             }
@@ -1646,11 +1912,11 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSJoinProperty"
+    // $ANTLR end "ruleSJoinColumn"
 
 
     // $ANTLR start "entryRuleSColumnProps"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:671:1: entryRuleSColumnProps returns [EObject current=null] : iv_ruleSColumnProps= ruleSColumnProps EOF ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:788:1: entryRuleSColumnProps returns [EObject current=null] : iv_ruleSColumnProps= ruleSColumnProps EOF ;
     public final EObject entryRuleSColumnProps() throws RecognitionException {
         EObject current = null;
 
@@ -1658,17 +1924,17 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:672:2: (iv_ruleSColumnProps= ruleSColumnProps EOF )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:673:2: iv_ruleSColumnProps= ruleSColumnProps EOF
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:789:2: (iv_ruleSColumnProps= ruleSColumnProps EOF )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:790:2: iv_ruleSColumnProps= ruleSColumnProps EOF
             {
              newCompositeNode(grammarAccess.getSColumnPropsRule()); 
-            pushFollow(FOLLOW_ruleSColumnProps_in_entryRuleSColumnProps1475);
+            pushFollow(FOLLOW_ruleSColumnProps_in_entryRuleSColumnProps1775);
             iv_ruleSColumnProps=ruleSColumnProps();
 
             state._fsp--;
 
              current =iv_ruleSColumnProps; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSColumnProps1485); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSColumnProps1785); 
 
             }
 
@@ -1686,7 +1952,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSColumnProps"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:680:1: ruleSColumnProps returns [EObject current=null] : ( () otherlv_1= 'with' ( ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) )* ) ) ) ) ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:797:1: ruleSColumnProps returns [EObject current=null] : ( () otherlv_1= 'with' ( ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) ) ) )* ) ) ) ) ;
     public final EObject ruleSColumnProps() throws RecognitionException {
         EObject current = null;
 
@@ -1694,20 +1960,22 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
         Token lv_nullable_3_0=null;
         Token lv_aes_4_0=null;
         Token otherlv_5=null;
+        Token otherlv_7=null;
+        Token lv_javacolumn_8_0=null;
         Enumerator lv_index_6_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:683:28: ( ( () otherlv_1= 'with' ( ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) )* ) ) ) ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:684:1: ( () otherlv_1= 'with' ( ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) )* ) ) ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:800:28: ( ( () otherlv_1= 'with' ( ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) ) ) )* ) ) ) ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:801:1: ( () otherlv_1= 'with' ( ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) ) ) )* ) ) ) )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:684:1: ( () otherlv_1= 'with' ( ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) )* ) ) ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:684:2: () otherlv_1= 'with' ( ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) )* ) ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:801:1: ( () otherlv_1= 'with' ( ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) ) ) )* ) ) ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:801:2: () otherlv_1= 'with' ( ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) ) ) )* ) ) )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:684:2: ()
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:685:5: 
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:801:2: ()
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:802:5: 
             {
 
                     current = forceCreateModelElement(
@@ -1717,68 +1985,71 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,21,FOLLOW_21_in_ruleSColumnProps1531); 
+            otherlv_1=(Token)match(input,25,FOLLOW_25_in_ruleSColumnProps1831); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getSColumnPropsAccess().getWithKeyword_1());
                 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:694:1: ( ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) )* ) ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:696:1: ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) )* ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:811:1: ( ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) ) ) )* ) ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:813:1: ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) ) ) )* ) )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:696:1: ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) )* ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:697:2: ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) )* )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:813:1: ( ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) ) ) )* ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:814:2: ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) ) ) )* )
             {
              
             	  getUnorderedGroupHelper().enter(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2());
             	
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:700:2: ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) )* )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:701:3: ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) )*
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:817:2: ( ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) ) ) )* )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:818:3: ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) ) ) )*
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:701:3: ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) )*
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:818:3: ( ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) ) ) )*
             loop11:
             do {
-                int alt11=4;
+                int alt11=5;
                 int LA11_0 = input.LA(1);
 
-                if ( LA11_0 ==22 && getUnorderedGroupHelper().canSelect(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 0) ) {
+                if ( LA11_0 ==26 && getUnorderedGroupHelper().canSelect(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 0) ) {
                     alt11=1;
                 }
-                else if ( LA11_0 ==23 && getUnorderedGroupHelper().canSelect(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 1) ) {
+                else if ( LA11_0 ==27 && getUnorderedGroupHelper().canSelect(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 1) ) {
                     alt11=2;
                 }
-                else if ( LA11_0 ==24 && getUnorderedGroupHelper().canSelect(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 2) ) {
+                else if ( LA11_0 ==28 && getUnorderedGroupHelper().canSelect(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 2) ) {
                     alt11=3;
+                }
+                else if ( LA11_0 ==29 && getUnorderedGroupHelper().canSelect(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 3) ) {
+                    alt11=4;
                 }
 
 
                 switch (alt11) {
             	case 1 :
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:703:4: ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:820:4: ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:703:4: ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:704:5: {...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:820:4: ({...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:821:5: {...}? => ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 0) ) {
             	        throw new FailedPredicateException(input, "ruleSColumnProps", "getUnorderedGroupHelper().canSelect(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 0)");
             	    }
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:704:109: ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:705:6: ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:821:109: ( ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:822:6: ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 0);
             	    	 				
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:708:6: ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:708:7: {...}? => ( (lv_nullable_3_0= 'nullable' ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:825:6: ({...}? => ( (lv_nullable_3_0= 'nullable' ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:825:7: {...}? => ( (lv_nullable_3_0= 'nullable' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleSColumnProps", "true");
             	    }
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:708:16: ( (lv_nullable_3_0= 'nullable' ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:709:1: (lv_nullable_3_0= 'nullable' )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:825:16: ( (lv_nullable_3_0= 'nullable' ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:826:1: (lv_nullable_3_0= 'nullable' )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:709:1: (lv_nullable_3_0= 'nullable' )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:710:3: lv_nullable_3_0= 'nullable'
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:826:1: (lv_nullable_3_0= 'nullable' )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:827:3: lv_nullable_3_0= 'nullable'
             	    {
-            	    lv_nullable_3_0=(Token)match(input,22,FOLLOW_22_in_ruleSColumnProps1594); 
+            	    lv_nullable_3_0=(Token)match(input,26,FOLLOW_26_in_ruleSColumnProps1894); 
 
             	            newLeafNode(lv_nullable_3_0, grammarAccess.getSColumnPropsAccess().getNullableNullableKeyword_2_0_0());
             	        
@@ -1810,33 +2081,33 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:730:4: ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:847:4: ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:730:4: ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:731:5: {...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:847:4: ({...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:848:5: {...}? => ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 1) ) {
             	        throw new FailedPredicateException(input, "ruleSColumnProps", "getUnorderedGroupHelper().canSelect(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 1)");
             	    }
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:731:109: ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:732:6: ({...}? => ( (lv_aes_4_0= 'AES' ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:848:109: ( ({...}? => ( (lv_aes_4_0= 'AES' ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:849:6: ({...}? => ( (lv_aes_4_0= 'AES' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 1);
             	    	 				
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:735:6: ({...}? => ( (lv_aes_4_0= 'AES' ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:735:7: {...}? => ( (lv_aes_4_0= 'AES' ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:852:6: ({...}? => ( (lv_aes_4_0= 'AES' ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:852:7: {...}? => ( (lv_aes_4_0= 'AES' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleSColumnProps", "true");
             	    }
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:735:16: ( (lv_aes_4_0= 'AES' ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:736:1: (lv_aes_4_0= 'AES' )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:852:16: ( (lv_aes_4_0= 'AES' ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:853:1: (lv_aes_4_0= 'AES' )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:736:1: (lv_aes_4_0= 'AES' )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:737:3: lv_aes_4_0= 'AES'
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:853:1: (lv_aes_4_0= 'AES' )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:854:3: lv_aes_4_0= 'AES'
             	    {
-            	    lv_aes_4_0=(Token)match(input,23,FOLLOW_23_in_ruleSColumnProps1679); 
+            	    lv_aes_4_0=(Token)match(input,27,FOLLOW_27_in_ruleSColumnProps1979); 
 
             	            newLeafNode(lv_aes_4_0, grammarAccess.getSColumnPropsAccess().getAesAESKeyword_2_1_0());
             	        
@@ -1868,43 +2139,43 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 3 :
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:757:4: ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:874:4: ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:757:4: ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:758:5: {...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:874:4: ({...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:875:5: {...}? => ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 2) ) {
             	        throw new FailedPredicateException(input, "ruleSColumnProps", "getUnorderedGroupHelper().canSelect(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 2)");
             	    }
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:758:109: ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:759:6: ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:875:109: ( ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:876:6: ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 2);
             	    	 				
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:762:6: ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:762:7: {...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:879:6: ({...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:879:7: {...}? => (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleSColumnProps", "true");
             	    }
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:762:16: (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:762:18: otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:879:16: (otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:879:18: otherlv_5= 'index=' ( (lv_index_6_0= ruleSIndex ) )
             	    {
-            	    otherlv_5=(Token)match(input,24,FOLLOW_24_in_ruleSColumnProps1759); 
+            	    otherlv_5=(Token)match(input,28,FOLLOW_28_in_ruleSColumnProps2059); 
 
             	        	newLeafNode(otherlv_5, grammarAccess.getSColumnPropsAccess().getIndexKeyword_2_2_0());
             	        
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:766:1: ( (lv_index_6_0= ruleSIndex ) )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:767:1: (lv_index_6_0= ruleSIndex )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:883:1: ( (lv_index_6_0= ruleSIndex ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:884:1: (lv_index_6_0= ruleSIndex )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:767:1: (lv_index_6_0= ruleSIndex )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:768:3: lv_index_6_0= ruleSIndex
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:884:1: (lv_index_6_0= ruleSIndex )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:885:3: lv_index_6_0= ruleSIndex
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getSColumnPropsAccess().getIndexSIndexEnumRuleCall_2_2_1_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleSIndex_in_ruleSColumnProps1780);
+            	    pushFollow(FOLLOW_ruleSIndex_in_ruleSColumnProps2080);
             	    lv_index_6_0=ruleSIndex();
 
             	    state._fsp--;
@@ -1919,6 +2190,78 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
             	            		lv_index_6_0, 
             	            		"SIndex");
             	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+            	     
+            	    	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2());
+            	    	 				
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 4 :
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:908:4: ({...}? => ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) ) )
+            	    {
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:908:4: ({...}? => ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:909:5: {...}? => ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) )
+            	    {
+            	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 3) ) {
+            	        throw new FailedPredicateException(input, "ruleSColumnProps", "getUnorderedGroupHelper().canSelect(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 3)");
+            	    }
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:909:109: ( ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:910:6: ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) )
+            	    {
+            	     
+            	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), 3);
+            	    	 				
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:913:6: ({...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:913:7: {...}? => (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) )
+            	    {
+            	    if ( !((true)) ) {
+            	        throw new FailedPredicateException(input, "ruleSColumnProps", "true");
+            	    }
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:913:16: (otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:913:18: otherlv_7= 'javacolumn=' ( (lv_javacolumn_8_0= RULE_ID ) )
+            	    {
+            	    otherlv_7=(Token)match(input,29,FOLLOW_29_in_ruleSColumnProps2148); 
+
+            	        	newLeafNode(otherlv_7, grammarAccess.getSColumnPropsAccess().getJavacolumnKeyword_2_3_0());
+            	        
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:917:1: ( (lv_javacolumn_8_0= RULE_ID ) )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:918:1: (lv_javacolumn_8_0= RULE_ID )
+            	    {
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:918:1: (lv_javacolumn_8_0= RULE_ID )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:919:3: lv_javacolumn_8_0= RULE_ID
+            	    {
+            	    lv_javacolumn_8_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSColumnProps2165); 
+
+            	    			newLeafNode(lv_javacolumn_8_0, grammarAccess.getSColumnPropsAccess().getJavacolumnIDTerminalRuleCall_2_3_1_0()); 
+            	    		
+
+            	    	        if (current==null) {
+            	    	            current = createModelElement(grammarAccess.getSColumnPropsRule());
+            	    	        }
+            	           		setWithLastConsumed(
+            	           			current, 
+            	           			"javacolumn",
+            	            		lv_javacolumn_8_0, 
+            	            		"ID");
             	    	    
 
             	    }
@@ -1983,7 +2326,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSInlinedSQLType"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:808:1: entryRuleSInlinedSQLType returns [EObject current=null] : iv_ruleSInlinedSQLType= ruleSInlinedSQLType EOF ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:959:1: entryRuleSInlinedSQLType returns [EObject current=null] : iv_ruleSInlinedSQLType= ruleSInlinedSQLType EOF ;
     public final EObject entryRuleSInlinedSQLType() throws RecognitionException {
         EObject current = null;
 
@@ -1991,17 +2334,17 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:809:2: (iv_ruleSInlinedSQLType= ruleSInlinedSQLType EOF )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:810:2: iv_ruleSInlinedSQLType= ruleSInlinedSQLType EOF
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:960:2: (iv_ruleSInlinedSQLType= ruleSInlinedSQLType EOF )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:961:2: iv_ruleSInlinedSQLType= ruleSInlinedSQLType EOF
             {
              newCompositeNode(grammarAccess.getSInlinedSQLTypeRule()); 
-            pushFollow(FOLLOW_ruleSInlinedSQLType_in_entryRuleSInlinedSQLType1859);
+            pushFollow(FOLLOW_ruleSInlinedSQLType_in_entryRuleSInlinedSQLType2249);
             iv_ruleSInlinedSQLType=ruleSInlinedSQLType();
 
             state._fsp--;
 
              current =iv_ruleSInlinedSQLType; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSInlinedSQLType1869); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSInlinedSQLType2259); 
 
             }
 
@@ -2019,7 +2362,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSInlinedSQLType"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:817:1: ruleSInlinedSQLType returns [EObject current=null] : (this_SString_0= ruleSString | this_SDecimal_1= ruleSDecimal ) ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:968:1: ruleSInlinedSQLType returns [EObject current=null] : (this_SString_0= ruleSString | this_SDecimal_1= ruleSDecimal ) ;
     public final EObject ruleSInlinedSQLType() throws RecognitionException {
         EObject current = null;
 
@@ -2031,17 +2374,17 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:820:28: ( (this_SString_0= ruleSString | this_SDecimal_1= ruleSDecimal ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:821:1: (this_SString_0= ruleSString | this_SDecimal_1= ruleSDecimal )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:971:28: ( (this_SString_0= ruleSString | this_SDecimal_1= ruleSDecimal ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:972:1: (this_SString_0= ruleSString | this_SDecimal_1= ruleSDecimal )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:821:1: (this_SString_0= ruleSString | this_SDecimal_1= ruleSDecimal )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:972:1: (this_SString_0= ruleSString | this_SDecimal_1= ruleSDecimal )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
-            if ( (LA12_0==27) ) {
+            if ( (LA12_0==32) ) {
                 alt12=1;
             }
-            else if ( (LA12_0==29) ) {
+            else if ( (LA12_0==34) ) {
                 alt12=2;
             }
             else {
@@ -2052,12 +2395,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
             }
             switch (alt12) {
                 case 1 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:822:5: this_SString_0= ruleSString
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:973:5: this_SString_0= ruleSString
                     {
                      
                             newCompositeNode(grammarAccess.getSInlinedSQLTypeAccess().getSStringParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleSString_in_ruleSInlinedSQLType1916);
+                    pushFollow(FOLLOW_ruleSString_in_ruleSInlinedSQLType2306);
                     this_SString_0=ruleSString();
 
                     state._fsp--;
@@ -2070,12 +2413,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:832:5: this_SDecimal_1= ruleSDecimal
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:983:5: this_SDecimal_1= ruleSDecimal
                     {
                      
                             newCompositeNode(grammarAccess.getSInlinedSQLTypeAccess().getSDecimalParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleSDecimal_in_ruleSInlinedSQLType1943);
+                    pushFollow(FOLLOW_ruleSDecimal_in_ruleSInlinedSQLType2333);
                     this_SDecimal_1=ruleSDecimal();
 
                     state._fsp--;
@@ -2108,7 +2451,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSEnum"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:848:1: entryRuleSEnum returns [EObject current=null] : iv_ruleSEnum= ruleSEnum EOF ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:999:1: entryRuleSEnum returns [EObject current=null] : iv_ruleSEnum= ruleSEnum EOF ;
     public final EObject entryRuleSEnum() throws RecognitionException {
         EObject current = null;
 
@@ -2116,17 +2459,17 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:849:2: (iv_ruleSEnum= ruleSEnum EOF )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:850:2: iv_ruleSEnum= ruleSEnum EOF
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1000:2: (iv_ruleSEnum= ruleSEnum EOF )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1001:2: iv_ruleSEnum= ruleSEnum EOF
             {
              newCompositeNode(grammarAccess.getSEnumRule()); 
-            pushFollow(FOLLOW_ruleSEnum_in_entryRuleSEnum1978);
+            pushFollow(FOLLOW_ruleSEnum_in_entryRuleSEnum2368);
             iv_ruleSEnum=ruleSEnum();
 
             state._fsp--;
 
              current =iv_ruleSEnum; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSEnum1988); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSEnum2378); 
 
             }
 
@@ -2144,7 +2487,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSEnum"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:857:1: ruleSEnum returns [EObject current=null] : (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_literals_3_0= ruleSEnumLiteral ) )* otherlv_4= '}' ) ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1008:1: ruleSEnum returns [EObject current=null] : (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_literals_3_0= ruleSEnumLiteral ) )* otherlv_4= '}' ) ;
     public final EObject ruleSEnum() throws RecognitionException {
         EObject current = null;
 
@@ -2158,23 +2501,23 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:860:28: ( (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_literals_3_0= ruleSEnumLiteral ) )* otherlv_4= '}' ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:861:1: (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_literals_3_0= ruleSEnumLiteral ) )* otherlv_4= '}' )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1011:28: ( (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_literals_3_0= ruleSEnumLiteral ) )* otherlv_4= '}' ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1012:1: (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_literals_3_0= ruleSEnumLiteral ) )* otherlv_4= '}' )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:861:1: (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_literals_3_0= ruleSEnumLiteral ) )* otherlv_4= '}' )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:861:3: otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_literals_3_0= ruleSEnumLiteral ) )* otherlv_4= '}'
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1012:1: (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_literals_3_0= ruleSEnumLiteral ) )* otherlv_4= '}' )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1012:3: otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_literals_3_0= ruleSEnumLiteral ) )* otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,25,FOLLOW_25_in_ruleSEnum2025); 
+            otherlv_0=(Token)match(input,30,FOLLOW_30_in_ruleSEnum2415); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getSEnumAccess().getEnumKeyword_0());
                 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:865:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:866:1: (lv_name_1_0= RULE_ID )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1016:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1017:1: (lv_name_1_0= RULE_ID )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:866:1: (lv_name_1_0= RULE_ID )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:867:3: lv_name_1_0= RULE_ID
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1017:1: (lv_name_1_0= RULE_ID )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1018:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSEnum2042); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSEnum2432); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getSEnumAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -2194,11 +2537,11 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,16,FOLLOW_16_in_ruleSEnum2059); 
+            otherlv_2=(Token)match(input,18,FOLLOW_18_in_ruleSEnum2449); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getSEnumAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:887:1: ( (lv_literals_3_0= ruleSEnumLiteral ) )*
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1038:1: ( (lv_literals_3_0= ruleSEnumLiteral ) )*
             loop13:
             do {
                 int alt13=2;
@@ -2211,15 +2554,15 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
                 switch (alt13) {
             	case 1 :
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:888:1: (lv_literals_3_0= ruleSEnumLiteral )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1039:1: (lv_literals_3_0= ruleSEnumLiteral )
             	    {
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:888:1: (lv_literals_3_0= ruleSEnumLiteral )
-            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:889:3: lv_literals_3_0= ruleSEnumLiteral
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1039:1: (lv_literals_3_0= ruleSEnumLiteral )
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1040:3: lv_literals_3_0= ruleSEnumLiteral
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getSEnumAccess().getLiteralsSEnumLiteralParserRuleCall_3_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleSEnumLiteral_in_ruleSEnum2080);
+            	    pushFollow(FOLLOW_ruleSEnumLiteral_in_ruleSEnum2470);
             	    lv_literals_3_0=ruleSEnumLiteral();
 
             	    state._fsp--;
@@ -2247,7 +2590,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,14,FOLLOW_14_in_ruleSEnum2093); 
+            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleSEnum2483); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getSEnumAccess().getRightCurlyBracketKeyword_4());
                 
@@ -2272,7 +2615,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSEnumLiteral"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:917:1: entryRuleSEnumLiteral returns [EObject current=null] : iv_ruleSEnumLiteral= ruleSEnumLiteral EOF ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1068:1: entryRuleSEnumLiteral returns [EObject current=null] : iv_ruleSEnumLiteral= ruleSEnumLiteral EOF ;
     public final EObject entryRuleSEnumLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -2280,17 +2623,17 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:918:2: (iv_ruleSEnumLiteral= ruleSEnumLiteral EOF )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:919:2: iv_ruleSEnumLiteral= ruleSEnumLiteral EOF
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1069:2: (iv_ruleSEnumLiteral= ruleSEnumLiteral EOF )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1070:2: iv_ruleSEnumLiteral= ruleSEnumLiteral EOF
             {
              newCompositeNode(grammarAccess.getSEnumLiteralRule()); 
-            pushFollow(FOLLOW_ruleSEnumLiteral_in_entryRuleSEnumLiteral2129);
+            pushFollow(FOLLOW_ruleSEnumLiteral_in_entryRuleSEnumLiteral2519);
             iv_ruleSEnumLiteral=ruleSEnumLiteral();
 
             state._fsp--;
 
              current =iv_ruleSEnumLiteral; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSEnumLiteral2139); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSEnumLiteral2529); 
 
             }
 
@@ -2308,7 +2651,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSEnumLiteral"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:926:1: ruleSEnumLiteral returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) ) ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1077:1: ruleSEnumLiteral returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) ) ;
     public final EObject ruleSEnumLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -2319,19 +2662,19 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:929:28: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:930:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1080:28: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1081:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:930:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:930:2: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1081:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1081:2: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:930:2: ( (lv_name_0_0= RULE_ID ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:931:1: (lv_name_0_0= RULE_ID )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1081:2: ( (lv_name_0_0= RULE_ID ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1082:1: (lv_name_0_0= RULE_ID )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:931:1: (lv_name_0_0= RULE_ID )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:932:3: lv_name_0_0= RULE_ID
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1082:1: (lv_name_0_0= RULE_ID )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1083:3: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSEnumLiteral2181); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSEnumLiteral2571); 
 
             			newLeafNode(lv_name_0_0, grammarAccess.getSEnumLiteralAccess().getNameIDTerminalRuleCall_0_0()); 
             		
@@ -2351,17 +2694,17 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,26,FOLLOW_26_in_ruleSEnumLiteral2198); 
+            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleSEnumLiteral2588); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getSEnumLiteralAccess().getEqualsSignKeyword_1());
                 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:952:1: ( (lv_value_2_0= RULE_INT ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:953:1: (lv_value_2_0= RULE_INT )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1103:1: ( (lv_value_2_0= RULE_INT ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1104:1: (lv_value_2_0= RULE_INT )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:953:1: (lv_value_2_0= RULE_INT )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:954:3: lv_value_2_0= RULE_INT
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1104:1: (lv_value_2_0= RULE_INT )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1105:3: lv_value_2_0= RULE_INT
             {
-            lv_value_2_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSEnumLiteral2215); 
+            lv_value_2_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSEnumLiteral2605); 
 
             			newLeafNode(lv_value_2_0, grammarAccess.getSEnumLiteralAccess().getValueINTTerminalRuleCall_2_0()); 
             		
@@ -2402,7 +2745,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSString"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:978:1: entryRuleSString returns [EObject current=null] : iv_ruleSString= ruleSString EOF ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1129:1: entryRuleSString returns [EObject current=null] : iv_ruleSString= ruleSString EOF ;
     public final EObject entryRuleSString() throws RecognitionException {
         EObject current = null;
 
@@ -2410,17 +2753,17 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:979:2: (iv_ruleSString= ruleSString EOF )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:980:2: iv_ruleSString= ruleSString EOF
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1130:2: (iv_ruleSString= ruleSString EOF )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1131:2: iv_ruleSString= ruleSString EOF
             {
              newCompositeNode(grammarAccess.getSStringRule()); 
-            pushFollow(FOLLOW_ruleSString_in_entryRuleSString2256);
+            pushFollow(FOLLOW_ruleSString_in_entryRuleSString2646);
             iv_ruleSString=ruleSString();
 
             state._fsp--;
 
              current =iv_ruleSString; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSString2266); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSString2656); 
 
             }
 
@@ -2438,7 +2781,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSString"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:987:1: ruleSString returns [EObject current=null] : (otherlv_0= 'String(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' ) ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1138:1: ruleSString returns [EObject current=null] : (otherlv_0= 'String(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' ) ;
     public final EObject ruleSString() throws RecognitionException {
         EObject current = null;
 
@@ -2449,23 +2792,23 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:990:28: ( (otherlv_0= 'String(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:991:1: (otherlv_0= 'String(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1141:28: ( (otherlv_0= 'String(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1142:1: (otherlv_0= 'String(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:991:1: (otherlv_0= 'String(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:991:3: otherlv_0= 'String(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')'
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1142:1: (otherlv_0= 'String(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1142:3: otherlv_0= 'String(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')'
             {
-            otherlv_0=(Token)match(input,27,FOLLOW_27_in_ruleSString2303); 
+            otherlv_0=(Token)match(input,32,FOLLOW_32_in_ruleSString2693); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getSStringAccess().getStringKeyword_0());
                 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:995:1: ( (lv_value_1_0= RULE_INT ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:996:1: (lv_value_1_0= RULE_INT )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1146:1: ( (lv_value_1_0= RULE_INT ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1147:1: (lv_value_1_0= RULE_INT )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:996:1: (lv_value_1_0= RULE_INT )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:997:3: lv_value_1_0= RULE_INT
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1147:1: (lv_value_1_0= RULE_INT )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1148:3: lv_value_1_0= RULE_INT
             {
-            lv_value_1_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSString2320); 
+            lv_value_1_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSString2710); 
 
             			newLeafNode(lv_value_1_0, grammarAccess.getSStringAccess().getValueINTTerminalRuleCall_1_0()); 
             		
@@ -2485,7 +2828,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,28,FOLLOW_28_in_ruleSString2337); 
+            otherlv_2=(Token)match(input,33,FOLLOW_33_in_ruleSString2727); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getSStringAccess().getRightParenthesisKeyword_2());
                 
@@ -2510,7 +2853,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSDecimal"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1025:1: entryRuleSDecimal returns [EObject current=null] : iv_ruleSDecimal= ruleSDecimal EOF ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1176:1: entryRuleSDecimal returns [EObject current=null] : iv_ruleSDecimal= ruleSDecimal EOF ;
     public final EObject entryRuleSDecimal() throws RecognitionException {
         EObject current = null;
 
@@ -2518,17 +2861,17 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1026:2: (iv_ruleSDecimal= ruleSDecimal EOF )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1027:2: iv_ruleSDecimal= ruleSDecimal EOF
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1177:2: (iv_ruleSDecimal= ruleSDecimal EOF )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1178:2: iv_ruleSDecimal= ruleSDecimal EOF
             {
              newCompositeNode(grammarAccess.getSDecimalRule()); 
-            pushFollow(FOLLOW_ruleSDecimal_in_entryRuleSDecimal2373);
+            pushFollow(FOLLOW_ruleSDecimal_in_entryRuleSDecimal2763);
             iv_ruleSDecimal=ruleSDecimal();
 
             state._fsp--;
 
              current =iv_ruleSDecimal; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSDecimal2383); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSDecimal2773); 
 
             }
 
@@ -2546,7 +2889,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSDecimal"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1034:1: ruleSDecimal returns [EObject current=null] : (otherlv_0= 'Decimal(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' ) ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1185:1: ruleSDecimal returns [EObject current=null] : (otherlv_0= 'Decimal(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' ) ;
     public final EObject ruleSDecimal() throws RecognitionException {
         EObject current = null;
 
@@ -2557,23 +2900,23 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1037:28: ( (otherlv_0= 'Decimal(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1038:1: (otherlv_0= 'Decimal(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1188:28: ( (otherlv_0= 'Decimal(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1189:1: (otherlv_0= 'Decimal(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1038:1: (otherlv_0= 'Decimal(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1038:3: otherlv_0= 'Decimal(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')'
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1189:1: (otherlv_0= 'Decimal(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')' )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1189:3: otherlv_0= 'Decimal(' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= ')'
             {
-            otherlv_0=(Token)match(input,29,FOLLOW_29_in_ruleSDecimal2420); 
+            otherlv_0=(Token)match(input,34,FOLLOW_34_in_ruleSDecimal2810); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getSDecimalAccess().getDecimalKeyword_0());
                 
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1042:1: ( (lv_value_1_0= RULE_INT ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1043:1: (lv_value_1_0= RULE_INT )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1193:1: ( (lv_value_1_0= RULE_INT ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1194:1: (lv_value_1_0= RULE_INT )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1043:1: (lv_value_1_0= RULE_INT )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1044:3: lv_value_1_0= RULE_INT
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1194:1: (lv_value_1_0= RULE_INT )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1195:3: lv_value_1_0= RULE_INT
             {
-            lv_value_1_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSDecimal2437); 
+            lv_value_1_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSDecimal2827); 
 
             			newLeafNode(lv_value_1_0, grammarAccess.getSDecimalAccess().getValueINTTerminalRuleCall_1_0()); 
             		
@@ -2593,7 +2936,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,28,FOLLOW_28_in_ruleSDecimal2454); 
+            otherlv_2=(Token)match(input,33,FOLLOW_33_in_ruleSDecimal2844); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getSDecimalAccess().getRightParenthesisKeyword_2());
                 
@@ -2617,8 +2960,125 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleSDecimal"
 
 
+    // $ANTLR start "entryRuleLFQN"
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1223:1: entryRuleLFQN returns [String current=null] : iv_ruleLFQN= ruleLFQN EOF ;
+    public final String entryRuleLFQN() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleLFQN = null;
+
+
+        try {
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1224:2: (iv_ruleLFQN= ruleLFQN EOF )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1225:2: iv_ruleLFQN= ruleLFQN EOF
+            {
+             newCompositeNode(grammarAccess.getLFQNRule()); 
+            pushFollow(FOLLOW_ruleLFQN_in_entryRuleLFQN2881);
+            iv_ruleLFQN=ruleLFQN();
+
+            state._fsp--;
+
+             current =iv_ruleLFQN.getText(); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLFQN2892); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleLFQN"
+
+
+    // $ANTLR start "ruleLFQN"
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1232:1: ruleLFQN returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    public final AntlrDatatypeRuleToken ruleLFQN() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token this_ID_0=null;
+        Token kw=null;
+        Token this_ID_2=null;
+
+         enterRule(); 
+            
+        try {
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1235:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1236:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            {
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1236:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1236:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            {
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLFQN2932); 
+
+            		current.merge(this_ID_0);
+                
+             
+                newLeafNode(this_ID_0, grammarAccess.getLFQNAccess().getIDTerminalRuleCall_0()); 
+                
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1243:1: (kw= '.' this_ID_2= RULE_ID )*
+            loop14:
+            do {
+                int alt14=2;
+                int LA14_0 = input.LA(1);
+
+                if ( (LA14_0==35) ) {
+                    alt14=1;
+                }
+
+
+                switch (alt14) {
+            	case 1 :
+            	    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1244:2: kw= '.' this_ID_2= RULE_ID
+            	    {
+            	    kw=(Token)match(input,35,FOLLOW_35_in_ruleLFQN2951); 
+
+            	            current.merge(kw);
+            	            newLeafNode(kw, grammarAccess.getLFQNAccess().getFullStopKeyword_1_0()); 
+            	        
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLFQN2966); 
+
+            	    		current.merge(this_ID_2);
+            	        
+            	     
+            	        newLeafNode(this_ID_2, grammarAccess.getLFQNAccess().getIDTerminalRuleCall_1_1()); 
+            	        
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop14;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleLFQN"
+
+
     // $ANTLR start "ruleSDBEngine"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1072:1: ruleSDBEngine returns [Enumerator current=null] : ( (enumLiteral_0= 'InnoDB' ) | (enumLiteral_1= 'MyISAM' ) ) ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1264:1: ruleSDBEngine returns [Enumerator current=null] : ( (enumLiteral_0= 'InnoDB' ) | (enumLiteral_1= 'MyISAM' ) ) ;
     public final Enumerator ruleSDBEngine() throws RecognitionException {
         Enumerator current = null;
 
@@ -2627,33 +3087,33 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1074:28: ( ( (enumLiteral_0= 'InnoDB' ) | (enumLiteral_1= 'MyISAM' ) ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1075:1: ( (enumLiteral_0= 'InnoDB' ) | (enumLiteral_1= 'MyISAM' ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1266:28: ( ( (enumLiteral_0= 'InnoDB' ) | (enumLiteral_1= 'MyISAM' ) ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1267:1: ( (enumLiteral_0= 'InnoDB' ) | (enumLiteral_1= 'MyISAM' ) )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1075:1: ( (enumLiteral_0= 'InnoDB' ) | (enumLiteral_1= 'MyISAM' ) )
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1267:1: ( (enumLiteral_0= 'InnoDB' ) | (enumLiteral_1= 'MyISAM' ) )
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA14_0==30) ) {
-                alt14=1;
+            if ( (LA15_0==36) ) {
+                alt15=1;
             }
-            else if ( (LA14_0==31) ) {
-                alt14=2;
+            else if ( (LA15_0==37) ) {
+                alt15=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 14, 0, input);
+                    new NoViableAltException("", 15, 0, input);
 
                 throw nvae;
             }
-            switch (alt14) {
+            switch (alt15) {
                 case 1 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1075:2: (enumLiteral_0= 'InnoDB' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1267:2: (enumLiteral_0= 'InnoDB' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1075:2: (enumLiteral_0= 'InnoDB' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1075:4: enumLiteral_0= 'InnoDB'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1267:2: (enumLiteral_0= 'InnoDB' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1267:4: enumLiteral_0= 'InnoDB'
                     {
-                    enumLiteral_0=(Token)match(input,30,FOLLOW_30_in_ruleSDBEngine2504); 
+                    enumLiteral_0=(Token)match(input,36,FOLLOW_36_in_ruleSDBEngine3027); 
 
                             current = grammarAccess.getSDBEngineAccess().getINNODBEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getSDBEngineAccess().getINNODBEnumLiteralDeclaration_0()); 
@@ -2665,12 +3125,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1081:6: (enumLiteral_1= 'MyISAM' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1273:6: (enumLiteral_1= 'MyISAM' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1081:6: (enumLiteral_1= 'MyISAM' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1081:8: enumLiteral_1= 'MyISAM'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1273:6: (enumLiteral_1= 'MyISAM' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1273:8: enumLiteral_1= 'MyISAM'
                     {
-                    enumLiteral_1=(Token)match(input,31,FOLLOW_31_in_ruleSDBEngine2521); 
+                    enumLiteral_1=(Token)match(input,37,FOLLOW_37_in_ruleSDBEngine3044); 
 
                             current = grammarAccess.getSDBEngineAccess().getMYISAMEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getSDBEngineAccess().getMYISAMEnumLiteralDeclaration_1()); 
@@ -2702,7 +3162,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSSimpleTypes"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1091:1: ruleSSimpleTypes returns [Enumerator current=null] : ( (enumLiteral_0= 'Int' ) | (enumLiteral_1= 'Tinyint' ) | (enumLiteral_2= 'Smallint' ) | (enumLiteral_3= 'Mediumint' ) | (enumLiteral_4= 'Boolean' ) | (enumLiteral_5= 'Blob' ) | (enumLiteral_6= 'Datetime' ) | (enumLiteral_7= 'Date' ) | (enumLiteral_8= 'Time' ) | (enumLiteral_9= 'Polygon' ) | (enumLiteral_10= 'Point' ) | (enumLiteral_11= 'Foto' ) | (enumLiteral_12= 'Currency' ) | (enumLiteral_13= 'Coordinate' ) ) ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1283:1: ruleSSimpleTypes returns [Enumerator current=null] : ( (enumLiteral_0= 'Int' ) | (enumLiteral_1= 'Tinyint' ) | (enumLiteral_2= 'Smallint' ) | (enumLiteral_3= 'Mediumint' ) | (enumLiteral_4= 'Boolean' ) | (enumLiteral_5= 'Blob' ) | (enumLiteral_6= 'Datetime' ) | (enumLiteral_7= 'Date' ) | (enumLiteral_8= 'Time' ) | (enumLiteral_9= 'Polygon' ) | (enumLiteral_10= 'Point' ) | (enumLiteral_11= 'Foto' ) | (enumLiteral_12= 'Currency' ) | (enumLiteral_13= 'Coordinate' ) ) ;
     public final Enumerator ruleSSimpleTypes() throws RecognitionException {
         Enumerator current = null;
 
@@ -2723,97 +3183,97 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1093:28: ( ( (enumLiteral_0= 'Int' ) | (enumLiteral_1= 'Tinyint' ) | (enumLiteral_2= 'Smallint' ) | (enumLiteral_3= 'Mediumint' ) | (enumLiteral_4= 'Boolean' ) | (enumLiteral_5= 'Blob' ) | (enumLiteral_6= 'Datetime' ) | (enumLiteral_7= 'Date' ) | (enumLiteral_8= 'Time' ) | (enumLiteral_9= 'Polygon' ) | (enumLiteral_10= 'Point' ) | (enumLiteral_11= 'Foto' ) | (enumLiteral_12= 'Currency' ) | (enumLiteral_13= 'Coordinate' ) ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1094:1: ( (enumLiteral_0= 'Int' ) | (enumLiteral_1= 'Tinyint' ) | (enumLiteral_2= 'Smallint' ) | (enumLiteral_3= 'Mediumint' ) | (enumLiteral_4= 'Boolean' ) | (enumLiteral_5= 'Blob' ) | (enumLiteral_6= 'Datetime' ) | (enumLiteral_7= 'Date' ) | (enumLiteral_8= 'Time' ) | (enumLiteral_9= 'Polygon' ) | (enumLiteral_10= 'Point' ) | (enumLiteral_11= 'Foto' ) | (enumLiteral_12= 'Currency' ) | (enumLiteral_13= 'Coordinate' ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1285:28: ( ( (enumLiteral_0= 'Int' ) | (enumLiteral_1= 'Tinyint' ) | (enumLiteral_2= 'Smallint' ) | (enumLiteral_3= 'Mediumint' ) | (enumLiteral_4= 'Boolean' ) | (enumLiteral_5= 'Blob' ) | (enumLiteral_6= 'Datetime' ) | (enumLiteral_7= 'Date' ) | (enumLiteral_8= 'Time' ) | (enumLiteral_9= 'Polygon' ) | (enumLiteral_10= 'Point' ) | (enumLiteral_11= 'Foto' ) | (enumLiteral_12= 'Currency' ) | (enumLiteral_13= 'Coordinate' ) ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1286:1: ( (enumLiteral_0= 'Int' ) | (enumLiteral_1= 'Tinyint' ) | (enumLiteral_2= 'Smallint' ) | (enumLiteral_3= 'Mediumint' ) | (enumLiteral_4= 'Boolean' ) | (enumLiteral_5= 'Blob' ) | (enumLiteral_6= 'Datetime' ) | (enumLiteral_7= 'Date' ) | (enumLiteral_8= 'Time' ) | (enumLiteral_9= 'Polygon' ) | (enumLiteral_10= 'Point' ) | (enumLiteral_11= 'Foto' ) | (enumLiteral_12= 'Currency' ) | (enumLiteral_13= 'Coordinate' ) )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1094:1: ( (enumLiteral_0= 'Int' ) | (enumLiteral_1= 'Tinyint' ) | (enumLiteral_2= 'Smallint' ) | (enumLiteral_3= 'Mediumint' ) | (enumLiteral_4= 'Boolean' ) | (enumLiteral_5= 'Blob' ) | (enumLiteral_6= 'Datetime' ) | (enumLiteral_7= 'Date' ) | (enumLiteral_8= 'Time' ) | (enumLiteral_9= 'Polygon' ) | (enumLiteral_10= 'Point' ) | (enumLiteral_11= 'Foto' ) | (enumLiteral_12= 'Currency' ) | (enumLiteral_13= 'Coordinate' ) )
-            int alt15=14;
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1286:1: ( (enumLiteral_0= 'Int' ) | (enumLiteral_1= 'Tinyint' ) | (enumLiteral_2= 'Smallint' ) | (enumLiteral_3= 'Mediumint' ) | (enumLiteral_4= 'Boolean' ) | (enumLiteral_5= 'Blob' ) | (enumLiteral_6= 'Datetime' ) | (enumLiteral_7= 'Date' ) | (enumLiteral_8= 'Time' ) | (enumLiteral_9= 'Polygon' ) | (enumLiteral_10= 'Point' ) | (enumLiteral_11= 'Foto' ) | (enumLiteral_12= 'Currency' ) | (enumLiteral_13= 'Coordinate' ) )
+            int alt16=14;
             switch ( input.LA(1) ) {
-            case 32:
-                {
-                alt15=1;
-                }
-                break;
-            case 33:
-                {
-                alt15=2;
-                }
-                break;
-            case 34:
-                {
-                alt15=3;
-                }
-                break;
-            case 35:
-                {
-                alt15=4;
-                }
-                break;
-            case 36:
-                {
-                alt15=5;
-                }
-                break;
-            case 37:
-                {
-                alt15=6;
-                }
-                break;
             case 38:
                 {
-                alt15=7;
+                alt16=1;
                 }
                 break;
             case 39:
                 {
-                alt15=8;
+                alt16=2;
                 }
                 break;
             case 40:
                 {
-                alt15=9;
+                alt16=3;
                 }
                 break;
             case 41:
                 {
-                alt15=10;
+                alt16=4;
                 }
                 break;
             case 42:
                 {
-                alt15=11;
+                alt16=5;
                 }
                 break;
             case 43:
                 {
-                alt15=12;
+                alt16=6;
                 }
                 break;
             case 44:
                 {
-                alt15=13;
+                alt16=7;
                 }
                 break;
             case 45:
                 {
-                alt15=14;
+                alt16=8;
+                }
+                break;
+            case 46:
+                {
+                alt16=9;
+                }
+                break;
+            case 47:
+                {
+                alt16=10;
+                }
+                break;
+            case 48:
+                {
+                alt16=11;
+                }
+                break;
+            case 49:
+                {
+                alt16=12;
+                }
+                break;
+            case 50:
+                {
+                alt16=13;
+                }
+                break;
+            case 51:
+                {
+                alt16=14;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 15, 0, input);
+                    new NoViableAltException("", 16, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt15) {
+            switch (alt16) {
                 case 1 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1094:2: (enumLiteral_0= 'Int' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1286:2: (enumLiteral_0= 'Int' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1094:2: (enumLiteral_0= 'Int' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1094:4: enumLiteral_0= 'Int'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1286:2: (enumLiteral_0= 'Int' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1286:4: enumLiteral_0= 'Int'
                     {
-                    enumLiteral_0=(Token)match(input,32,FOLLOW_32_in_ruleSSimpleTypes2566); 
+                    enumLiteral_0=(Token)match(input,38,FOLLOW_38_in_ruleSSimpleTypes3089); 
 
                             current = grammarAccess.getSSimpleTypesAccess().getINTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getSSimpleTypesAccess().getINTEnumLiteralDeclaration_0()); 
@@ -2825,12 +3285,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1100:6: (enumLiteral_1= 'Tinyint' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1292:6: (enumLiteral_1= 'Tinyint' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1100:6: (enumLiteral_1= 'Tinyint' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1100:8: enumLiteral_1= 'Tinyint'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1292:6: (enumLiteral_1= 'Tinyint' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1292:8: enumLiteral_1= 'Tinyint'
                     {
-                    enumLiteral_1=(Token)match(input,33,FOLLOW_33_in_ruleSSimpleTypes2583); 
+                    enumLiteral_1=(Token)match(input,39,FOLLOW_39_in_ruleSSimpleTypes3106); 
 
                             current = grammarAccess.getSSimpleTypesAccess().getTINY_INTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getSSimpleTypesAccess().getTINY_INTEnumLiteralDeclaration_1()); 
@@ -2842,12 +3302,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1106:6: (enumLiteral_2= 'Smallint' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1298:6: (enumLiteral_2= 'Smallint' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1106:6: (enumLiteral_2= 'Smallint' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1106:8: enumLiteral_2= 'Smallint'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1298:6: (enumLiteral_2= 'Smallint' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1298:8: enumLiteral_2= 'Smallint'
                     {
-                    enumLiteral_2=(Token)match(input,34,FOLLOW_34_in_ruleSSimpleTypes2600); 
+                    enumLiteral_2=(Token)match(input,40,FOLLOW_40_in_ruleSSimpleTypes3123); 
 
                             current = grammarAccess.getSSimpleTypesAccess().getSMALL_INTEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getSSimpleTypesAccess().getSMALL_INTEnumLiteralDeclaration_2()); 
@@ -2859,12 +3319,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1112:6: (enumLiteral_3= 'Mediumint' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1304:6: (enumLiteral_3= 'Mediumint' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1112:6: (enumLiteral_3= 'Mediumint' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1112:8: enumLiteral_3= 'Mediumint'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1304:6: (enumLiteral_3= 'Mediumint' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1304:8: enumLiteral_3= 'Mediumint'
                     {
-                    enumLiteral_3=(Token)match(input,35,FOLLOW_35_in_ruleSSimpleTypes2617); 
+                    enumLiteral_3=(Token)match(input,41,FOLLOW_41_in_ruleSSimpleTypes3140); 
 
                             current = grammarAccess.getSSimpleTypesAccess().getMEDIUM_INTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getSSimpleTypesAccess().getMEDIUM_INTEnumLiteralDeclaration_3()); 
@@ -2876,12 +3336,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1118:6: (enumLiteral_4= 'Boolean' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1310:6: (enumLiteral_4= 'Boolean' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1118:6: (enumLiteral_4= 'Boolean' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1118:8: enumLiteral_4= 'Boolean'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1310:6: (enumLiteral_4= 'Boolean' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1310:8: enumLiteral_4= 'Boolean'
                     {
-                    enumLiteral_4=(Token)match(input,36,FOLLOW_36_in_ruleSSimpleTypes2634); 
+                    enumLiteral_4=(Token)match(input,42,FOLLOW_42_in_ruleSSimpleTypes3157); 
 
                             current = grammarAccess.getSSimpleTypesAccess().getBOOLEANEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_4, grammarAccess.getSSimpleTypesAccess().getBOOLEANEnumLiteralDeclaration_4()); 
@@ -2893,12 +3353,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1124:6: (enumLiteral_5= 'Blob' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1316:6: (enumLiteral_5= 'Blob' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1124:6: (enumLiteral_5= 'Blob' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1124:8: enumLiteral_5= 'Blob'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1316:6: (enumLiteral_5= 'Blob' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1316:8: enumLiteral_5= 'Blob'
                     {
-                    enumLiteral_5=(Token)match(input,37,FOLLOW_37_in_ruleSSimpleTypes2651); 
+                    enumLiteral_5=(Token)match(input,43,FOLLOW_43_in_ruleSSimpleTypes3174); 
 
                             current = grammarAccess.getSSimpleTypesAccess().getBLOBEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_5, grammarAccess.getSSimpleTypesAccess().getBLOBEnumLiteralDeclaration_5()); 
@@ -2910,12 +3370,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1130:6: (enumLiteral_6= 'Datetime' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1322:6: (enumLiteral_6= 'Datetime' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1130:6: (enumLiteral_6= 'Datetime' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1130:8: enumLiteral_6= 'Datetime'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1322:6: (enumLiteral_6= 'Datetime' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1322:8: enumLiteral_6= 'Datetime'
                     {
-                    enumLiteral_6=(Token)match(input,38,FOLLOW_38_in_ruleSSimpleTypes2668); 
+                    enumLiteral_6=(Token)match(input,44,FOLLOW_44_in_ruleSSimpleTypes3191); 
 
                             current = grammarAccess.getSSimpleTypesAccess().getDATETIMEEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_6, grammarAccess.getSSimpleTypesAccess().getDATETIMEEnumLiteralDeclaration_6()); 
@@ -2927,12 +3387,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1136:6: (enumLiteral_7= 'Date' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1328:6: (enumLiteral_7= 'Date' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1136:6: (enumLiteral_7= 'Date' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1136:8: enumLiteral_7= 'Date'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1328:6: (enumLiteral_7= 'Date' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1328:8: enumLiteral_7= 'Date'
                     {
-                    enumLiteral_7=(Token)match(input,39,FOLLOW_39_in_ruleSSimpleTypes2685); 
+                    enumLiteral_7=(Token)match(input,45,FOLLOW_45_in_ruleSSimpleTypes3208); 
 
                             current = grammarAccess.getSSimpleTypesAccess().getDATEEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_7, grammarAccess.getSSimpleTypesAccess().getDATEEnumLiteralDeclaration_7()); 
@@ -2944,12 +3404,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1142:6: (enumLiteral_8= 'Time' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1334:6: (enumLiteral_8= 'Time' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1142:6: (enumLiteral_8= 'Time' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1142:8: enumLiteral_8= 'Time'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1334:6: (enumLiteral_8= 'Time' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1334:8: enumLiteral_8= 'Time'
                     {
-                    enumLiteral_8=(Token)match(input,40,FOLLOW_40_in_ruleSSimpleTypes2702); 
+                    enumLiteral_8=(Token)match(input,46,FOLLOW_46_in_ruleSSimpleTypes3225); 
 
                             current = grammarAccess.getSSimpleTypesAccess().getTIMEEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_8, grammarAccess.getSSimpleTypesAccess().getTIMEEnumLiteralDeclaration_8()); 
@@ -2961,12 +3421,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1148:6: (enumLiteral_9= 'Polygon' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1340:6: (enumLiteral_9= 'Polygon' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1148:6: (enumLiteral_9= 'Polygon' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1148:8: enumLiteral_9= 'Polygon'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1340:6: (enumLiteral_9= 'Polygon' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1340:8: enumLiteral_9= 'Polygon'
                     {
-                    enumLiteral_9=(Token)match(input,41,FOLLOW_41_in_ruleSSimpleTypes2719); 
+                    enumLiteral_9=(Token)match(input,47,FOLLOW_47_in_ruleSSimpleTypes3242); 
 
                             current = grammarAccess.getSSimpleTypesAccess().getPOLYGONEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_9, grammarAccess.getSSimpleTypesAccess().getPOLYGONEnumLiteralDeclaration_9()); 
@@ -2978,12 +3438,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1154:6: (enumLiteral_10= 'Point' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1346:6: (enumLiteral_10= 'Point' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1154:6: (enumLiteral_10= 'Point' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1154:8: enumLiteral_10= 'Point'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1346:6: (enumLiteral_10= 'Point' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1346:8: enumLiteral_10= 'Point'
                     {
-                    enumLiteral_10=(Token)match(input,42,FOLLOW_42_in_ruleSSimpleTypes2736); 
+                    enumLiteral_10=(Token)match(input,48,FOLLOW_48_in_ruleSSimpleTypes3259); 
 
                             current = grammarAccess.getSSimpleTypesAccess().getPOINTEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_10, grammarAccess.getSSimpleTypesAccess().getPOINTEnumLiteralDeclaration_10()); 
@@ -2995,12 +3455,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1160:6: (enumLiteral_11= 'Foto' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1352:6: (enumLiteral_11= 'Foto' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1160:6: (enumLiteral_11= 'Foto' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1160:8: enumLiteral_11= 'Foto'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1352:6: (enumLiteral_11= 'Foto' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1352:8: enumLiteral_11= 'Foto'
                     {
-                    enumLiteral_11=(Token)match(input,43,FOLLOW_43_in_ruleSSimpleTypes2753); 
+                    enumLiteral_11=(Token)match(input,49,FOLLOW_49_in_ruleSSimpleTypes3276); 
 
                             current = grammarAccess.getSSimpleTypesAccess().getFOTOEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_11, grammarAccess.getSSimpleTypesAccess().getFOTOEnumLiteralDeclaration_11()); 
@@ -3012,12 +3472,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 13 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1166:6: (enumLiteral_12= 'Currency' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1358:6: (enumLiteral_12= 'Currency' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1166:6: (enumLiteral_12= 'Currency' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1166:8: enumLiteral_12= 'Currency'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1358:6: (enumLiteral_12= 'Currency' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1358:8: enumLiteral_12= 'Currency'
                     {
-                    enumLiteral_12=(Token)match(input,44,FOLLOW_44_in_ruleSSimpleTypes2770); 
+                    enumLiteral_12=(Token)match(input,50,FOLLOW_50_in_ruleSSimpleTypes3293); 
 
                             current = grammarAccess.getSSimpleTypesAccess().getCurrencyEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_12, grammarAccess.getSSimpleTypesAccess().getCurrencyEnumLiteralDeclaration_12()); 
@@ -3029,12 +3489,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 14 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1172:6: (enumLiteral_13= 'Coordinate' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1364:6: (enumLiteral_13= 'Coordinate' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1172:6: (enumLiteral_13= 'Coordinate' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1172:8: enumLiteral_13= 'Coordinate'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1364:6: (enumLiteral_13= 'Coordinate' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1364:8: enumLiteral_13= 'Coordinate'
                     {
-                    enumLiteral_13=(Token)match(input,45,FOLLOW_45_in_ruleSSimpleTypes2787); 
+                    enumLiteral_13=(Token)match(input,51,FOLLOW_51_in_ruleSSimpleTypes3310); 
 
                             current = grammarAccess.getSSimpleTypesAccess().getCoordinateEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_13, grammarAccess.getSSimpleTypesAccess().getCoordinateEnumLiteralDeclaration_13()); 
@@ -3066,7 +3526,7 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSIndex"
-    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1182:1: ruleSIndex returns [Enumerator current=null] : ( (enumLiteral_0= 'No' ) | (enumLiteral_1= 'Yes' ) | (enumLiteral_2= 'Unique' ) | (enumLiteral_3= 'Spatial' ) ) ;
+    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1374:1: ruleSIndex returns [Enumerator current=null] : ( (enumLiteral_0= 'No' ) | (enumLiteral_1= 'Yes' ) | (enumLiteral_2= 'Unique' ) | (enumLiteral_3= 'Spatial' ) ) ;
     public final Enumerator ruleSIndex() throws RecognitionException {
         Enumerator current = null;
 
@@ -3077,47 +3537,47 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1184:28: ( ( (enumLiteral_0= 'No' ) | (enumLiteral_1= 'Yes' ) | (enumLiteral_2= 'Unique' ) | (enumLiteral_3= 'Spatial' ) ) )
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1185:1: ( (enumLiteral_0= 'No' ) | (enumLiteral_1= 'Yes' ) | (enumLiteral_2= 'Unique' ) | (enumLiteral_3= 'Spatial' ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1376:28: ( ( (enumLiteral_0= 'No' ) | (enumLiteral_1= 'Yes' ) | (enumLiteral_2= 'Unique' ) | (enumLiteral_3= 'Spatial' ) ) )
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1377:1: ( (enumLiteral_0= 'No' ) | (enumLiteral_1= 'Yes' ) | (enumLiteral_2= 'Unique' ) | (enumLiteral_3= 'Spatial' ) )
             {
-            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1185:1: ( (enumLiteral_0= 'No' ) | (enumLiteral_1= 'Yes' ) | (enumLiteral_2= 'Unique' ) | (enumLiteral_3= 'Spatial' ) )
-            int alt16=4;
+            // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1377:1: ( (enumLiteral_0= 'No' ) | (enumLiteral_1= 'Yes' ) | (enumLiteral_2= 'Unique' ) | (enumLiteral_3= 'Spatial' ) )
+            int alt17=4;
             switch ( input.LA(1) ) {
-            case 46:
+            case 52:
                 {
-                alt16=1;
+                alt17=1;
                 }
                 break;
-            case 47:
+            case 53:
                 {
-                alt16=2;
+                alt17=2;
                 }
                 break;
-            case 48:
+            case 54:
                 {
-                alt16=3;
+                alt17=3;
                 }
                 break;
-            case 49:
+            case 55:
                 {
-                alt16=4;
+                alt17=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 16, 0, input);
+                    new NoViableAltException("", 17, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt16) {
+            switch (alt17) {
                 case 1 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1185:2: (enumLiteral_0= 'No' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1377:2: (enumLiteral_0= 'No' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1185:2: (enumLiteral_0= 'No' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1185:4: enumLiteral_0= 'No'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1377:2: (enumLiteral_0= 'No' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1377:4: enumLiteral_0= 'No'
                     {
-                    enumLiteral_0=(Token)match(input,46,FOLLOW_46_in_ruleSIndex2832); 
+                    enumLiteral_0=(Token)match(input,52,FOLLOW_52_in_ruleSIndex3355); 
 
                             current = grammarAccess.getSIndexAccess().getNOEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getSIndexAccess().getNOEnumLiteralDeclaration_0()); 
@@ -3129,12 +3589,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1191:6: (enumLiteral_1= 'Yes' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1383:6: (enumLiteral_1= 'Yes' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1191:6: (enumLiteral_1= 'Yes' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1191:8: enumLiteral_1= 'Yes'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1383:6: (enumLiteral_1= 'Yes' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1383:8: enumLiteral_1= 'Yes'
                     {
-                    enumLiteral_1=(Token)match(input,47,FOLLOW_47_in_ruleSIndex2849); 
+                    enumLiteral_1=(Token)match(input,53,FOLLOW_53_in_ruleSIndex3372); 
 
                             current = grammarAccess.getSIndexAccess().getYESEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getSIndexAccess().getYESEnumLiteralDeclaration_1()); 
@@ -3146,12 +3606,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1197:6: (enumLiteral_2= 'Unique' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1389:6: (enumLiteral_2= 'Unique' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1197:6: (enumLiteral_2= 'Unique' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1197:8: enumLiteral_2= 'Unique'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1389:6: (enumLiteral_2= 'Unique' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1389:8: enumLiteral_2= 'Unique'
                     {
-                    enumLiteral_2=(Token)match(input,48,FOLLOW_48_in_ruleSIndex2866); 
+                    enumLiteral_2=(Token)match(input,54,FOLLOW_54_in_ruleSIndex3389); 
 
                             current = grammarAccess.getSIndexAccess().getUNIQUEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getSIndexAccess().getUNIQUEEnumLiteralDeclaration_2()); 
@@ -3163,12 +3623,12 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1203:6: (enumLiteral_3= 'Spatial' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1395:6: (enumLiteral_3= 'Spatial' )
                     {
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1203:6: (enumLiteral_3= 'Spatial' )
-                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1203:8: enumLiteral_3= 'Spatial'
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1395:6: (enumLiteral_3= 'Spatial' )
+                    // ../org.lunifera.metamodel.dsl.sql/src-gen/org/lunifera/metamodel/dsl/parser/antlr/internal/InternalSqlDSL.g:1395:8: enumLiteral_3= 'Spatial'
                     {
-                    enumLiteral_3=(Token)match(input,49,FOLLOW_49_in_ruleSIndex2883); 
+                    enumLiteral_3=(Token)match(input,55,FOLLOW_55_in_ruleSIndex3406); 
 
                             current = grammarAccess.getSIndexAccess().getSPATIALEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getSIndexAccess().getSPATIALEnumLiteralDeclaration_3()); 
@@ -3205,103 +3665,117 @@ public class InternalSqlDSLParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_ruleSModel_in_entryRuleSModel75 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSModel85 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSSettings_in_ruleSModel131 = new BitSet(new long[]{0x0000000002008002L});
-    public static final BitSet FOLLOW_ruleSArtifact_in_ruleSModel153 = new BitSet(new long[]{0x0000000002008002L});
-    public static final BitSet FOLLOW_ruleSSettings_in_entryRuleSSettings190 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSSettings200 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_11_in_ruleSSettings246 = new BitSet(new long[]{0x0000000000007000L});
-    public static final BitSet FOLLOW_12_in_ruleSSettings304 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSSettings321 = new BitSet(new long[]{0x0000000000007000L});
-    public static final BitSet FOLLOW_13_in_ruleSSettings394 = new BitSet(new long[]{0x00000000C0000000L});
-    public static final BitSet FOLLOW_ruleSDBEngine_in_ruleSSettings415 = new BitSet(new long[]{0x0000000000007000L});
-    public static final BitSet FOLLOW_14_in_ruleSSettings468 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSArtifact_in_entryRuleSArtifact504 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSArtifact514 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSTable_in_ruleSArtifact561 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSEnum_in_ruleSArtifact588 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSTable_in_entryRuleSTable623 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSTable633 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_ruleSTable670 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSTable687 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleSTable704 = new BitSet(new long[]{0x00000000001A4800L});
-    public static final BitSet FOLLOW_ruleSSettings_in_ruleSTable770 = new BitSet(new long[]{0x00000000001A4800L});
-    public static final BitSet FOLLOW_17_in_ruleSTable837 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSTable854 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleSTable871 = new BitSet(new long[]{0x00000000001A4800L});
-    public static final BitSet FOLLOW_ruleSEntityMember_in_ruleSTable933 = new BitSet(new long[]{0x0000000000184000L});
-    public static final BitSet FOLLOW_14_in_ruleSTable946 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSEntityMember_in_entryRuleSEntityMember982 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSEntityMember992 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSProperty_in_ruleSEntityMember1039 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSJoinProperty_in_ruleSEntityMember1066 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSProperty_in_entryRuleSProperty1101 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSProperty1111 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_ruleSProperty1148 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSProperty1165 = new BitSet(new long[]{0x00003FFF28000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSProperty1191 = new BitSet(new long[]{0x0000000000240000L});
-    public static final BitSet FOLLOW_ruleSInlinedSQLType_in_ruleSProperty1218 = new BitSet(new long[]{0x0000000000240000L});
-    public static final BitSet FOLLOW_ruleSSimpleTypes_in_ruleSProperty1245 = new BitSet(new long[]{0x0000000000240000L});
-    public static final BitSet FOLLOW_ruleSColumnProps_in_ruleSProperty1267 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleSProperty1280 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSJoinProperty_in_entryRuleSJoinProperty1316 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSJoinProperty1326 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_ruleSJoinProperty1363 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSJoinProperty1380 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSJoinProperty1405 = new BitSet(new long[]{0x0000000000240000L});
-    public static final BitSet FOLLOW_ruleSColumnProps_in_ruleSJoinProperty1426 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleSJoinProperty1439 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSColumnProps_in_entryRuleSColumnProps1475 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSColumnProps1485 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_ruleSColumnProps1531 = new BitSet(new long[]{0x0000000001C00002L});
-    public static final BitSet FOLLOW_22_in_ruleSColumnProps1594 = new BitSet(new long[]{0x0000000001C00002L});
-    public static final BitSet FOLLOW_23_in_ruleSColumnProps1679 = new BitSet(new long[]{0x0000000001C00002L});
-    public static final BitSet FOLLOW_24_in_ruleSColumnProps1759 = new BitSet(new long[]{0x0003C00000000000L});
-    public static final BitSet FOLLOW_ruleSIndex_in_ruleSColumnProps1780 = new BitSet(new long[]{0x0000000001C00002L});
-    public static final BitSet FOLLOW_ruleSInlinedSQLType_in_entryRuleSInlinedSQLType1859 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSInlinedSQLType1869 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSString_in_ruleSInlinedSQLType1916 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSDecimal_in_ruleSInlinedSQLType1943 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSEnum_in_entryRuleSEnum1978 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSEnum1988 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_ruleSEnum2025 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSEnum2042 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleSEnum2059 = new BitSet(new long[]{0x0000000000004010L});
-    public static final BitSet FOLLOW_ruleSEnumLiteral_in_ruleSEnum2080 = new BitSet(new long[]{0x0000000000004010L});
-    public static final BitSet FOLLOW_14_in_ruleSEnum2093 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSEnumLiteral_in_entryRuleSEnumLiteral2129 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSEnumLiteral2139 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSEnumLiteral2181 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_ruleSEnumLiteral2198 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleSEnumLiteral2215 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSString_in_entryRuleSString2256 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSString2266 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_ruleSString2303 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleSString2320 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_28_in_ruleSString2337 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSDecimal_in_entryRuleSDecimal2373 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSDecimal2383 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_ruleSDecimal2420 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleSDecimal2437 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_28_in_ruleSDecimal2454 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_ruleSDBEngine2504 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleSDBEngine2521 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_ruleSSimpleTypes2566 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_ruleSSimpleTypes2583 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_ruleSSimpleTypes2600 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_ruleSSimpleTypes2617 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_ruleSSimpleTypes2634 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_ruleSSimpleTypes2651 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleSSimpleTypes2668 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleSSimpleTypes2685 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleSSimpleTypes2702 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleSSimpleTypes2719 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_ruleSSimpleTypes2736 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_ruleSSimpleTypes2753 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleSSimpleTypes2770 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleSSimpleTypes2787 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleSIndex2832 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleSIndex2849 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleSIndex2866 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleSIndex2883 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_11_in_ruleSModel123 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSModel140 = new BitSet(new long[]{0x0000000040021002L});
+    public static final BitSet FOLLOW_ruleSSettings_in_ruleSModel167 = new BitSet(new long[]{0x0000000040020002L});
+    public static final BitSet FOLLOW_ruleSArtifact_in_ruleSModel189 = new BitSet(new long[]{0x0000000040020002L});
+    public static final BitSet FOLLOW_ruleSSettings_in_entryRuleSSettings226 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSSettings236 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_ruleSSettings282 = new BitSet(new long[]{0x000000000001E000L});
+    public static final BitSet FOLLOW_13_in_ruleSSettings340 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSSettings357 = new BitSet(new long[]{0x000000000001E000L});
+    public static final BitSet FOLLOW_14_in_ruleSSettings430 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleLFQN_in_ruleSSettings451 = new BitSet(new long[]{0x000000000001E000L});
+    public static final BitSet FOLLOW_15_in_ruleSSettings519 = new BitSet(new long[]{0x0000003000000000L});
+    public static final BitSet FOLLOW_ruleSDBEngine_in_ruleSSettings540 = new BitSet(new long[]{0x000000000001E000L});
+    public static final BitSet FOLLOW_16_in_ruleSSettings593 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSArtifact_in_entryRuleSArtifact629 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSArtifact639 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSTable_in_ruleSArtifact686 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSEnum_in_ruleSArtifact713 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSTable_in_entryRuleSTable748 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSTable758 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_ruleSTable795 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSTable812 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleSTable829 = new BitSet(new long[]{0x0000000001B91000L});
+    public static final BitSet FOLLOW_ruleSSettings_in_ruleSTable895 = new BitSet(new long[]{0x0000000001B91000L});
+    public static final BitSet FOLLOW_19_in_ruleSTable962 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSTable979 = new BitSet(new long[]{0x0000000001B91000L});
+    public static final BitSet FOLLOW_20_in_ruleSTable1057 = new BitSet(new long[]{0x0000000001B91000L});
+    public static final BitSet FOLLOW_21_in_ruleSTable1137 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSTable1154 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_ruleSTable1171 = new BitSet(new long[]{0x0000000001B91000L});
+    public static final BitSet FOLLOW_ruleSTableMember_in_ruleSTable1233 = new BitSet(new long[]{0x0000000001810000L});
+    public static final BitSet FOLLOW_16_in_ruleSTable1246 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSTableMember_in_entryRuleSTableMember1282 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSTableMember1292 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSColumn_in_ruleSTableMember1339 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSJoinColumn_in_ruleSTableMember1366 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSColumn_in_entryRuleSColumn1401 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSColumn1411 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_ruleSColumn1448 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSColumn1465 = new BitSet(new long[]{0x000FFFC500000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSColumn1491 = new BitSet(new long[]{0x0000000002400000L});
+    public static final BitSet FOLLOW_ruleSInlinedSQLType_in_ruleSColumn1518 = new BitSet(new long[]{0x0000000002400000L});
+    public static final BitSet FOLLOW_ruleSSimpleTypes_in_ruleSColumn1545 = new BitSet(new long[]{0x0000000002400000L});
+    public static final BitSet FOLLOW_ruleSColumnProps_in_ruleSColumn1567 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_ruleSColumn1580 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSJoinColumn_in_entryRuleSJoinColumn1616 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSJoinColumn1626 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_ruleSJoinColumn1663 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSJoinColumn1680 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSJoinColumn1705 = new BitSet(new long[]{0x0000000002400000L});
+    public static final BitSet FOLLOW_ruleSColumnProps_in_ruleSJoinColumn1726 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_ruleSJoinColumn1739 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSColumnProps_in_entryRuleSColumnProps1775 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSColumnProps1785 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleSColumnProps1831 = new BitSet(new long[]{0x000000003C000002L});
+    public static final BitSet FOLLOW_26_in_ruleSColumnProps1894 = new BitSet(new long[]{0x000000003C000002L});
+    public static final BitSet FOLLOW_27_in_ruleSColumnProps1979 = new BitSet(new long[]{0x000000003C000002L});
+    public static final BitSet FOLLOW_28_in_ruleSColumnProps2059 = new BitSet(new long[]{0x00F0000000000000L});
+    public static final BitSet FOLLOW_ruleSIndex_in_ruleSColumnProps2080 = new BitSet(new long[]{0x000000003C000002L});
+    public static final BitSet FOLLOW_29_in_ruleSColumnProps2148 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSColumnProps2165 = new BitSet(new long[]{0x000000003C000002L});
+    public static final BitSet FOLLOW_ruleSInlinedSQLType_in_entryRuleSInlinedSQLType2249 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSInlinedSQLType2259 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSString_in_ruleSInlinedSQLType2306 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSDecimal_in_ruleSInlinedSQLType2333 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSEnum_in_entryRuleSEnum2368 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSEnum2378 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_ruleSEnum2415 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSEnum2432 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleSEnum2449 = new BitSet(new long[]{0x0000000000010010L});
+    public static final BitSet FOLLOW_ruleSEnumLiteral_in_ruleSEnum2470 = new BitSet(new long[]{0x0000000000010010L});
+    public static final BitSet FOLLOW_16_in_ruleSEnum2483 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSEnumLiteral_in_entryRuleSEnumLiteral2519 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSEnumLiteral2529 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSEnumLiteral2571 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_31_in_ruleSEnumLiteral2588 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleSEnumLiteral2605 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSString_in_entryRuleSString2646 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSString2656 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_ruleSString2693 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleSString2710 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_33_in_ruleSString2727 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSDecimal_in_entryRuleSDecimal2763 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSDecimal2773 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_ruleSDecimal2810 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleSDecimal2827 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_33_in_ruleSDecimal2844 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLFQN_in_entryRuleLFQN2881 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLFQN2892 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleLFQN2932 = new BitSet(new long[]{0x0000000800000002L});
+    public static final BitSet FOLLOW_35_in_ruleLFQN2951 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleLFQN2966 = new BitSet(new long[]{0x0000000800000002L});
+    public static final BitSet FOLLOW_36_in_ruleSDBEngine3027 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_ruleSDBEngine3044 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleSSimpleTypes3089 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleSSimpleTypes3106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_ruleSSimpleTypes3123 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleSSimpleTypes3140 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_ruleSSimpleTypes3157 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_ruleSSimpleTypes3174 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleSSimpleTypes3191 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleSSimpleTypes3208 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleSSimpleTypes3225 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleSSimpleTypes3242 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleSSimpleTypes3259 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleSSimpleTypes3276 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleSSimpleTypes3293 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleSSimpleTypes3310 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleSIndex3355 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleSIndex3372 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleSIndex3389 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleSIndex3406 = new BitSet(new long[]{0x0000000000000002L});
 
 }

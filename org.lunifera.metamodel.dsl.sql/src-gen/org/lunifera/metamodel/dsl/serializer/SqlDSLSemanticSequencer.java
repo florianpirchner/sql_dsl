@@ -14,13 +14,13 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.lunifera.metamodel.dsl.services.SqlDSLGrammarAccess;
+import org.lunifera.metamodel.dsl.sqlDSL.SColumn;
 import org.lunifera.metamodel.dsl.sqlDSL.SColumnProps;
 import org.lunifera.metamodel.dsl.sqlDSL.SDecimal;
 import org.lunifera.metamodel.dsl.sqlDSL.SEnum;
 import org.lunifera.metamodel.dsl.sqlDSL.SEnumLiteral;
-import org.lunifera.metamodel.dsl.sqlDSL.SJoinProperty;
+import org.lunifera.metamodel.dsl.sqlDSL.SJoinColumn;
 import org.lunifera.metamodel.dsl.sqlDSL.SModel;
-import org.lunifera.metamodel.dsl.sqlDSL.SProperty;
 import org.lunifera.metamodel.dsl.sqlDSL.SSettings;
 import org.lunifera.metamodel.dsl.sqlDSL.SString;
 import org.lunifera.metamodel.dsl.sqlDSL.STable;
@@ -34,6 +34,13 @@ public class SqlDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == SqlDSLPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case SqlDSLPackage.SCOLUMN:
+				if(context == grammarAccess.getSColumnRule() ||
+				   context == grammarAccess.getSTableMemberRule()) {
+					sequence_SColumn(context, (SColumn) semanticObject); 
+					return; 
+				}
+				else break;
 			case SqlDSLPackage.SCOLUMN_PROPS:
 				if(context == grammarAccess.getSColumnPropsRule()) {
 					sequence_SColumnProps(context, (SColumnProps) semanticObject); 
@@ -61,23 +68,16 @@ public class SqlDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer
 					return; 
 				}
 				else break;
-			case SqlDSLPackage.SJOIN_PROPERTY:
-				if(context == grammarAccess.getSEntityMemberRule() ||
-				   context == grammarAccess.getSJoinPropertyRule()) {
-					sequence_SJoinProperty(context, (SJoinProperty) semanticObject); 
+			case SqlDSLPackage.SJOIN_COLUMN:
+				if(context == grammarAccess.getSJoinColumnRule() ||
+				   context == grammarAccess.getSTableMemberRule()) {
+					sequence_SJoinColumn(context, (SJoinColumn) semanticObject); 
 					return; 
 				}
 				else break;
 			case SqlDSLPackage.SMODEL:
 				if(context == grammarAccess.getSModelRule()) {
 					sequence_SModel(context, (SModel) semanticObject); 
-					return; 
-				}
-				else break;
-			case SqlDSLPackage.SPROPERTY:
-				if(context == grammarAccess.getSEntityMemberRule() ||
-				   context == grammarAccess.getSPropertyRule()) {
-					sequence_SProperty(context, (SProperty) semanticObject); 
 					return; 
 				}
 				else break;
@@ -107,9 +107,18 @@ public class SqlDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (nullable?='nullable'? aes?='AES'? index=SIndex?)
+	 *     (nullable?='nullable'? aes?='AES'? index=SIndex? javacolumn=ID?)
 	 */
 	protected void sequence_SColumnProps(EObject context, SColumnProps semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID (extType=[SExtDeclaredSQLType|ID] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes) props=SColumnProps?)
+	 */
+	protected void sequence_SColumn(EObject context, SColumn semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -160,16 +169,16 @@ public class SqlDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (name=ID type=[STable|ID] props=SColumnProps?)
+	 *     (name=ID referencedType=[STable|ID] props=SColumnProps?)
 	 */
-	protected void sequence_SJoinProperty(EObject context, SJoinProperty semanticObject) {
+	protected void sequence_SJoinColumn(EObject context, SJoinColumn semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (settings=SSettings? artifact+=SArtifact*)
+	 *     (generatedFile=ID settings=SSettings? artifact+=SArtifact*)
 	 */
 	protected void sequence_SModel(EObject context, SModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -178,16 +187,7 @@ public class SqlDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (name=ID (extType=[SExtDeclaredSQLType|ID] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes) props=SColumnProps?)
-	 */
-	protected void sequence_SProperty(EObject context, SProperty semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (schema=ID? engine=SDBEngine?)
+	 *     (schema=ID? javapackage=LFQN? engine=SDBEngine?)
 	 */
 	protected void sequence_SSettings(EObject context, SSettings semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -212,7 +212,14 @@ public class SqlDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (name=ID settings=SSettings? prefix=ID? entityMembers+=SEntityMember*)
+	 *     (
+	 *         name=ID 
+	 *         settings=SSettings? 
+	 *         entityname=ID? 
+	 *         cached?='cached'? 
+	 *         prefix=ID? 
+	 *         columns+=STableMember*
+	 *     )
 	 */
 	protected void sequence_STable(EObject context, STable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -13,8 +13,10 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getSettings <em>Settings</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getEntityname <em>Entityname</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.STable#isCached <em>Cached</em>}</li>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getPrefix <em>Prefix</em>}</li>
- *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getEntityMembers <em>Entity Members</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getColumns <em>Columns</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,6 +53,58 @@ public interface STable extends SArtifact
   void setSettings(SSettings value);
 
   /**
+   * Returns the value of the '<em><b>Entityname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Entityname</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Entityname</em>' attribute.
+   * @see #setEntityname(String)
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSTable_Entityname()
+   * @model
+   * @generated
+   */
+  String getEntityname();
+
+  /**
+   * Sets the value of the '{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getEntityname <em>Entityname</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Entityname</em>' attribute.
+   * @see #getEntityname()
+   * @generated
+   */
+  void setEntityname(String value);
+
+  /**
+   * Returns the value of the '<em><b>Cached</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Cached</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Cached</em>' attribute.
+   * @see #setCached(boolean)
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSTable_Cached()
+   * @model
+   * @generated
+   */
+  boolean isCached();
+
+  /**
+   * Sets the value of the '{@link org.lunifera.metamodel.dsl.sqlDSL.STable#isCached <em>Cached</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Cached</em>' attribute.
+   * @see #isCached()
+   * @generated
+   */
+  void setCached(boolean value);
+
+  /**
    * Returns the value of the '<em><b>Prefix</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -77,19 +131,19 @@ public interface STable extends SArtifact
   void setPrefix(String value);
 
   /**
-   * Returns the value of the '<em><b>Entity Members</b></em>' containment reference list.
-   * The list contents are of type {@link org.lunifera.metamodel.dsl.sqlDSL.SEntityMember}.
+   * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
+   * The list contents are of type {@link org.lunifera.metamodel.dsl.sqlDSL.STableMember}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Entity Members</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Columns</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Entity Members</em>' containment reference list.
-   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSTable_EntityMembers()
+   * @return the value of the '<em>Columns</em>' containment reference list.
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSTable_Columns()
    * @model containment="true"
    * @generated
    */
-  EList<SEntityMember> getEntityMembers();
+  EList<STableMember> getColumns();
 
 } // STable

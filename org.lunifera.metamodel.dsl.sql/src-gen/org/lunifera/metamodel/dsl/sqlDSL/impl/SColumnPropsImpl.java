@@ -23,6 +23,7 @@ import org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage;
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SColumnPropsImpl#isNullable <em>Nullable</em>}</li>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SColumnPropsImpl#isAes <em>Aes</em>}</li>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SColumnPropsImpl#getIndex <em>Index</em>}</li>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SColumnPropsImpl#getJavacolumn <em>Javacolumn</em>}</li>
  * </ul>
  * </p>
  *
@@ -89,6 +90,26 @@ public class SColumnPropsImpl extends MinimalEObjectImpl.Container implements SC
    * @ordered
    */
   protected SIndex index = INDEX_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getJavacolumn() <em>Javacolumn</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getJavacolumn()
+   * @generated
+   * @ordered
+   */
+  protected static final String JAVACOLUMN_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getJavacolumn() <em>Javacolumn</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getJavacolumn()
+   * @generated
+   * @ordered
+   */
+  protected String javacolumn = JAVACOLUMN_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -185,6 +206,29 @@ public class SColumnPropsImpl extends MinimalEObjectImpl.Container implements SC
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getJavacolumn()
+  {
+    return javacolumn;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setJavacolumn(String newJavacolumn)
+  {
+    String oldJavacolumn = javacolumn;
+    javacolumn = newJavacolumn;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.SCOLUMN_PROPS__JAVACOLUMN, oldJavacolumn, javacolumn));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -196,6 +240,8 @@ public class SColumnPropsImpl extends MinimalEObjectImpl.Container implements SC
         return isAes();
       case SqlDSLPackage.SCOLUMN_PROPS__INDEX:
         return getIndex();
+      case SqlDSLPackage.SCOLUMN_PROPS__JAVACOLUMN:
+        return getJavacolumn();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -218,6 +264,9 @@ public class SColumnPropsImpl extends MinimalEObjectImpl.Container implements SC
         return;
       case SqlDSLPackage.SCOLUMN_PROPS__INDEX:
         setIndex((SIndex)newValue);
+        return;
+      case SqlDSLPackage.SCOLUMN_PROPS__JAVACOLUMN:
+        setJavacolumn((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -242,6 +291,9 @@ public class SColumnPropsImpl extends MinimalEObjectImpl.Container implements SC
       case SqlDSLPackage.SCOLUMN_PROPS__INDEX:
         setIndex(INDEX_EDEFAULT);
         return;
+      case SqlDSLPackage.SCOLUMN_PROPS__JAVACOLUMN:
+        setJavacolumn(JAVACOLUMN_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -262,6 +314,8 @@ public class SColumnPropsImpl extends MinimalEObjectImpl.Container implements SC
         return aes != AES_EDEFAULT;
       case SqlDSLPackage.SCOLUMN_PROPS__INDEX:
         return index != INDEX_EDEFAULT;
+      case SqlDSLPackage.SCOLUMN_PROPS__JAVACOLUMN:
+        return JAVACOLUMN_EDEFAULT == null ? javacolumn != null : !JAVACOLUMN_EDEFAULT.equals(javacolumn);
     }
     return super.eIsSet(featureID);
   }
@@ -283,6 +337,8 @@ public class SColumnPropsImpl extends MinimalEObjectImpl.Container implements SC
     result.append(aes);
     result.append(", index: ");
     result.append(index);
+    result.append(", javacolumn: ");
+    result.append(javacolumn);
     result.append(')');
     return result.toString();
   }

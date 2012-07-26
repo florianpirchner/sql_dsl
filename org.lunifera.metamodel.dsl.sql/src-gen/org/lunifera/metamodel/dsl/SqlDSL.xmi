@@ -12,6 +12,12 @@
         <classifier xsi:type="ecore:EClass" href="http://www.lunifera.org/metamodel/dsl/SqlDSL#//SModel"/>
       </type>
       <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Keyword" value="generatedFile"/>
+          <elements xsi:type="xtext:Assignment" feature="generatedFile" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+          </elements>
+        </elements>
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="settings" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
         </elements>
@@ -36,6 +42,12 @@
             <elements xsi:type="xtext:Keyword" value="schema="/>
             <elements xsi:type="xtext:Assignment" feature="schema" operator="=">
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="?">
+            <elements xsi:type="xtext:Keyword" value="javapackage="/>
+            <elements xsi:type="xtext:Assignment" feature="javapackage" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
             </elements>
           </elements>
           <elements xsi:type="xtext:Group" cardinality="?">
@@ -87,6 +99,15 @@
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
           </elements>
           <elements xsi:type="xtext:Group" cardinality="?">
+            <elements xsi:type="xtext:Keyword" value="entityname="/>
+            <elements xsi:type="xtext:Assignment" feature="entityname" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Assignment" cardinality="?" feature="cached" operator="?=">
+            <terminal xsi:type="xtext:Keyword" value="cached"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="?">
             <elements xsi:type="xtext:Keyword" value="prefix"/>
             <elements xsi:type="xtext:Assignment" feature="prefix" operator="=">
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -94,24 +115,24 @@
             <elements xsi:type="xtext:Keyword" value=";"/>
           </elements>
         </elements>
-        <elements xsi:type="xtext:Assignment" cardinality="*" feature="entityMembers" operator="+=">
+        <elements xsi:type="xtext:Assignment" cardinality="*" feature="columns" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="SEntityMember">
+    <rules xsi:type="xtext:ParserRule" name="STableMember">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.lunifera.org/metamodel/dsl/SqlDSL#//SEntityMember"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.lunifera.org/metamodel/dsl/SqlDSL#//STableMember"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="SProperty">
+    <rules xsi:type="xtext:ParserRule" name="SColumn">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.lunifera.org/metamodel/dsl/SqlDSL#//SProperty"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.lunifera.org/metamodel/dsl/SqlDSL#//SColumn"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Keyword" value="column"/>
@@ -140,16 +161,16 @@
         <elements xsi:type="xtext:Keyword" value=";"/>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="SJoinProperty">
+    <rules xsi:type="xtext:ParserRule" name="SJoinColumn">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.lunifera.org/metamodel/dsl/SqlDSL#//SJoinProperty"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.lunifera.org/metamodel/dsl/SqlDSL#//SJoinColumn"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Keyword" value="joincolumn"/>
         <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="type" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="referencedType" operator="=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="/0/@metamodelDeclarations.0">
               <classifier xsi:type="ecore:EClass" href="http://www.lunifera.org/metamodel/dsl/SqlDSL#//STable"/>
@@ -185,6 +206,12 @@
             <elements xsi:type="xtext:Keyword" value="index="/>
             <elements xsi:type="xtext:Assignment" feature="index" operator="=">
               <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="?">
+            <elements xsi:type="xtext:Keyword" value="javacolumn="/>
+            <elements xsi:type="xtext:Assignment" feature="javacolumn" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
             </elements>
           </elements>
         </elements>
@@ -343,6 +370,18 @@
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value=")"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="LFQN">
+      <type metamodel="/0/@metamodelDeclarations.1">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        <elements xsi:type="xtext:Group" cardinality="*">
+          <elements xsi:type="xtext:Keyword" value="."/>
+          <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        </elements>
       </alternatives>
     </rules>
   </xtext:Grammar>
