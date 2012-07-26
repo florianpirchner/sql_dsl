@@ -157,13 +157,13 @@ class HelperExtensions {
 	}
 	
 	def dispatch toExtType(SExtDeclaredSQLType enum){
-		return "int"
 	}
 	
 	def dispatch toExtType(SEnum enumx){
+		return "int"
 	}
 	
-	def dispatch toColumnFinishing(SColumn column){
+	def finishColumn(SColumn column){
 		if(column.extType != null){
 			return column.extType.toColumnFinishing
 		} else if(column.inlinedType != null){
@@ -172,6 +172,9 @@ class HelperExtensions {
 			// not used yet
 		}
 		return "";
+	}
+	
+	def dispatch toColumnFinishing(SExtDeclaredSQLType enumx){
 	}
 	
 	def dispatch toColumnFinishing(SEnum enumx){

@@ -10,7 +10,6 @@ import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.xbase.lib.IterableExtensions
 import org.lunifera.metamodel.dsl.sqlDSL.SModel
 import org.lunifera.metamodel.dsl.sqlDSL.SSettings
-import org.lunifera.metamodel.dsl.sqlDSL.SDBEngine
 import org.lunifera.metamodel.dsl.sqlDSL.STable
 import org.lunifera.metamodel.dsl.sqlDSL.SColumn
 import org.lunifera.metamodel.dsl.sqlDSL.SJoinColumn
@@ -19,6 +18,8 @@ class SqlDSLGenerator implements IGenerator {
 	
 	@Inject extension IterableExtensions
 	@Inject extension HelperExtensions
+	
+	private int indexLeft
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		for(model : resource.allContents.filter(typeof(SModel)).toIterable){
@@ -45,6 +46,7 @@ class SqlDSLGenerator implements IGenerator {
 	'''
 	
 	def dispatch generate(STable  table)'''
+		«table.initIndexCounter»
 		«table.toComment»
 		CREATE TABLE «table.toDBSchemaString».«table.toDBTableString»(
 			«table.toColumnPrefix»_ID int NOT NULL AUTO_INCREMENT COMMENT 'id',
@@ -56,21 +58,32 @@ class SqlDSLGenerator implements IGenerator {
 			«table.toColumnPrefix»_CHANGED_BY int NOT NULL COMMENT 'changedAt',
 			«table.toColumnPrefix»_CHANGED_AT datetime NOT NULL COMMENT 'changedAt',
 			«table.toColumnPrefix»_VERSION mediumint NOT NULL COMMENT 'version',
+			
 			PRIMARY KEY (MDE_ID),
-			KEY MDE_ID (MDE_ID)
-			
+			KEY MDE_ID (MDE_ID)«IF indexLeft()»,«ENDIF»
 			«FOR column : table.columns.filter([it.isIndexed])»
-			«column.generateIndex»,
+			«column.generateIndex»«decreaseIndexCounter»«IF indexLeft()»,«ENDIF»
 			«ENDFOR»
-			
 		) ENGINE = «table.toDBEngineString» DEFAULT CHARSET = utf8;
 	'''
 	
+	def void initIndexCounter(STable table){
+		indexLeft = table.columns.filter([it.isIndexed]).size
+	}
+	
+	def void decreaseIndexCounter(){
+		indexLeft = indexLeft - 1;
+	}
+	
+	def boolean indexLeft(){
+		return indexLeft > 0
+	}
+	
 	def dispatch generate(SColumn  column)'''
-		«column.toColumnName» «column.toColumnType» «column.toNullableModifier»«column.toAESModifier»«column.toComment», «column.toColumnFinishing»'''
+		«column.toColumnName» «column.toColumnType» «column.toNullableModifier»«column.toAESModifier»«column.toComment», «column.finishColumn»'''
 	
 	def dispatch generate(SJoinColumn  column)'''
-		«column.toColumnName»«column.toColumnType»«column.toNullableModifier»«column.toAESModifier»«column.toComment», «column.toColumnFinishing»'''
+		«column.toColumnName»«column.toColumnType»«column.toNullableModifier»«column.toAESModifier»«column.toComment»,'''
 		
 	def dispatch generateIndex(SColumn column)'''
 		«column.toIndexType» KEY IDX_«column.toColumnName» («column.toColumnName»)'''

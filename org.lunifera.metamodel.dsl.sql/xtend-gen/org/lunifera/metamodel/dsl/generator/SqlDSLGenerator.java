@@ -32,6 +32,8 @@ public class SqlDSLGenerator implements IGenerator {
   @Inject
   private HelperExtensions _helperExtensions;
   
+  private int indexLeft;
+  
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     TreeIterator<EObject> _allContents = resource.getAllContents();
     Iterator<SModel> _filter = Iterators.<SModel>filter(_allContents, SModel.class);
@@ -96,6 +98,8 @@ public class SqlDSLGenerator implements IGenerator {
   
   protected CharSequence _generate(final STable table) {
     StringConcatenation _builder = new StringConcatenation();
+    this.initIndexCounter(table);
+    _builder.newLineIfNotEmpty();
     CharSequence _comment = this._helperExtensions.toComment(table);
     _builder.append(_comment, "");
     _builder.newLineIfNotEmpty();
@@ -147,13 +151,19 @@ public class SqlDSLGenerator implements IGenerator {
     _builder.append("_VERSION mediumint NOT NULL COMMENT \'version\',");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("PRIMARY KEY (MDE_ID),");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("KEY MDE_ID (MDE_ID)");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.newLine();
+    {
+      boolean _indexLeft = this.indexLeft();
+      if (_indexLeft) {
+        _builder.append(",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
     {
       EList<STableMember> _columns_1 = table.getColumns();
       final Function1<STableMember,Boolean> _function = new Function1<STableMember,Boolean>() {
@@ -167,18 +177,44 @@ public class SqlDSLGenerator implements IGenerator {
         _builder.append("\t");
         CharSequence _generateIndex = this.generateIndex(column_1);
         _builder.append(_generateIndex, "	");
-        _builder.append(",");
+        this.decreaseIndexCounter();
+        {
+          boolean _indexLeft_1 = this.indexLeft();
+          if (_indexLeft_1) {
+            _builder.append(",");
+          }
+        }
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\t");
-    _builder.newLine();
     _builder.append(") ENGINE = ");
     String _dBEngineString = this._helperExtensions.toDBEngineString(table);
     _builder.append(_dBEngineString, "");
     _builder.append(" DEFAULT CHARSET = utf8;");
     _builder.newLineIfNotEmpty();
     return _builder;
+  }
+  
+  public void initIndexCounter(final STable table) {
+    EList<STableMember> _columns = table.getColumns();
+    final Function1<STableMember,Boolean> _function = new Function1<STableMember,Boolean>() {
+        public Boolean apply(final STableMember it) {
+          boolean _isIndexed = SqlDSLGenerator.this._helperExtensions.isIndexed(it);
+          return Boolean.valueOf(_isIndexed);
+        }
+      };
+    Iterable<STableMember> _filter = IterableExtensions.<STableMember>filter(_columns, _function);
+    int _size = IterableExtensions.size(_filter);
+    this.indexLeft = _size;
+  }
+  
+  public void decreaseIndexCounter() {
+    int _minus = (this.indexLeft - 1);
+    this.indexLeft = _minus;
+  }
+  
+  public boolean indexLeft() {
+    return (this.indexLeft > 0);
   }
   
   protected CharSequence _generate(final SColumn column) {
@@ -196,8 +232,8 @@ public class SqlDSLGenerator implements IGenerator {
     CharSequence _comment = this._helperExtensions.toComment(column);
     _builder.append(_comment, "");
     _builder.append(", ");
-    Object _columnFinishing = this._helperExtensions.toColumnFinishing(column);
-    _builder.append(_columnFinishing, "");
+    Object _finishColumn = this._helperExtensions.finishColumn(column);
+    _builder.append(_finishColumn, "");
     return _builder;
   }
   
@@ -213,9 +249,7 @@ public class SqlDSLGenerator implements IGenerator {
     _builder.append(_aESModifier, "");
     CharSequence _comment = this._helperExtensions.toComment(column);
     _builder.append(_comment, "");
-    _builder.append(", ");
-    Object _columnFinishing = this._helperExtensions.toColumnFinishing(column);
-    _builder.append(_columnFinishing, "");
+    _builder.append(",");
     return _builder;
   }
   
