@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.lunifera.metamodel.dsl.sqlDSL.SEntityMember;
+import org.lunifera.metamodel.dsl.sqlDSL.SSettings;
 import org.lunifera.metamodel.dsl.sqlDSL.STable;
 import org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage;
 
@@ -28,6 +29,7 @@ import org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.STableImpl#getSettings <em>Settings</em>}</li>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.STableImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.impl.STableImpl#getEntityMembers <em>Entity Members</em>}</li>
  * </ul>
@@ -37,6 +39,16 @@ import org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage;
  */
 public class STableImpl extends SArtifactImpl implements STable
 {
+  /**
+   * The cached value of the '{@link #getSettings() <em>Settings</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSettings()
+   * @generated
+   * @ordered
+   */
+  protected SSettings settings;
+
   /**
    * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -93,6 +105,54 @@ public class STableImpl extends SArtifactImpl implements STable
    * <!-- end-user-doc -->
    * @generated
    */
+  public SSettings getSettings()
+  {
+    return settings;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSettings(SSettings newSettings, NotificationChain msgs)
+  {
+    SSettings oldSettings = settings;
+    settings = newSettings;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SqlDSLPackage.STABLE__SETTINGS, oldSettings, newSettings);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSettings(SSettings newSettings)
+  {
+    if (newSettings != settings)
+    {
+      NotificationChain msgs = null;
+      if (settings != null)
+        msgs = ((InternalEObject)settings).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SqlDSLPackage.STABLE__SETTINGS, null, msgs);
+      if (newSettings != null)
+        msgs = ((InternalEObject)newSettings).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SqlDSLPackage.STABLE__SETTINGS, null, msgs);
+      msgs = basicSetSettings(newSettings, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SqlDSLPackage.STABLE__SETTINGS, newSettings, newSettings));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getPrefix()
   {
     return prefix;
@@ -135,6 +195,8 @@ public class STableImpl extends SArtifactImpl implements STable
   {
     switch (featureID)
     {
+      case SqlDSLPackage.STABLE__SETTINGS:
+        return basicSetSettings(null, msgs);
       case SqlDSLPackage.STABLE__ENTITY_MEMBERS:
         return ((InternalEList<?>)getEntityMembers()).basicRemove(otherEnd, msgs);
     }
@@ -151,6 +213,8 @@ public class STableImpl extends SArtifactImpl implements STable
   {
     switch (featureID)
     {
+      case SqlDSLPackage.STABLE__SETTINGS:
+        return getSettings();
       case SqlDSLPackage.STABLE__PREFIX:
         return getPrefix();
       case SqlDSLPackage.STABLE__ENTITY_MEMBERS:
@@ -170,6 +234,9 @@ public class STableImpl extends SArtifactImpl implements STable
   {
     switch (featureID)
     {
+      case SqlDSLPackage.STABLE__SETTINGS:
+        setSettings((SSettings)newValue);
+        return;
       case SqlDSLPackage.STABLE__PREFIX:
         setPrefix((String)newValue);
         return;
@@ -191,6 +258,9 @@ public class STableImpl extends SArtifactImpl implements STable
   {
     switch (featureID)
     {
+      case SqlDSLPackage.STABLE__SETTINGS:
+        setSettings((SSettings)null);
+        return;
       case SqlDSLPackage.STABLE__PREFIX:
         setPrefix(PREFIX_EDEFAULT);
         return;
@@ -211,6 +281,8 @@ public class STableImpl extends SArtifactImpl implements STable
   {
     switch (featureID)
     {
+      case SqlDSLPackage.STABLE__SETTINGS:
+        return settings != null;
       case SqlDSLPackage.STABLE__PREFIX:
         return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
       case SqlDSLPackage.STABLE__ENTITY_MEMBERS:

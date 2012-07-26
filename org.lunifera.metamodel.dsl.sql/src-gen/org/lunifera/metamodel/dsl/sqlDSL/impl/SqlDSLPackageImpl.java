@@ -315,9 +315,19 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getSTable_Settings()
+  {
+    return (EReference)sTableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getSTable_Prefix()
   {
-    return (EAttribute)sTableEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)sTableEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -327,7 +337,7 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
    */
   public EReference getSTable_EntityMembers()
   {
-    return (EReference)sTableEClass.getEStructuralFeatures().get(1);
+    return (EReference)sTableEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -632,6 +642,7 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
     createEAttribute(sArtifactEClass, SARTIFACT__NAME);
 
     sTableEClass = createEClass(STABLE);
+    createEReference(sTableEClass, STABLE__SETTINGS);
     createEAttribute(sTableEClass, STABLE__PREFIX);
     createEReference(sTableEClass, STABLE__ENTITY_MEMBERS);
 
@@ -724,6 +735,7 @@ public class SqlDSLPackageImpl extends EPackageImpl implements SqlDSLPackage
     initEAttribute(getSArtifact_Name(), ecorePackage.getEString(), "name", null, 0, 1, SArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sTableEClass, STable.class, "STable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSTable_Settings(), this.getSSettings(), null, "settings", null, 0, 1, STable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSTable_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, STable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSTable_EntityMembers(), this.getSEntityMember(), null, "entityMembers", null, 0, -1, STable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

@@ -22,7 +22,8 @@ SArtifact:
 
 STable:
 	'table' name=ID '{'
-	('prefix' prefix=ID ';')?
+	((settings=SSettings)? &
+	('prefix' prefix=ID ';')?)
 	entityMembers+=SEntityMember*
 	'}';
 

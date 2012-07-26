@@ -212,7 +212,7 @@ public class SqlDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (name=ID prefix=ID? entityMembers+=SEntityMember*)
+	 *     (name=ID settings=SSettings? prefix=ID? entityMembers+=SEntityMember*)
 	 */
 	protected void sequence_STable(EObject context, STable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

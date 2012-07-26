@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getSettings <em>Settings</em>}</li>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getEntityMembers <em>Entity Members</em>}</li>
  * </ul>
@@ -23,6 +24,32 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface STable extends SArtifact
 {
+  /**
+   * Returns the value of the '<em><b>Settings</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Settings</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Settings</em>' containment reference.
+   * @see #setSettings(SSettings)
+   * @see org.lunifera.metamodel.dsl.sqlDSL.SqlDSLPackage#getSTable_Settings()
+   * @model containment="true"
+   * @generated
+   */
+  SSettings getSettings();
+
+  /**
+   * Sets the value of the '{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getSettings <em>Settings</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Settings</em>' containment reference.
+   * @see #getSettings()
+   * @generated
+   */
+  void setSettings(SSettings value);
+
   /**
    * Returns the value of the '<em><b>Prefix</b></em>' attribute.
    * <!-- begin-user-doc -->

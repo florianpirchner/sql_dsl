@@ -134,20 +134,23 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cPrefixKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cPrefixAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cPrefixIDTerminalRuleCall_3_1_0 = (RuleCall)cPrefixAssignment_3_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final UnorderedGroup cUnorderedGroup_3 = (UnorderedGroup)cGroup.eContents().get(3);
+		private final Assignment cSettingsAssignment_3_0 = (Assignment)cUnorderedGroup_3.eContents().get(0);
+		private final RuleCall cSettingsSSettingsParserRuleCall_3_0_0 = (RuleCall)cSettingsAssignment_3_0.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cUnorderedGroup_3.eContents().get(1);
+		private final Keyword cPrefixKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cPrefixAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cPrefixIDTerminalRuleCall_3_1_1_0 = (RuleCall)cPrefixAssignment_3_1_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3_1_2 = (Keyword)cGroup_3_1.eContents().get(2);
 		private final Assignment cEntityMembersAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cEntityMembersSEntityMemberParserRuleCall_4_0 = (RuleCall)cEntityMembersAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//STable:
-		//	"table" name=ID "{" ("prefix" prefix=ID ";")? entityMembers+=SEntityMember* "}";
+		//	"table" name=ID "{" (settings=SSettings? & ("prefix" prefix=ID ";")?) entityMembers+=SEntityMember* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"table" name=ID "{" ("prefix" prefix=ID ";")? entityMembers+=SEntityMember* "}"
+		//"table" name=ID "{" (settings=SSettings? & ("prefix" prefix=ID ";")?) entityMembers+=SEntityMember* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"table"
@@ -162,20 +165,29 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
+		//settings=SSettings? & ("prefix" prefix=ID ";")?
+		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
+
+		//settings=SSettings?
+		public Assignment getSettingsAssignment_3_0() { return cSettingsAssignment_3_0; }
+
+		//SSettings
+		public RuleCall getSettingsSSettingsParserRuleCall_3_0_0() { return cSettingsSSettingsParserRuleCall_3_0_0; }
+
 		//("prefix" prefix=ID ";")?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_3_1() { return cGroup_3_1; }
 
 		//"prefix"
-		public Keyword getPrefixKeyword_3_0() { return cPrefixKeyword_3_0; }
+		public Keyword getPrefixKeyword_3_1_0() { return cPrefixKeyword_3_1_0; }
 
 		//prefix=ID
-		public Assignment getPrefixAssignment_3_1() { return cPrefixAssignment_3_1; }
+		public Assignment getPrefixAssignment_3_1_1() { return cPrefixAssignment_3_1_1; }
 
 		//ID
-		public RuleCall getPrefixIDTerminalRuleCall_3_1_0() { return cPrefixIDTerminalRuleCall_3_1_0; }
+		public RuleCall getPrefixIDTerminalRuleCall_3_1_1_0() { return cPrefixIDTerminalRuleCall_3_1_1_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_3_2() { return cSemicolonKeyword_3_2; }
+		public Keyword getSemicolonKeyword_3_1_2() { return cSemicolonKeyword_3_1_2; }
 
 		//entityMembers+=SEntityMember*
 		public Assignment getEntityMembersAssignment_4() { return cEntityMembersAssignment_4; }
@@ -839,7 +851,7 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//STable:
-	//	"table" name=ID "{" ("prefix" prefix=ID ";")? entityMembers+=SEntityMember* "}";
+	//	"table" name=ID "{" (settings=SSettings? & ("prefix" prefix=ID ";")?) entityMembers+=SEntityMember* "}";
 	public STableElements getSTableAccess() {
 		return (pSTable != null) ? pSTable : (pSTable = new STableElements());
 	}

@@ -45,6 +45,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//SArtifact/name"/>
     </genClasses>
     <genClasses ecoreClass="SqlDSL.ecore#//STable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SqlDSL.ecore#//STable/settings"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SqlDSL.ecore#//STable/prefix"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SqlDSL.ecore#//STable/entityMembers"/>
     </genClasses>

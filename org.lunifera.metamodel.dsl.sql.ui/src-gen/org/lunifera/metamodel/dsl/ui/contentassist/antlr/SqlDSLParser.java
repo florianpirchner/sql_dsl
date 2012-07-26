@@ -49,7 +49,7 @@ public class SqlDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSSettingsAccess().getGroup_2_0(), "rule__SSettings__Group_2_0__0");
 					put(grammarAccess.getSSettingsAccess().getGroup_2_1(), "rule__SSettings__Group_2_1__0");
 					put(grammarAccess.getSTableAccess().getGroup(), "rule__STable__Group__0");
-					put(grammarAccess.getSTableAccess().getGroup_3(), "rule__STable__Group_3__0");
+					put(grammarAccess.getSTableAccess().getGroup_3_1(), "rule__STable__Group_3_1__0");
 					put(grammarAccess.getSPropertyAccess().getGroup(), "rule__SProperty__Group__0");
 					put(grammarAccess.getSJoinPropertyAccess().getGroup(), "rule__SJoinProperty__Group__0");
 					put(grammarAccess.getSColumnPropsAccess().getGroup(), "rule__SColumnProps__Group__0");
@@ -63,7 +63,8 @@ public class SqlDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSSettingsAccess().getSchemaAssignment_2_0_1(), "rule__SSettings__SchemaAssignment_2_0_1");
 					put(grammarAccess.getSSettingsAccess().getEngineAssignment_2_1_1(), "rule__SSettings__EngineAssignment_2_1_1");
 					put(grammarAccess.getSTableAccess().getNameAssignment_1(), "rule__STable__NameAssignment_1");
-					put(grammarAccess.getSTableAccess().getPrefixAssignment_3_1(), "rule__STable__PrefixAssignment_3_1");
+					put(grammarAccess.getSTableAccess().getSettingsAssignment_3_0(), "rule__STable__SettingsAssignment_3_0");
+					put(grammarAccess.getSTableAccess().getPrefixAssignment_3_1_1(), "rule__STable__PrefixAssignment_3_1_1");
 					put(grammarAccess.getSTableAccess().getEntityMembersAssignment_4(), "rule__STable__EntityMembersAssignment_4");
 					put(grammarAccess.getSPropertyAccess().getNameAssignment_1(), "rule__SProperty__NameAssignment_1");
 					put(grammarAccess.getSPropertyAccess().getExtTypeAssignment_2_0(), "rule__SProperty__ExtTypeAssignment_2_0");
@@ -83,6 +84,7 @@ public class SqlDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSStringAccess().getValueAssignment_1(), "rule__SString__ValueAssignment_1");
 					put(grammarAccess.getSDecimalAccess().getValueAssignment_1(), "rule__SDecimal__ValueAssignment_1");
 					put(grammarAccess.getSSettingsAccess().getUnorderedGroup_2(), "rule__SSettings__UnorderedGroup_2");
+					put(grammarAccess.getSTableAccess().getUnorderedGroup_3(), "rule__STable__UnorderedGroup_3");
 					put(grammarAccess.getSColumnPropsAccess().getUnorderedGroup_2(), "rule__SColumnProps__UnorderedGroup_2");
 				}
 			};

@@ -179,13 +179,22 @@ public interface SqlDSLPackage extends EPackage
   int STABLE__NAME = SARTIFACT__NAME;
 
   /**
+   * The feature id for the '<em><b>Settings</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STABLE__SETTINGS = SARTIFACT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Prefix</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STABLE__PREFIX = SARTIFACT_FEATURE_COUNT + 0;
+  int STABLE__PREFIX = SARTIFACT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Entity Members</b></em>' containment reference list.
@@ -194,7 +203,7 @@ public interface SqlDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STABLE__ENTITY_MEMBERS = SARTIFACT_FEATURE_COUNT + 1;
+  int STABLE__ENTITY_MEMBERS = SARTIFACT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>STable</em>' class.
@@ -203,7 +212,7 @@ public interface SqlDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STABLE_FEATURE_COUNT = SARTIFACT_FEATURE_COUNT + 2;
+  int STABLE_FEATURE_COUNT = SARTIFACT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.lunifera.metamodel.dsl.sqlDSL.impl.SEntityMemberImpl <em>SEntity Member</em>}' class.
@@ -702,6 +711,17 @@ public interface SqlDSLPackage extends EPackage
   EClass getSTable();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getSettings <em>Settings</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Settings</em>'.
+   * @see org.lunifera.metamodel.dsl.sqlDSL.STable#getSettings()
+   * @see #getSTable()
+   * @generated
+   */
+  EReference getSTable_Settings();
+
+  /**
    * Returns the meta object for the attribute '{@link org.lunifera.metamodel.dsl.sqlDSL.STable#getPrefix <em>Prefix</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1098,6 +1118,14 @@ public interface SqlDSLPackage extends EPackage
      * @generated
      */
     EClass STABLE = eINSTANCE.getSTable();
+
+    /**
+     * The meta object literal for the '<em><b>Settings</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STABLE__SETTINGS = eINSTANCE.getSTable_Settings();
 
     /**
      * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
