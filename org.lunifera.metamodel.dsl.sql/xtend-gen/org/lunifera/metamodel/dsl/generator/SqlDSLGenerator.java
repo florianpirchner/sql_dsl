@@ -16,7 +16,6 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.lunifera.metamodel.dsl.generator.HelperExtensions;
-import org.lunifera.metamodel.dsl.sqlDSL.SArtifact;
 import org.lunifera.metamodel.dsl.sqlDSL.SColumn;
 import org.lunifera.metamodel.dsl.sqlDSL.SJoinColumn;
 import org.lunifera.metamodel.dsl.sqlDSL.SModel;
@@ -52,146 +51,86 @@ public class SqlDSLGenerator implements IGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("-- schema --");
     _builder.newLine();
-    SSettings _settings = model.getSettings();
-    CharSequence _generateSchema = this.generateSchema(_settings);
-    _builder.append(_generateSchema, "");
-    _builder.newLineIfNotEmpty();
+    _builder.append("\uFFFDmodel.settings.generateSchema\uFFFD");
     _builder.newLine();
-    {
-      EList<SArtifact> _artifact = model.getArtifact();
-      Iterable<STable> _filter = Iterables.<STable>filter(_artifact, STable.class);
-      for(final STable table : _filter) {
-        CharSequence _generate = this.generate(table);
-        _builder.append(_generate, "");
-        _builder.newLineIfNotEmpty();
-      }
-    }
     _builder.newLine();
-    {
-      EList<SArtifact> _artifact_1 = model.getArtifact();
-      Iterable<STable> _filter_1 = Iterables.<STable>filter(_artifact_1, STable.class);
-      final Function1<STable,Boolean> _function = new Function1<STable,Boolean>() {
-          public Boolean apply(final STable it) {
-            boolean _shouldGenerateForeignKey = SqlDSLGenerator.this._helperExtensions.shouldGenerateForeignKey(it);
-            return Boolean.valueOf(_shouldGenerateForeignKey);
-          }
-        };
-      Iterable<STable> _filter_2 = IterableExtensions.<STable>filter(_filter_1, _function);
-      for(final STable table_1 : _filter_2) {
-        String _generateForeignKey = this.generateForeignKey(table_1);
-        _builder.append(_generateForeignKey, "");
-        _builder.newLineIfNotEmpty();
-      }
-    }
+    _builder.append("\uFFFDFOR table : model.artifact.filter(typeof(STable))\uFFFD");
+    _builder.newLine();
+    _builder.append("\uFFFDtable.generate\uFFFD");
+    _builder.newLine();
+    _builder.append("\uFFFDENDFOR\uFFFD");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\uFFFDFOR table : model.artifact.filter(typeof(STable)).filter([it.shouldGenerateForeignKey])\uFFFD");
+    _builder.newLine();
+    _builder.append("\uFFFDtable.generateForeignKey\uFFFD");
+    _builder.newLine();
+    _builder.append("\uFFFDENDFOR\uFFFD");
+    _builder.newLine();
     return _builder;
   }
   
   public CharSequence generateSchema(final SSettings settings) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("CREATE SCHEMA IF NOT EXISTS ");
-    String _dBSchemaString = this._helperExtensions.toDBSchemaString(settings);
-    _builder.append(_dBSchemaString, "");
-    _builder.append(" CHARACTER SET = utf8;");
-    _builder.newLineIfNotEmpty();
+    _builder.append("CREATE SCHEMA IF NOT EXISTS \uFFFDsettings.toDBSchemaString\uFFFD CHARACTER SET = utf8;");
+    _builder.newLine();
     return _builder;
   }
   
   protected CharSequence _generate(final STable table) {
     StringConcatenation _builder = new StringConcatenation();
-    this.initIndexCounter(table);
-    _builder.newLineIfNotEmpty();
-    CharSequence _comment = this._helperExtensions.toComment(table);
-    _builder.append(_comment, "");
-    _builder.newLineIfNotEmpty();
-    _builder.append("CREATE TABLE ");
-    String _dBSchemaString = this._helperExtensions.toDBSchemaString(table);
-    _builder.append(_dBSchemaString, "");
-    _builder.append(".");
-    String _dBTableString = this._helperExtensions.toDBTableString(table);
-    _builder.append(_dBTableString, "");
-    _builder.append("(");
-    _builder.newLineIfNotEmpty();
+    _builder.append("\uFFFDtable.initIndexCounter\uFFFD");
+    _builder.newLine();
+    _builder.append("\uFFFDtable.toComment\uFFFD");
+    _builder.newLine();
+    _builder.append("CREATE TABLE \uFFFDtable.toDBSchemaString\uFFFD.\uFFFDtable.toDBTableString\uFFFD(");
+    _builder.newLine();
     _builder.append("\t");
-    CharSequence _columnPrefix = this._helperExtensions.toColumnPrefix(table);
-    _builder.append(_columnPrefix, "	");
-    _builder.append("_ID int NOT NULL AUTO_INCREMENT COMMENT \'id\',");
-    _builder.newLineIfNotEmpty();
-    {
-      EList<STableMember> _columns = table.getColumns();
-      for(final STableMember column : _columns) {
-        _builder.append("\t");
-        CharSequence _generate = this.generate(column);
-        _builder.append(_generate, "	");
-        _builder.newLineIfNotEmpty();
-      }
-    }
+    _builder.append("\uFFFDtable.toColumnPrefix\uFFFD_ID int NOT NULL AUTO_INCREMENT COMMENT \'id\',");
+    _builder.newLine();
     _builder.append("\t");
-    CharSequence _columnPrefix_1 = this._helperExtensions.toColumnPrefix(table);
-    _builder.append(_columnPrefix_1, "	");
-    _builder.append("_CREATED_BY int NOT NULL COMMENT \'createdBy\',");
-    _builder.newLineIfNotEmpty();
+    _builder.append("\uFFFDFOR column : table.columns\uFFFD");
+    _builder.newLine();
     _builder.append("\t");
-    CharSequence _columnPrefix_2 = this._helperExtensions.toColumnPrefix(table);
-    _builder.append(_columnPrefix_2, "	");
-    _builder.append("_CREATED_AT datetime NOT NULL COMMENT \'createdAt\',");
-    _builder.newLineIfNotEmpty();
+    _builder.append("\uFFFDcolumn.generate\uFFFD");
+    _builder.newLine();
     _builder.append("\t");
-    CharSequence _columnPrefix_3 = this._helperExtensions.toColumnPrefix(table);
-    _builder.append(_columnPrefix_3, "	");
-    _builder.append("_CHANGED_BY int NOT NULL COMMENT \'changedAt\',");
-    _builder.newLineIfNotEmpty();
+    _builder.append("\uFFFDENDFOR\uFFFD");
+    _builder.newLine();
     _builder.append("\t");
-    CharSequence _columnPrefix_4 = this._helperExtensions.toColumnPrefix(table);
-    _builder.append(_columnPrefix_4, "	");
-    _builder.append("_CHANGED_AT datetime NOT NULL COMMENT \'changedAt\',");
-    _builder.newLineIfNotEmpty();
+    _builder.append("\uFFFDtable.toColumnPrefix\uFFFD_CREATED_BY int NOT NULL COMMENT \'createdBy\',");
+    _builder.newLine();
     _builder.append("\t");
-    CharSequence _columnPrefix_5 = this._helperExtensions.toColumnPrefix(table);
-    _builder.append(_columnPrefix_5, "	");
-    _builder.append("_VERSION mediumint NOT NULL COMMENT \'version\',");
-    _builder.newLineIfNotEmpty();
+    _builder.append("\uFFFDtable.toColumnPrefix\uFFFD_CREATED_AT datetime NOT NULL COMMENT \'createdAt\',");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("\uFFFDtable.toColumnPrefix\uFFFD_CHANGED_BY int NOT NULL COMMENT \'changedAt\',");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("\uFFFDtable.toColumnPrefix\uFFFD_CHANGED_AT datetime NOT NULL COMMENT \'changedAt\',");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("\uFFFDtable.toColumnPrefix\uFFFD_VERSION mediumint NOT NULL COMMENT \'version\',");
+    _builder.newLine();
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("PRIMARY KEY (MDE_ID),");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("KEY MDE_ID (MDE_ID)");
-    {
-      boolean _indexLeft = this.indexLeft();
-      if (_indexLeft) {
-        _builder.append(",");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    {
-      EList<STableMember> _columns_1 = table.getColumns();
-      final Function1<STableMember,Boolean> _function = new Function1<STableMember,Boolean>() {
-          public Boolean apply(final STableMember it) {
-            boolean _isIndexed = SqlDSLGenerator.this._helperExtensions.isIndexed(it);
-            return Boolean.valueOf(_isIndexed);
-          }
-        };
-      Iterable<STableMember> _filter = IterableExtensions.<STableMember>filter(_columns_1, _function);
-      for(final STableMember column_1 : _filter) {
-        _builder.append("\t");
-        CharSequence _generateIndex = this.generateIndex(column_1);
-        _builder.append(_generateIndex, "	");
-        this.decreaseIndexCounter();
-        {
-          boolean _indexLeft_1 = this.indexLeft();
-          if (_indexLeft_1) {
-            _builder.append(",");
-          }
-        }
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append(") ENGINE = ");
-    String _dBEngineString = this._helperExtensions.toDBEngineString(table);
-    _builder.append(_dBEngineString, "");
-    _builder.append(" DEFAULT CHARSET = utf8;");
-    _builder.newLineIfNotEmpty();
+    _builder.append("KEY MDE_ID (MDE_ID)\uFFFDIF indexLeft()\uFFFD,\uFFFDENDIF\uFFFD");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("\uFFFDFOR column : table.columns.filter([it.isIndexed])\uFFFD");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("\uFFFDcolumn.generateIndex\uFFFD\uFFFDdecreaseIndexCounter\uFFFD\uFFFDIF indexLeft()\uFFFD,\uFFFDENDIF\uFFFD");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("\uFFFDENDFOR\uFFFD");
+    _builder.newLine();
+    _builder.append(") ENGINE = \uFFFDtable.toDBEngineString\uFFFD DEFAULT CHARSET = utf8;");
+    _builder.newLine();
     return _builder;
   }
   
@@ -219,63 +158,25 @@ public class SqlDSLGenerator implements IGenerator {
   
   protected CharSequence _generate(final SColumn column) {
     StringConcatenation _builder = new StringConcatenation();
-    CharSequence _columnName = this._helperExtensions.toColumnName(column);
-    _builder.append(_columnName, "");
-    _builder.append(" ");
-    CharSequence _columnType = this._helperExtensions.toColumnType(column);
-    _builder.append(_columnType, "");
-    _builder.append(" ");
-    CharSequence _nullableModifier = this._helperExtensions.toNullableModifier(column);
-    _builder.append(_nullableModifier, "");
-    CharSequence _aESModifier = this._helperExtensions.toAESModifier(column);
-    _builder.append(_aESModifier, "");
-    CharSequence _comment = this._helperExtensions.toComment(column);
-    _builder.append(_comment, "");
-    _builder.append(", ");
-    Object _finishColumn = this._helperExtensions.finishColumn(column);
-    _builder.append(_finishColumn, "");
+    _builder.append("\uFFFDcolumn.toColumnName\uFFFD \uFFFDcolumn.toColumnType\uFFFD \uFFFDcolumn.toNullableModifier\uFFFD\uFFFDcolumn.toAESModifier\uFFFD\uFFFDcolumn.toComment\uFFFD, \uFFFDcolumn.finishColumn\uFFFD");
     return _builder;
   }
   
   protected CharSequence _generate(final SJoinColumn column) {
     StringConcatenation _builder = new StringConcatenation();
-    CharSequence _columnName = this._helperExtensions.toColumnName(column);
-    _builder.append(_columnName, "");
-    CharSequence _columnType = this._helperExtensions.toColumnType(column);
-    _builder.append(_columnType, "");
-    CharSequence _nullableModifier = this._helperExtensions.toNullableModifier(column);
-    _builder.append(_nullableModifier, "");
-    CharSequence _aESModifier = this._helperExtensions.toAESModifier(column);
-    _builder.append(_aESModifier, "");
-    CharSequence _comment = this._helperExtensions.toComment(column);
-    _builder.append(_comment, "");
-    _builder.append(",");
+    _builder.append("\uFFFDcolumn.toColumnName\uFFFD\uFFFDcolumn.toColumnType\uFFFD\uFFFDcolumn.toNullableModifier\uFFFD\uFFFDcolumn.toAESModifier\uFFFD\uFFFDcolumn.toComment\uFFFD,");
     return _builder;
   }
   
   protected CharSequence _generateIndex(final SColumn column) {
     StringConcatenation _builder = new StringConcatenation();
-    String _indexType = this._helperExtensions.toIndexType(column);
-    _builder.append(_indexType, "");
-    _builder.append(" KEY IDX_");
-    CharSequence _columnName = this._helperExtensions.toColumnName(column);
-    _builder.append(_columnName, "");
-    _builder.append(" (");
-    CharSequence _columnName_1 = this._helperExtensions.toColumnName(column);
-    _builder.append(_columnName_1, "");
-    _builder.append(")");
+    _builder.append("\uFFFDcolumn.toIndexType\uFFFD KEY IDX_\uFFFDcolumn.toColumnName\uFFFD (\uFFFDcolumn.toColumnName\uFFFD)");
     return _builder;
   }
   
   protected CharSequence _generateIndex(final SJoinColumn column) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("KEY IDX_");
-    CharSequence _columnName = this._helperExtensions.toColumnName(column);
-    _builder.append(_columnName, "");
-    _builder.append(" (");
-    CharSequence _columnName_1 = this._helperExtensions.toColumnName(column);
-    _builder.append(_columnName_1, "");
-    _builder.append(")");
+    _builder.append("KEY IDX_\uFFFDcolumn.toColumnName\uFFFD (\uFFFDcolumn.toColumnName\uFFFD)");
     return _builder;
   }
   
@@ -297,40 +198,14 @@ public class SqlDSLGenerator implements IGenerator {
   
   public CharSequence generateForeignKey(final STable table, final STable refTable) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("ALTER TABLE ");
-    String _dBSchemaString = this._helperExtensions.toDBSchemaString(table);
-    _builder.append(_dBSchemaString, "");
-    _builder.append(".");
-    String _dBTableString = this._helperExtensions.toDBTableString(table);
-    _builder.append(_dBTableString, "");
-    _builder.newLineIfNotEmpty();
+    _builder.append("ALTER TABLE \uFFFDtable.toDBSchemaString\uFFFD.\uFFFDtable.toDBTableString\uFFFD");
+    _builder.newLine();
     _builder.append("\t");
-    _builder.append("ADD CONSTRAINT FK_");
-    CharSequence _columnPrefix = this._helperExtensions.toColumnPrefix(table);
-    _builder.append(_columnPrefix, "	");
-    _builder.append("_");
-    CharSequence _columnPrefix_1 = this._helperExtensions.toColumnPrefix(refTable);
-    _builder.append(_columnPrefix_1, "	");
-    _builder.append("_ID FOREIGN KEY (");
-    CharSequence _columnPrefix_2 = this._helperExtensions.toColumnPrefix(table);
-    _builder.append(_columnPrefix_2, "	");
-    _builder.append("_");
-    CharSequence _columnPrefix_3 = this._helperExtensions.toColumnPrefix(refTable);
-    _builder.append(_columnPrefix_3, "	");
-    _builder.append("_ID)");
-    _builder.newLineIfNotEmpty();
+    _builder.append("ADD CONSTRAINT FK_\uFFFDtable.toColumnPrefix\uFFFD_\uFFFDrefTable.toColumnPrefix\uFFFD_ID FOREIGN KEY (\uFFFDtable.toColumnPrefix\uFFFD_\uFFFDrefTable.toColumnPrefix\uFFFD_ID)");
+    _builder.newLine();
     _builder.append("\t");
-    _builder.append("REFERENCES ");
-    String _dBSchemaString_1 = this._helperExtensions.toDBSchemaString(refTable);
-    _builder.append(_dBSchemaString_1, "	");
-    _builder.append(".");
-    String _dBTableString_1 = this._helperExtensions.toDBTableString(refTable);
-    _builder.append(_dBTableString_1, "	");
-    _builder.append("(");
-    CharSequence _columnPrefix_4 = this._helperExtensions.toColumnPrefix(refTable);
-    _builder.append(_columnPrefix_4, "	");
-    _builder.append("_ID)");
-    _builder.newLineIfNotEmpty();
+    _builder.append("REFERENCES \uFFFDrefTable.toDBSchemaString\uFFFD.\uFFFDrefTable.toDBTableString\uFFFD(\uFFFDrefTable.toColumnPrefix\uFFFD_ID)");
+    _builder.newLine();
     return _builder;
   }
   
