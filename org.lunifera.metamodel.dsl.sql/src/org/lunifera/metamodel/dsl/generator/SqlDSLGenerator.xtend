@@ -39,41 +39,41 @@ class SqlDSLGenerator implements IGenerator {
 	
 	def dispatch generate(SModel model)'''
 		-- schema --
-		Çmodel.settings.generateSchemaÈ
+		Â«model.settings.generateSchemaÂ»
 		
-		ÇFOR table : model.artifact.filter(typeof(STable))È
-		Çtable.generateÈ
-		ÇENDFORÈ
+		Â«FOR table : model.artifact.filter(typeof(STable))Â»
+		Â«table.generateÂ»
+		Â«ENDFORÂ»
 		
-		ÇFOR table : model.artifact.filter(typeof(STable)).filter([it.shouldGenerateForeignKey])È
-		Çtable.generateForeignKeyÈ
-		ÇENDFORÈ
+		Â«FOR table : model.artifact.filter(typeof(STable)).filter([it.shouldGenerateForeignKey])Â»
+		Â«table.generateForeignKeyÂ»
+		Â«ENDFORÂ»
 	'''
 		
 	def generateSchema(SSettings settings)'''
-		CREATE SCHEMA IF NOT EXISTS Çsettings.toDBSchemaStringÈ CHARACTER SET = utf8;
+		CREATE SCHEMA IF NOT EXISTS Â«settings.toDBSchemaStringÂ» CHARACTER SET = utf8;
 	'''
 	
 	def dispatch generate(STable  table)'''
-		Çtable.initIndexCounterÈ
-		Çtable.toCommentÈ
-		CREATE TABLE Çtable.toDBSchemaStringÈ.Çtable.toDBTableStringÈ(
-			Çtable.toColumnPrefixÈ_ID int NOT NULL AUTO_INCREMENT COMMENT 'id',
-			ÇFOR column : table.columnsÈ
-			Çcolumn.generateÈ
-			ÇENDFORÈ
-			Çtable.toColumnPrefixÈ_CREATED_BY int NOT NULL COMMENT 'createdBy',
-			Çtable.toColumnPrefixÈ_CREATED_AT datetime NOT NULL COMMENT 'createdAt',
-			Çtable.toColumnPrefixÈ_CHANGED_BY int NOT NULL COMMENT 'changedAt',
-			Çtable.toColumnPrefixÈ_CHANGED_AT datetime NOT NULL COMMENT 'changedAt',
-			Çtable.toColumnPrefixÈ_VERSION mediumint NOT NULL COMMENT 'version',
+		Â«table.initIndexCounterÂ»
+		Â«table.toCommentÂ»
+		CREATE TABLE Â«table.toDBSchemaStringÂ».Â«table.toDBTableStringÂ»(
+			Â«table.toColumnPrefixÂ»_ID int NOT NULL AUTO_INCREMENT COMMENT 'id',
+			Â«FOR column : table.columnsÂ»
+			Â«column.generateÂ»
+			Â«ENDFORÂ»
+			Â«table.toColumnPrefixÂ»_CREATED_BY int NOT NULL COMMENT 'createdBy',
+			Â«table.toColumnPrefixÂ»_CREATED_AT datetime NOT NULL COMMENT 'createdAt',
+			Â«table.toColumnPrefixÂ»_CHANGED_BY int NOT NULL COMMENT 'changedAt',
+			Â«table.toColumnPrefixÂ»_CHANGED_AT datetime NOT NULL COMMENT 'changedAt',
+			Â«table.toColumnPrefixÂ»_VERSION mediumint NOT NULL COMMENT 'version',
 			
 			PRIMARY KEY (MDE_ID),
-			KEY MDE_ID (MDE_ID)ÇIF indexLeft()È,ÇENDIFÈ
-			ÇFOR column : table.columns.filter([it.isIndexed])È
-			Çcolumn.generateIndexÈÇdecreaseIndexCounterÈÇIF indexLeft()È,ÇENDIFÈ
-			ÇENDFORÈ
-		) ENGINE = Çtable.toDBEngineStringÈ DEFAULT CHARSET = utf8;
+			KEY MDE_ID (MDE_ID)Â«IF indexLeft()Â»,Â«ENDIFÂ»
+			Â«FOR column : table.columns.filter([it.isIndexed])Â»
+			Â«column.generateIndexÂ»Â«decreaseIndexCounterÂ»Â«IF indexLeft()Â»,Â«ENDIFÂ»
+			Â«ENDFORÂ»
+		) ENGINE = Â«table.toDBEngineStringÂ» DEFAULT CHARSET = utf8;
 	'''
 	
 	def void initIndexCounter(STable table){
@@ -89,16 +89,16 @@ class SqlDSLGenerator implements IGenerator {
 	}
 	
 	def dispatch generate(SColumn  column)'''
-		Çcolumn.toColumnNameÈ Çcolumn.toColumnTypeÈ Çcolumn.toNullableModifierÈÇcolumn.toAESModifierÈÇcolumn.toCommentÈ, Çcolumn.finishColumnÈ'''
+		Â«column.toColumnNameÂ» Â«column.toColumnTypeÂ» Â«column.toNullableModifierÂ»Â«column.toAESModifierÂ»Â«column.toCommentÂ», Â«column.finishColumnÂ»'''
 	
 	def dispatch generate(SJoinColumn  column)'''
-		Çcolumn.toColumnNameÈÇcolumn.toColumnTypeÈÇcolumn.toNullableModifierÈÇcolumn.toAESModifierÈÇcolumn.toCommentÈ,'''
+		Â«column.toColumnNameÂ»Â«column.toColumnTypeÂ»Â«column.toNullableModifierÂ»Â«column.toAESModifierÂ»Â«column.toCommentÂ»,'''
 		
 	def dispatch generateIndex(SColumn column)'''
-		Çcolumn.toIndexTypeÈ KEY IDX_Çcolumn.toColumnNameÈ (Çcolumn.toColumnNameÈ)'''
+		Â«column.toIndexTypeÂ» KEY IDX_Â«column.toColumnNameÂ» (Â«column.toColumnNameÂ»)'''
 		
 	def dispatch generateIndex(SJoinColumn  column)'''
-		KEY IDX_Çcolumn.toColumnNameÈ (Çcolumn.toColumnNameÈ)'''
+		KEY IDX_Â«column.toColumnNameÂ» (Â«column.toColumnNameÂ»)'''
 
 	def generateForeignKey(STable table){
 		var StringBuilder builder = new StringBuilder
@@ -110,8 +110,8 @@ class SqlDSLGenerator implements IGenerator {
 	}
 
 	def generateForeignKey(STable table, STable refTable)'''
-		ALTER TABLE Çtable.toDBSchemaStringÈ.Çtable.toDBTableStringÈ
-			ADD CONSTRAINT FK_Çtable.toColumnPrefixÈ_ÇrefTable.toColumnPrefixÈ_ID FOREIGN KEY (Çtable.toColumnPrefixÈ_ÇrefTable.toColumnPrefixÈ_ID)
-			REFERENCES ÇrefTable.toDBSchemaStringÈ.ÇrefTable.toDBTableStringÈ(ÇrefTable.toColumnPrefixÈ_ID)
+		ALTER TABLE Â«table.toDBSchemaStringÂ».Â«table.toDBTableStringÂ»
+			ADD CONSTRAINT FK_Â«table.toColumnPrefixÂ»_Â«refTable.toColumnPrefixÂ»_ID FOREIGN KEY (Â«table.toColumnPrefixÂ»_Â«refTable.toColumnPrefixÂ»_ID)
+			REFERENCES Â«refTable.toDBSchemaStringÂ».Â«refTable.toDBTableStringÂ»(Â«refTable.toColumnPrefixÂ»_ID)
 	'''
 }

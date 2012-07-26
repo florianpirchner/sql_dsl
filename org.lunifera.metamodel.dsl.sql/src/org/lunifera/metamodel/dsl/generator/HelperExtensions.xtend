@@ -77,22 +77,22 @@ class HelperExtensions {
 	}
 	
 	def dispatch toColumnName(SColumn column)'''
-	Çcolumn.table.toColumnPrefixÈ_Çcolumn.name.toUpperCaseÈ'''
+	Â«column.table.toColumnPrefixÂ»_Â«column.name.toUpperCaseÂ»'''
 	
 	def dispatch toColumnName(SJoinColumn column)'''
-		Çcolumn.table.toColumnPrefixÈ_Çcolumn.name.toUpperCaseÈ'''
+		Â«column.table.toColumnPrefixÂ»_Â«column.name.toUpperCaseÂ»'''
 	
 	def dispatch toColumnPrefix(SColumn column)'''
-		Çcolumn.table.toColumnPrefixÈ'''
+		Â«column.table.toColumnPrefixÂ»'''
 	
 	def dispatch toColumnPrefix(SJoinColumn column)'''
-		Çcolumn.table.toColumnPrefixÈ'''
+		Â«column.table.toColumnPrefixÂ»'''
 		
 	def dispatch toNullableModifier(SColumn column)'''
-	ÇIF column.props != null && !column.props.nullableÈNOT NULL ÇELSEÈÇENDIFÈ'''
+	Â«IF column.props != null && !column.props.nullableÂ»NOT NULL Â«ELSEÂ»Â«ENDIFÂ»'''
 	
 	def dispatch toNullableModifier(SJoinColumn column)'''
-	ÇIF column.props != null && !column.props.nullableÈNOT NULL ÇELSEÈÇENDIFÈ'''
+	Â«IF column.props != null && !column.props.nullableÂ»NOT NULL Â«ELSEÂ»Â«ENDIFÂ»'''
 	
 	def dispatch isIndexed(SColumn column){
 		column.props != null && column.props.index != null && column.props.index != SIndex::NO	
@@ -129,18 +129,18 @@ class HelperExtensions {
 	}
 	
 	def dispatch toComment(SColumn column)'''
-	ÇIF column.props != null && column.props.javacolumn != nullÈCOMMENT Çcolumn.props.javacolumnÈÇELSEÈÇENDIFÈ'''
+	Â«IF column.props != null && column.props.javacolumn != nullÂ»COMMENT Â«column.props.javacolumnÂ»Â«ELSEÂ»Â«ENDIFÂ»'''
 	
 	def dispatch toComment(SJoinColumn column)'''
-	ÇIF column.props != null && column.props.javacolumn != nullÈCOMMENT Çcolumn.props.javacolumnÈÇELSEÈÇENDIFÈ'''
+	Â«IF column.props != null && column.props.javacolumn != nullÂ»COMMENT Â«column.props.javacolumnÂ»Â«ELSEÂ»Â«ENDIFÂ»'''
 	
 	def dispatch toComment(STable table)'''
 	/*
-		Table: Çtable.toDBTableStringÈ
-		Prefix: Çtable.toColumnPrefixÈ
-		Entity: Çtable.entitynameÈ
-		Cached: Çtable.cachedÈ
-		Çtable.toDBEngineStringÈ
+		Table: Â«table.toDBTableStringÂ»
+		Prefix: Â«table.toColumnPrefixÂ»
+		Entity: Â«table.entitynameÂ»
+		Cached: Â«table.cachedÂ»
+		Â«table.toDBEngineStringÂ»
 	*/'''
 		
 	def dispatch toAESModifier(SColumn column)'''
@@ -240,10 +240,10 @@ class HelperExtensions {
 	
 	
 	def dispatch toColumnType(SDecimal type)'''
-		double precision(11,Çtype.valueÈ)'''
+		double precision(11,Â«type.valueÂ»)'''
 	
 	def dispatch toColumnType(SString type)'''
-		varchar(Çtype.valueÈ)'''
+		varchar(Â«type.valueÂ»)'''
 	
 	def dispatch toColumnType(SJoinColumn column){
 		return "int"
