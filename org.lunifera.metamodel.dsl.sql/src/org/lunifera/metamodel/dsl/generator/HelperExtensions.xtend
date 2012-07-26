@@ -238,7 +238,6 @@ class HelperExtensions {
 		}
 	}
 	
-	
 	def dispatch toColumnType(SDecimal type)'''
 		double precision(11,«type.value»)'''
 	
