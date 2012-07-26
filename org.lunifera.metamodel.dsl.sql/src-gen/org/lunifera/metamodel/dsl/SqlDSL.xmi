@@ -145,7 +145,7 @@
               <type metamodel="/0/@metamodelDeclarations.0">
                 <classifier xsi:type="ecore:EClass" href="http://www.lunifera.org/metamodel/dsl/SqlDSL#//SExtDeclaredSQLType"/>
               </type>
-              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
             </terminal>
           </elements>
           <elements xsi:type="xtext:Assignment" feature="inlinedType" operator="=">
@@ -175,7 +175,7 @@
             <type metamodel="/0/@metamodelDeclarations.0">
               <classifier xsi:type="ecore:EClass" href="http://www.lunifera.org/metamodel/dsl/SqlDSL#//STable"/>
             </type>
-            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
           </terminal>
         </elements>
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="props" operator="=">

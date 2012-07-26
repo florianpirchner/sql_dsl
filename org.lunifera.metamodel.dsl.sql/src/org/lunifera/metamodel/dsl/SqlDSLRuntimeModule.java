@@ -13,8 +13,12 @@
 package org.lunifera.metamodel.dsl;
 
 /**
- * Use this class to register components to be used at runtime / without the Equinox extension registry.
+ * Use this class to register components to be used at runtime / without the
+ * Equinox extension registry.
  */
-public class SqlDSLRuntimeModule extends org.lunifera.metamodel.dsl.AbstractSqlDSLRuntimeModule {
-
+public class SqlDSLRuntimeModule extends
+		org.lunifera.metamodel.dsl.AbstractSqlDSLRuntimeModule {
+	public Class<? extends org.eclipse.xtext.naming.IQualifiedNameProvider> bindIQualifiedNameProvider() {
+		return org.lunifera.metamodel.dsl.sql.valueconverter.QualifiedNameProvider.class;
+	}
 }

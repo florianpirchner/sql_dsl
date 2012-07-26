@@ -288,7 +288,7 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Assignment cExtTypeAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
 		private final CrossReference cExtTypeSExtDeclaredSQLTypeCrossReference_2_0_0 = (CrossReference)cExtTypeAssignment_2_0.eContents().get(0);
-		private final RuleCall cExtTypeSExtDeclaredSQLTypeIDTerminalRuleCall_2_0_0_1 = (RuleCall)cExtTypeSExtDeclaredSQLTypeCrossReference_2_0_0.eContents().get(1);
+		private final RuleCall cExtTypeSExtDeclaredSQLTypeLFQNParserRuleCall_2_0_0_1 = (RuleCall)cExtTypeSExtDeclaredSQLTypeCrossReference_2_0_0.eContents().get(1);
 		private final Assignment cInlinedTypeAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
 		private final RuleCall cInlinedTypeSInlinedSQLTypeParserRuleCall_2_1_0 = (RuleCall)cInlinedTypeAssignment_2_1.eContents().get(0);
 		private final Assignment cSimpleTypeAssignment_2_2 = (Assignment)cAlternatives_2.eContents().get(2);
@@ -298,11 +298,11 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//SColumn:
-		//	"column" name=ID (extType=[SExtDeclaredSQLType] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes)
+		//	"column" name=ID (extType=[SExtDeclaredSQLType|LFQN] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes)
 		//	props=SColumnProps? ";";
 		public ParserRule getRule() { return rule; }
 
-		//"column" name=ID (extType=[SExtDeclaredSQLType] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes)
+		//"column" name=ID (extType=[SExtDeclaredSQLType|LFQN] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes)
 		//props=SColumnProps? ";"
 		public Group getGroup() { return cGroup; }
 
@@ -315,17 +315,17 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//extType=[SExtDeclaredSQLType] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes
+		//extType=[SExtDeclaredSQLType|LFQN] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 
-		//extType=[SExtDeclaredSQLType]
+		//extType=[SExtDeclaredSQLType|LFQN]
 		public Assignment getExtTypeAssignment_2_0() { return cExtTypeAssignment_2_0; }
 
-		//[SExtDeclaredSQLType]
+		//[SExtDeclaredSQLType|LFQN]
 		public CrossReference getExtTypeSExtDeclaredSQLTypeCrossReference_2_0_0() { return cExtTypeSExtDeclaredSQLTypeCrossReference_2_0_0; }
 
-		//ID
-		public RuleCall getExtTypeSExtDeclaredSQLTypeIDTerminalRuleCall_2_0_0_1() { return cExtTypeSExtDeclaredSQLTypeIDTerminalRuleCall_2_0_0_1; }
+		//LFQN
+		public RuleCall getExtTypeSExtDeclaredSQLTypeLFQNParserRuleCall_2_0_0_1() { return cExtTypeSExtDeclaredSQLTypeLFQNParserRuleCall_2_0_0_1; }
 
 		//inlinedType=SInlinedSQLType
 		public Assignment getInlinedTypeAssignment_2_1() { return cInlinedTypeAssignment_2_1; }
@@ -357,16 +357,16 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cReferencedTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cReferencedTypeSTableCrossReference_2_0 = (CrossReference)cReferencedTypeAssignment_2.eContents().get(0);
-		private final RuleCall cReferencedTypeSTableIDTerminalRuleCall_2_0_1 = (RuleCall)cReferencedTypeSTableCrossReference_2_0.eContents().get(1);
+		private final RuleCall cReferencedTypeSTableLFQNParserRuleCall_2_0_1 = (RuleCall)cReferencedTypeSTableCrossReference_2_0.eContents().get(1);
 		private final Assignment cPropsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cPropsSColumnPropsParserRuleCall_3_0 = (RuleCall)cPropsAssignment_3.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//SJoinColumn:
-		//	"joincolumn" name=ID referencedType=[STable] props=SColumnProps? ";";
+		//	"joincolumn" name=ID referencedType=[STable|LFQN] props=SColumnProps? ";";
 		public ParserRule getRule() { return rule; }
 
-		//"joincolumn" name=ID referencedType=[STable] props=SColumnProps? ";"
+		//"joincolumn" name=ID referencedType=[STable|LFQN] props=SColumnProps? ";"
 		public Group getGroup() { return cGroup; }
 
 		//"joincolumn"
@@ -378,14 +378,14 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//referencedType=[STable]
+		//referencedType=[STable|LFQN]
 		public Assignment getReferencedTypeAssignment_2() { return cReferencedTypeAssignment_2; }
 
-		//[STable]
+		//[STable|LFQN]
 		public CrossReference getReferencedTypeSTableCrossReference_2_0() { return cReferencedTypeSTableCrossReference_2_0; }
 
-		//ID
-		public RuleCall getReferencedTypeSTableIDTerminalRuleCall_2_0_1() { return cReferencedTypeSTableIDTerminalRuleCall_2_0_1; }
+		//LFQN
+		public RuleCall getReferencedTypeSTableLFQNParserRuleCall_2_0_1() { return cReferencedTypeSTableLFQNParserRuleCall_2_0_1; }
 
 		//props=SColumnProps?
 		public Assignment getPropsAssignment_3() { return cPropsAssignment_3; }
@@ -979,7 +979,7 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SColumn:
-	//	"column" name=ID (extType=[SExtDeclaredSQLType] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes)
+	//	"column" name=ID (extType=[SExtDeclaredSQLType|LFQN] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes)
 	//	props=SColumnProps? ";";
 	public SColumnElements getSColumnAccess() {
 		return (pSColumn != null) ? pSColumn : (pSColumn = new SColumnElements());
@@ -990,7 +990,7 @@ public class SqlDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SJoinColumn:
-	//	"joincolumn" name=ID referencedType=[STable] props=SColumnProps? ";";
+	//	"joincolumn" name=ID referencedType=[STable|LFQN] props=SColumnProps? ";";
 	public SJoinColumnElements getSJoinColumnAccess() {
 		return (pSJoinColumn != null) ? pSJoinColumn : (pSJoinColumn = new SJoinColumnElements());
 	}

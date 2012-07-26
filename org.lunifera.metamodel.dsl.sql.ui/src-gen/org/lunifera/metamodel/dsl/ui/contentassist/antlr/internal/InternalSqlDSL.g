@@ -3365,8 +3365,8 @@ rule__SColumn__ExtTypeAssignment_2_0
 (
 { before(grammarAccess.getSColumnAccess().getExtTypeSExtDeclaredSQLTypeCrossReference_2_0_0()); }
 (
-{ before(grammarAccess.getSColumnAccess().getExtTypeSExtDeclaredSQLTypeIDTerminalRuleCall_2_0_0_1()); }
-	RULE_ID{ after(grammarAccess.getSColumnAccess().getExtTypeSExtDeclaredSQLTypeIDTerminalRuleCall_2_0_0_1()); }
+{ before(grammarAccess.getSColumnAccess().getExtTypeSExtDeclaredSQLTypeLFQNParserRuleCall_2_0_0_1()); }
+	ruleLFQN{ after(grammarAccess.getSColumnAccess().getExtTypeSExtDeclaredSQLTypeLFQNParserRuleCall_2_0_0_1()); }
 )
 { after(grammarAccess.getSColumnAccess().getExtTypeSExtDeclaredSQLTypeCrossReference_2_0_0()); }
 )
@@ -3444,8 +3444,8 @@ rule__SJoinColumn__ReferencedTypeAssignment_2
 (
 { before(grammarAccess.getSJoinColumnAccess().getReferencedTypeSTableCrossReference_2_0()); }
 (
-{ before(grammarAccess.getSJoinColumnAccess().getReferencedTypeSTableIDTerminalRuleCall_2_0_1()); }
-	RULE_ID{ after(grammarAccess.getSJoinColumnAccess().getReferencedTypeSTableIDTerminalRuleCall_2_0_1()); }
+{ before(grammarAccess.getSJoinColumnAccess().getReferencedTypeSTableLFQNParserRuleCall_2_0_1()); }
+	ruleLFQN{ after(grammarAccess.getSJoinColumnAccess().getReferencedTypeSTableLFQNParserRuleCall_2_0_1()); }
 )
 { after(grammarAccess.getSJoinColumnAccess().getReferencedTypeSTableCrossReference_2_0()); }
 )

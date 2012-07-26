@@ -633,10 +633,12 @@ ruleSColumn returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getSColumnRule());
 	        }
         }
-	otherlv_2=RULE_ID
-	{
-		newLeafNode(otherlv_2, grammarAccess.getSColumnAccess().getExtTypeSExtDeclaredSQLTypeCrossReference_2_0_0()); 
-	}
+		{ 
+	        newCompositeNode(grammarAccess.getSColumnAccess().getExtTypeSExtDeclaredSQLTypeCrossReference_2_0_0()); 
+	    }
+		ruleLFQN		{ 
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )
@@ -749,10 +751,12 @@ ruleSJoinColumn returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getSJoinColumnRule());
 	        }
         }
-	otherlv_2=RULE_ID
-	{
-		newLeafNode(otherlv_2, grammarAccess.getSJoinColumnAccess().getReferencedTypeSTableCrossReference_2_0()); 
-	}
+		{ 
+	        newCompositeNode(grammarAccess.getSJoinColumnAccess().getReferencedTypeSTableCrossReference_2_0()); 
+	    }
+		ruleLFQN		{ 
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )(

@@ -61,7 +61,11 @@ class HelperExtensions {
 		if(table.settings != null && table.settings.schema != null){
 			return table.settings.toDBSchemaString
 		} else {
-			return (table.eContainer as SModel).settings.toDBSchemaString
+			val SModel model = table.eContainer as SModel
+			if(model == null){
+				return "";
+			}
+			return model.settings.toDBSchemaString
 		}
 	}
 	
@@ -73,6 +77,9 @@ class HelperExtensions {
 	}
 	
 	def toDBTableString(STable table){
+		if(table == null || table.name == null){
+			return "";
+		}
 		return table.name.toUpperCase
 	}
 	

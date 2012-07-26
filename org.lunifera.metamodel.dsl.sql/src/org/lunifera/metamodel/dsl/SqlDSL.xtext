@@ -47,11 +47,11 @@ STableMember:
 	SColumn | SJoinColumn;
 
 SColumn:
-	'column' name=ID (extType=[SExtDeclaredSQLType] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes)
+	'column' name=ID (extType=[SExtDeclaredSQLType|LFQN] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes)
 	(props=SColumnProps)? ';';
 
 SJoinColumn:
-	'joincolumn' name=ID referencedType=[STable] (props=SColumnProps)? ';';
+	'joincolumn' name=ID referencedType=[STable|LFQN] (props=SColumnProps)? ';';
 
 SColumnProps:
 	{SColumnProps}

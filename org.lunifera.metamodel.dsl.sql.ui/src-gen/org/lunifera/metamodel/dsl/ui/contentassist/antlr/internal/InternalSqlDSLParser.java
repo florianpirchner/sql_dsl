@@ -9174,25 +9174,29 @@ public class InternalSqlDSLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SColumn__ExtTypeAssignment_2_0"
-    // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3360:1: rule__SColumn__ExtTypeAssignment_2_0 : ( ( RULE_ID ) ) ;
+    // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3360:1: rule__SColumn__ExtTypeAssignment_2_0 : ( ( ruleLFQN ) ) ;
     public final void rule__SColumn__ExtTypeAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3364:1: ( ( ( RULE_ID ) ) )
-            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3365:1: ( ( RULE_ID ) )
+            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3364:1: ( ( ( ruleLFQN ) ) )
+            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3365:1: ( ( ruleLFQN ) )
             {
-            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3365:1: ( ( RULE_ID ) )
-            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3366:1: ( RULE_ID )
+            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3365:1: ( ( ruleLFQN ) )
+            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3366:1: ( ruleLFQN )
             {
              before(grammarAccess.getSColumnAccess().getExtTypeSExtDeclaredSQLTypeCrossReference_2_0_0()); 
-            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3367:1: ( RULE_ID )
-            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3368:1: RULE_ID
+            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3367:1: ( ruleLFQN )
+            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3368:1: ruleLFQN
             {
-             before(grammarAccess.getSColumnAccess().getExtTypeSExtDeclaredSQLTypeIDTerminalRuleCall_2_0_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__SColumn__ExtTypeAssignment_2_07393); 
-             after(grammarAccess.getSColumnAccess().getExtTypeSExtDeclaredSQLTypeIDTerminalRuleCall_2_0_0_1()); 
+             before(grammarAccess.getSColumnAccess().getExtTypeSExtDeclaredSQLTypeLFQNParserRuleCall_2_0_0_1()); 
+            pushFollow(FOLLOW_ruleLFQN_in_rule__SColumn__ExtTypeAssignment_2_07393);
+            ruleLFQN();
+
+            state._fsp--;
+
+             after(grammarAccess.getSColumnAccess().getExtTypeSExtDeclaredSQLTypeLFQNParserRuleCall_2_0_0_1()); 
 
             }
 
@@ -9379,25 +9383,29 @@ public class InternalSqlDSLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SJoinColumn__ReferencedTypeAssignment_2"
-    // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3439:1: rule__SJoinColumn__ReferencedTypeAssignment_2 : ( ( RULE_ID ) ) ;
+    // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3439:1: rule__SJoinColumn__ReferencedTypeAssignment_2 : ( ( ruleLFQN ) ) ;
     public final void rule__SJoinColumn__ReferencedTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3443:1: ( ( ( RULE_ID ) ) )
-            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3444:1: ( ( RULE_ID ) )
+            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3443:1: ( ( ( ruleLFQN ) ) )
+            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3444:1: ( ( ruleLFQN ) )
             {
-            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3444:1: ( ( RULE_ID ) )
-            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3445:1: ( RULE_ID )
+            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3444:1: ( ( ruleLFQN ) )
+            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3445:1: ( ruleLFQN )
             {
              before(grammarAccess.getSJoinColumnAccess().getReferencedTypeSTableCrossReference_2_0()); 
-            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3446:1: ( RULE_ID )
-            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3447:1: RULE_ID
+            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3446:1: ( ruleLFQN )
+            // ../org.lunifera.metamodel.dsl.sql.ui/src-gen/org/lunifera/metamodel/dsl/ui/contentassist/antlr/internal/InternalSqlDSL.g:3447:1: ruleLFQN
             {
-             before(grammarAccess.getSJoinColumnAccess().getReferencedTypeSTableIDTerminalRuleCall_2_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__SJoinColumn__ReferencedTypeAssignment_27556); 
-             after(grammarAccess.getSJoinColumnAccess().getReferencedTypeSTableIDTerminalRuleCall_2_0_1()); 
+             before(grammarAccess.getSJoinColumnAccess().getReferencedTypeSTableLFQNParserRuleCall_2_0_1()); 
+            pushFollow(FOLLOW_ruleLFQN_in_rule__SJoinColumn__ReferencedTypeAssignment_27556);
+            ruleLFQN();
+
+            state._fsp--;
+
+             after(grammarAccess.getSJoinColumnAccess().getReferencedTypeSTableLFQNParserRuleCall_2_0_1()); 
 
             }
 
@@ -10143,12 +10151,12 @@ public class InternalSqlDSLParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_RULE_ID_in_rule__STable__PrefixAssignment_3_3_17296 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSTableMember_in_rule__STable__ColumnsAssignment_47327 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__SColumn__NameAssignment_17358 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__SColumn__ExtTypeAssignment_2_07393 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLFQN_in_rule__SColumn__ExtTypeAssignment_2_07393 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSInlinedSQLType_in_rule__SColumn__InlinedTypeAssignment_2_17428 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSSimpleTypes_in_rule__SColumn__SimpleTypeAssignment_2_27459 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSColumnProps_in_rule__SColumn__PropsAssignment_37490 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__SJoinColumn__NameAssignment_17521 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__SJoinColumn__ReferencedTypeAssignment_27556 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLFQN_in_rule__SJoinColumn__ReferencedTypeAssignment_27556 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSColumnProps_in_rule__SJoinColumn__PropsAssignment_37591 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_54_in_rule__SColumnProps__NullableAssignment_2_07627 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_55_in_rule__SColumnProps__AesAssignment_2_17671 = new BitSet(new long[]{0x0000000000000002L});

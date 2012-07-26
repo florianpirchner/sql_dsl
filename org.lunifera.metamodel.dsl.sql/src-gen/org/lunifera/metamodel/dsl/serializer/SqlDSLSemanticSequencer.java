@@ -116,7 +116,7 @@ public class SqlDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (name=ID (extType=[SExtDeclaredSQLType|ID] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes) props=SColumnProps?)
+	 *     (name=ID (extType=[SExtDeclaredSQLType|LFQN] | inlinedType=SInlinedSQLType | simpleType=SSimpleTypes) props=SColumnProps?)
 	 */
 	protected void sequence_SColumn(EObject context, SColumn semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -169,7 +169,7 @@ public class SqlDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (name=ID referencedType=[STable|ID] props=SColumnProps?)
+	 *     (name=ID referencedType=[STable|LFQN] props=SColumnProps?)
 	 */
 	protected void sequence_SJoinColumn(EObject context, SJoinColumn semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
