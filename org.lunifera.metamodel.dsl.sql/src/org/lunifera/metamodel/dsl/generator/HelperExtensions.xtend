@@ -80,7 +80,7 @@ class HelperExtensions {
 	«column.table.toColumnPrefix»_«column.name.toUpperCase»'''
 	
 	def dispatch toColumnName(SJoinColumn column)'''
-		«column.table.toColumnPrefix»_«column.name.toUpperCase»'''
+		«column.table.toColumnPrefix»_«column.referencedType.toColumnPrefix»_«column.name.toUpperCase»'''
 	
 	def dispatch toColumnPrefix(SColumn column)'''
 		«column.table.toColumnPrefix»'''

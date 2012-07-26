@@ -92,7 +92,7 @@ class SqlDSLGenerator implements IGenerator {
 		«column.toColumnName» «column.toColumnType» «column.toNullableModifier»«column.toAESModifier»«column.toComment», «column.finishColumn»'''
 	
 	def dispatch generate(SJoinColumn  column)'''
-		«column.toColumnName»«column.toColumnType»«column.toNullableModifier»«column.toAESModifier»«column.toComment»,'''
+		«column.toColumnName» «column.toColumnType» «column.toNullableModifier»«column.toAESModifier»«column.toComment»,'''
 		
 	def dispatch generateIndex(SColumn column)'''
 		«column.toIndexType» KEY IDX_«column.toColumnName» («column.toColumnName»)'''

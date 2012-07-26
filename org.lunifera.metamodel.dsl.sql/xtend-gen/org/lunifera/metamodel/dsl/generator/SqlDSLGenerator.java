@@ -241,8 +241,10 @@ public class SqlDSLGenerator implements IGenerator {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _columnName = this._helperExtensions.toColumnName(column);
     _builder.append(_columnName, "");
+    _builder.append(" ");
     CharSequence _columnType = this._helperExtensions.toColumnType(column);
     _builder.append(_columnType, "");
+    _builder.append(" ");
     CharSequence _nullableModifier = this._helperExtensions.toNullableModifier(column);
     _builder.append(_nullableModifier, "");
     CharSequence _aESModifier = this._helperExtensions.toAESModifier(column);
