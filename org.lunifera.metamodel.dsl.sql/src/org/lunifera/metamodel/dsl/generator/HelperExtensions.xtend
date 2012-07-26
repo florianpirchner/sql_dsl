@@ -136,10 +136,10 @@ class HelperExtensions {
 	}
 	
 	def dispatch toComment(SColumn column)'''
-	«IF column.props != null && column.props.javacolumn != null»COMMENT «column.props.javacolumn»«ELSE»«ENDIF»'''
+	«IF column.props != null && column.props.javacolumn != null»COMMENT '«column.props.javacolumn»'«ELSE»«ENDIF»'''
 	
 	def dispatch toComment(SJoinColumn column)'''
-	«IF column.props != null && column.props.javacolumn != null»COMMENT «column.props.javacolumn»«ELSE»«ENDIF»'''
+	«IF column.props != null && column.props.javacolumn != null»COMMENT'«column.props.javacolumn»'«ELSE»«ENDIF»'''
 	
 	def dispatch toComment(STable table)'''
 	/*
