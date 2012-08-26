@@ -271,6 +271,8 @@ class HelperExtensions {
 		table.toDBEngine == SDBEngine::INNODB
 	}
 	
+	
+	
 	def containsJoinColumn(STable table){
 		table.columns.exists([it instanceof SJoinColumn]);
 	}

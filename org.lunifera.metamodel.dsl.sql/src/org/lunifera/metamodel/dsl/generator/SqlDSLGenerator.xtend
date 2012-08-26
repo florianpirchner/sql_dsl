@@ -58,18 +58,21 @@ class SqlDSLGenerator implements IGenerator {
 		«table.initIndexCounter»
 		«table.toComment»
 		CREATE TABLE «table.toDBSchemaString».«table.toDBTableString»(
-			«table.toColumnPrefix»_ID int NOT NULL AUTO_INCREMENT COMMENT 'id',
+			«table.toColumnPrefix»_ID int NOT NULL «IF table.innoDB»AUTO_INCREMENT «ENDIF»COMMENT 'id',
 			«FOR column : table.columns»
 			«column.generate»
 			«ENDFOR»
+			«IF table.innoDB»
 			«table.toColumnPrefix»_CREATED_BY int NOT NULL COMMENT 'createdBy',
 			«table.toColumnPrefix»_CREATED_AT datetime NOT NULL COMMENT 'createdAt',
 			«table.toColumnPrefix»_CHANGED_BY int NOT NULL COMMENT 'changedAt',
 			«table.toColumnPrefix»_CHANGED_AT datetime NOT NULL COMMENT 'changedAt',
 			«table.toColumnPrefix»_VERSION mediumint NOT NULL COMMENT 'version',
-			
-			PRIMARY KEY (MDE_ID),
-			KEY MDE_ID (MDE_ID)«IF indexLeft()»,«ENDIF»
+			«ENDIF»
+			PRIMARY KEY («table.toColumnPrefix»_ID),
+			«IF table.innoDB»
+			KEY «table.toColumnPrefix»_ID («table.toColumnPrefix»_ID)«IF indexLeft()»,«ENDIF»
+			«ENDIF»
 			«FOR column : table.columns.filter([it.isIndexed])»
 			«column.generateIndex»«decreaseIndexCounter»«IF indexLeft()»,«ENDIF»
 			«ENDFOR»

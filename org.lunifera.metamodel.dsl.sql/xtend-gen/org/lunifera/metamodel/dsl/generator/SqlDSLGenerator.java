@@ -114,7 +114,14 @@ public class SqlDSLGenerator implements IGenerator {
     _builder.append("\t");
     CharSequence _columnPrefix = this._helperExtensions.toColumnPrefix(table);
     _builder.append(_columnPrefix, "	");
-    _builder.append("_ID int NOT NULL AUTO_INCREMENT COMMENT \'id\',");
+    _builder.append("_ID int NOT NULL ");
+    {
+      boolean _isInnoDB = this._helperExtensions.isInnoDB(table);
+      if (_isInnoDB) {
+        _builder.append("AUTO_INCREMENT ");
+      }
+    }
+    _builder.append("COMMENT \'id\',");
     _builder.newLineIfNotEmpty();
     {
       EList<STableMember> _columns = table.getColumns();
@@ -125,45 +132,62 @@ public class SqlDSLGenerator implements IGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\t");
-    CharSequence _columnPrefix_1 = this._helperExtensions.toColumnPrefix(table);
-    _builder.append(_columnPrefix_1, "	");
-    _builder.append("_CREATED_BY int NOT NULL COMMENT \'createdBy\',");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    CharSequence _columnPrefix_2 = this._helperExtensions.toColumnPrefix(table);
-    _builder.append(_columnPrefix_2, "	");
-    _builder.append("_CREATED_AT datetime NOT NULL COMMENT \'createdAt\',");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    CharSequence _columnPrefix_3 = this._helperExtensions.toColumnPrefix(table);
-    _builder.append(_columnPrefix_3, "	");
-    _builder.append("_CHANGED_BY int NOT NULL COMMENT \'changedAt\',");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    CharSequence _columnPrefix_4 = this._helperExtensions.toColumnPrefix(table);
-    _builder.append(_columnPrefix_4, "	");
-    _builder.append("_CHANGED_AT datetime NOT NULL COMMENT \'changedAt\',");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    CharSequence _columnPrefix_5 = this._helperExtensions.toColumnPrefix(table);
-    _builder.append(_columnPrefix_5, "	");
-    _builder.append("_VERSION mediumint NOT NULL COMMENT \'version\',");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("PRIMARY KEY (MDE_ID),");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("KEY MDE_ID (MDE_ID)");
     {
-      boolean _indexLeft = this.indexLeft();
-      if (_indexLeft) {
-        _builder.append(",");
+      boolean _isInnoDB_1 = this._helperExtensions.isInnoDB(table);
+      if (_isInnoDB_1) {
+        _builder.append("\t");
+        CharSequence _columnPrefix_1 = this._helperExtensions.toColumnPrefix(table);
+        _builder.append(_columnPrefix_1, "	");
+        _builder.append("_CREATED_BY int NOT NULL COMMENT \'createdBy\',");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        CharSequence _columnPrefix_2 = this._helperExtensions.toColumnPrefix(table);
+        _builder.append(_columnPrefix_2, "	");
+        _builder.append("_CREATED_AT datetime NOT NULL COMMENT \'createdAt\',");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        CharSequence _columnPrefix_3 = this._helperExtensions.toColumnPrefix(table);
+        _builder.append(_columnPrefix_3, "	");
+        _builder.append("_CHANGED_BY int NOT NULL COMMENT \'changedAt\',");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        CharSequence _columnPrefix_4 = this._helperExtensions.toColumnPrefix(table);
+        _builder.append(_columnPrefix_4, "	");
+        _builder.append("_CHANGED_AT datetime NOT NULL COMMENT \'changedAt\',");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        CharSequence _columnPrefix_5 = this._helperExtensions.toColumnPrefix(table);
+        _builder.append(_columnPrefix_5, "	");
+        _builder.append("_VERSION mediumint NOT NULL COMMENT \'version\',");
+        _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\t");
+    _builder.append("PRIMARY KEY (");
+    CharSequence _columnPrefix_6 = this._helperExtensions.toColumnPrefix(table);
+    _builder.append(_columnPrefix_6, "	");
+    _builder.append("_ID),");
     _builder.newLineIfNotEmpty();
+    {
+      boolean _isInnoDB_2 = this._helperExtensions.isInnoDB(table);
+      if (_isInnoDB_2) {
+        _builder.append("\t");
+        _builder.append("KEY ");
+        CharSequence _columnPrefix_7 = this._helperExtensions.toColumnPrefix(table);
+        _builder.append(_columnPrefix_7, "	");
+        _builder.append("_ID (");
+        CharSequence _columnPrefix_8 = this._helperExtensions.toColumnPrefix(table);
+        _builder.append(_columnPrefix_8, "	");
+        _builder.append("_ID)");
+        {
+          boolean _indexLeft = this.indexLeft();
+          if (_indexLeft) {
+            _builder.append(",");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+      }
+    }
     {
       EList<STableMember> _columns_1 = table.getColumns();
       final Function1<STableMember,Boolean> _function = new Function1<STableMember,Boolean>() {
