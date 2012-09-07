@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.lunifera.metamodel.dsl.sqlDSL.SColumn;
 import org.lunifera.metamodel.dsl.sqlDSL.SColumnProps;
 import org.lunifera.metamodel.dsl.sqlDSL.SDBEngine;
@@ -153,6 +154,381 @@ public class HelperExtensions {
     }
     String _name_1 = table.getName();
     return _name_1.toUpperCase();
+  }
+  
+  public String toJavaPackageString(final STable table) {
+    boolean _and = false;
+    SSettings _settings = table.getSettings();
+    boolean _notEquals = (!Objects.equal(_settings, null));
+    if (!_notEquals) {
+      _and = false;
+    } else {
+      SSettings _settings_1 = table.getSettings();
+      String _javapackage = _settings_1.getJavapackage();
+      boolean _notEquals_1 = (!Objects.equal(_javapackage, null));
+      _and = (_notEquals && _notEquals_1);
+    }
+    if (_and) {
+      SSettings _settings_2 = table.getSettings();
+      return this.toJavaPackageString(_settings_2);
+    } else {
+      EObject _eContainer = table.eContainer();
+      final SModel model = ((SModel) _eContainer);
+      boolean _equals = Objects.equal(model, null);
+      if (_equals) {
+        return "";
+      }
+      SSettings _settings_3 = model.getSettings();
+      return this.toJavaPackageString(_settings_3);
+    }
+  }
+  
+  public String toJavaPackageString(final SEnum xenum) {
+    EObject _eContainer = xenum.eContainer();
+    final SModel model = ((SModel) _eContainer);
+    boolean _equals = Objects.equal(model, null);
+    if (_equals) {
+      return "";
+    }
+    SSettings _settings = model.getSettings();
+    return this.toJavaPackageString(_settings);
+  }
+  
+  public String toJavaPackageString(final SSettings settings) {
+    boolean _and = false;
+    boolean _notEquals = (!Objects.equal(settings, null));
+    if (!_notEquals) {
+      _and = false;
+    } else {
+      String _javapackage = settings.getJavapackage();
+      boolean _notEquals_1 = (!Objects.equal(_javapackage, null));
+      _and = (_notEquals && _notEquals_1);
+    }
+    if (_and) {
+      return settings.getJavapackage();
+    }
+    return "";
+  }
+  
+  public String toJavaEntityString(final STable table) {
+    boolean _or = false;
+    boolean _equals = Objects.equal(table, null);
+    if (_equals) {
+      _or = true;
+    } else {
+      String _entityname = table.getEntityname();
+      boolean _equals_1 = Objects.equal(_entityname, null);
+      _or = (_equals || _equals_1);
+    }
+    if (_or) {
+      return "";
+    }
+    String _entityname_1 = table.getEntityname();
+    return StringExtensions.toFirstUpper(_entityname_1);
+  }
+  
+  public String toFQNJavaEntityString(final STable table) {
+    String _javaPackageString = this.toJavaPackageString(table);
+    String _plus = (_javaPackageString + ".");
+    String _javaEntityString = this.toJavaEntityString(table);
+    return (_plus + _javaEntityString);
+  }
+  
+  public String toJavaEnumString(final SEnum xenum) {
+    boolean _or = false;
+    boolean _equals = Objects.equal(xenum, null);
+    if (_equals) {
+      _or = true;
+    } else {
+      String _name = xenum.getName();
+      boolean _equals_1 = Objects.equal(_name, null);
+      _or = (_equals || _equals_1);
+    }
+    if (_or) {
+      return "";
+    }
+    String _name_1 = xenum.getName();
+    String _lowerCase = _name_1.toLowerCase();
+    return StringExtensions.toFirstUpper(_lowerCase);
+  }
+  
+  public String toFQNJavaEnumString(final SEnum xenum) {
+    String _javaPackageString = this.toJavaPackageString(xenum);
+    String _plus = (_javaPackageString + ".");
+    String _javaEnumString = this.toJavaEnumString(xenum);
+    return (_plus + _javaEnumString);
+  }
+  
+  public String toJavaType(final SColumn column) {
+    SExtDeclaredSQLType _extType = column.getExtType();
+    boolean _notEquals = (!Objects.equal(_extType, null));
+    if (_notEquals) {
+      SExtDeclaredSQLType _extType_1 = column.getExtType();
+      final SEnum type = ((SEnum) _extType_1);
+      return this.toFQNJavaEnumString(type);
+    } else {
+      SInlinedSQLType _inlinedType = column.getInlinedType();
+      boolean _notEquals_1 = (!Objects.equal(_inlinedType, null));
+      if (_notEquals_1) {
+        final SInlinedSQLType type_1 = column.getInlinedType();
+        return this.toJavaType(type_1);
+      } else {
+        SSimpleTypes _simpleType = column.getSimpleType();
+        boolean _notEquals_2 = (!Objects.equal(_simpleType, null));
+        if (_notEquals_2) {
+          final SSimpleTypes type_2 = column.getSimpleType();
+          return this.toJavaType(type_2);
+        }
+      }
+    }
+    return "MISSING";
+  }
+  
+  public String toFQNJavaType(final SColumn column) {
+    SExtDeclaredSQLType _extType = column.getExtType();
+    boolean _notEquals = (!Objects.equal(_extType, null));
+    if (_notEquals) {
+      SExtDeclaredSQLType _extType_1 = column.getExtType();
+      final SEnum type = ((SEnum) _extType_1);
+      return this.toFQNJavaEnumString(type);
+    } else {
+      SInlinedSQLType _inlinedType = column.getInlinedType();
+      boolean _notEquals_1 = (!Objects.equal(_inlinedType, null));
+      if (_notEquals_1) {
+        final SInlinedSQLType type_1 = column.getInlinedType();
+        return this.toJavaType(type_1);
+      } else {
+        SSimpleTypes _simpleType = column.getSimpleType();
+        boolean _notEquals_2 = (!Objects.equal(_simpleType, null));
+        if (_notEquals_2) {
+          final SSimpleTypes type_2 = column.getSimpleType();
+          return this.toJavaType(type_2);
+        }
+      }
+    }
+    return "MISSING";
+  }
+  
+  public String toJavaType(final SInlinedSQLType type) {
+    if ((type instanceof SString)) {
+      return "String";
+    } else {
+      if ((type instanceof SDecimal)) {
+        return "double";
+      }
+    }
+    return null;
+  }
+  
+  public String toJavaType(final SSimpleTypes type) {
+    String _switchResult = null;
+    boolean _matched = false;
+    if (!_matched) {
+      if (Objects.equal(type,SSimpleTypes.BLOB)) {
+        _matched=true;
+        return "byte[]";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(type,SSimpleTypes.BOOLEAN)) {
+        _matched=true;
+        return "boolean";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(type,SSimpleTypes.COORDINATE)) {
+        _matched=true;
+        return "double";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(type,SSimpleTypes.CURRENCY)) {
+        _matched=true;
+        return "double";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(type,SSimpleTypes.DATE)) {
+        _matched=true;
+        return "EDate";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(type,SSimpleTypes.DATETIME)) {
+        _matched=true;
+        return "EDate";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(type,SSimpleTypes.FOTO)) {
+        _matched=true;
+        return "byte[]";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(type,SSimpleTypes.INT)) {
+        _matched=true;
+        return "int";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(type,SSimpleTypes.MEDIUM_INT)) {
+        _matched=true;
+        return "int";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(type,SSimpleTypes.POINT)) {
+        _matched=true;
+        return "point";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(type,SSimpleTypes.POLYGON)) {
+        _matched=true;
+        return "polygon";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(type,SSimpleTypes.SMALL_INT)) {
+        _matched=true;
+        return "int";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(type,SSimpleTypes.TIME)) {
+        _matched=true;
+        return "EDate";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(type,SSimpleTypes.TINY_INT)) {
+        _matched=true;
+        return "int";
+      }
+    }
+    return _switchResult;
+  }
+  
+  public String toJavaPropertyName(final SColumn column) {
+    final SColumnProps props = column.getProps();
+    boolean _notEquals = (!Objects.equal(props, null));
+    if (_notEquals) {
+      SColumnProps _props = column.getProps();
+      final String name = _props.getJavacolumn();
+      boolean _equals = name.equals("type");
+      if (_equals) {
+        return "^type";
+      }
+      return name;
+    } else {
+      String _name = column.getName();
+      final String name_1 = _name.toLowerCase();
+      boolean _equals_1 = name_1.equals("type");
+      if (_equals_1) {
+        return "^type";
+      }
+      return name_1;
+    }
+  }
+  
+  /**
+   * Returns a annotations for the given column
+   */
+  protected CharSequence _toAnnotations(final SJoinColumn joinColumn) {
+    return null;
+  }
+  
+  /**
+   * Returns a annotations for the given column
+   */
+  protected CharSequence _toAnnotations(final STable table) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("@DBSchema(schema=\"");
+    String _dBSchemaString = this.toDBSchemaString(table);
+    _builder.append(_dBSchemaString, "");
+    _builder.append("\")");
+    _builder.newLineIfNotEmpty();
+    _builder.append("@DBTable(value=\"");
+    String _name = table.getName();
+    _builder.append(_name, "");
+    _builder.append("\")");
+    _builder.newLineIfNotEmpty();
+    _builder.append("@DBColPrefix(value=\"");
+    String _prefix = table.getPrefix();
+    _builder.append(_prefix, "");
+    _builder.append("\")");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  /**
+   * Returns a annotations for the given column
+   */
+  protected CharSequence _toAnnotations(final SColumn column) {
+    StringBuilder _stringBuilder = new StringBuilder();
+    final StringBuilder b = _stringBuilder;
+    SExtDeclaredSQLType _extType = column.getExtType();
+    boolean _notEquals = (!Objects.equal(_extType, null));
+    if (_notEquals) {
+    } else {
+      SInlinedSQLType _inlinedType = column.getInlinedType();
+      boolean _notEquals_1 = (!Objects.equal(_inlinedType, null));
+      if (_notEquals_1) {
+        SInlinedSQLType _inlinedType_1 = column.getInlinedType();
+        if ((_inlinedType_1 instanceof SString)) {
+          SInlinedSQLType _inlinedType_2 = column.getInlinedType();
+          final SString inlined = ((SString) _inlinedType_2);
+          StringConcatenation _builder = new StringConcatenation();
+          _builder.append("@L_");
+          int _value = inlined.getValue();
+          _builder.append(_value, "");
+          b.append(_builder.toString());
+        } else {
+          SInlinedSQLType _inlinedType_3 = column.getInlinedType();
+          if ((_inlinedType_3 instanceof SDecimal)) {
+            SInlinedSQLType _inlinedType_4 = column.getInlinedType();
+            final SDecimal inlined_1 = ((SDecimal) _inlinedType_4);
+            StringConcatenation _builder_1 = new StringConcatenation();
+            _builder_1.append("@L_");
+            int _value_1 = inlined_1.getValue();
+            _builder_1.append(_value_1, "");
+            b.append(_builder_1.toString());
+          }
+        }
+      } else {
+        SSimpleTypes _simpleType = column.getSimpleType();
+        boolean _notEquals_2 = (!Objects.equal(_simpleType, null));
+        if (_notEquals_2) {
+        }
+      }
+    }
+    boolean _isIndexed = this.isIndexed(column);
+    if (_isIndexed) {
+      b.append("\n");
+      b.append("@DB_INDEXED");
+    }
+    boolean _isNullableColumn = this.isNullableColumn(column);
+    boolean _not = (!_isNullableColumn);
+    if (_not) {
+      b.append("\n");
+      b.append("@NotNull");
+    }
+    boolean _and = false;
+    SColumnProps _props = column.getProps();
+    boolean _notEquals_3 = (!Objects.equal(_props, null));
+    if (!_notEquals_3) {
+      _and = false;
+    } else {
+      SColumnProps _props_1 = column.getProps();
+      boolean _isAes = _props_1.isAes();
+      _and = (_notEquals_3 && _isAes);
+    }
+    if (_and) {
+      b.append("\n");
+      b.append("@AES_ENCRYPT");
+    }
+    return b.toString();
   }
   
   protected CharSequence _toColumnName(final SColumn column) {
@@ -694,6 +1070,26 @@ public class HelperExtensions {
     return _equals;
   }
   
+  protected boolean _isNullableColumn(final SColumn column) {
+    SColumnProps _props = column.getProps();
+    boolean _equals = Objects.equal(_props, null);
+    if (_equals) {
+      return false;
+    }
+    SColumnProps _props_1 = column.getProps();
+    return _props_1.isNullable();
+  }
+  
+  protected boolean _isNullableColumn(final SJoinColumn column) {
+    SColumnProps _props = column.getProps();
+    boolean _equals = Objects.equal(_props, null);
+    if (_equals) {
+      return false;
+    }
+    SColumnProps _props_1 = column.getProps();
+    return _props_1.isNullable();
+  }
+  
   public boolean containsJoinColumn(final STable table) {
     EList<STableMember> _columns = table.getColumns();
     final Function1<STableMember,Boolean> _function = new Function1<STableMember,Boolean>() {
@@ -703,6 +1099,19 @@ public class HelperExtensions {
       };
     boolean _exists = IterableExtensions.<STableMember>exists(_columns, _function);
     return _exists;
+  }
+  
+  public CharSequence toAnnotations(final EObject column) {
+    if (column instanceof SColumn) {
+      return _toAnnotations((SColumn)column);
+    } else if (column instanceof SJoinColumn) {
+      return _toAnnotations((SJoinColumn)column);
+    } else if (column instanceof STable) {
+      return _toAnnotations((STable)column);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(column).toString());
+    }
   }
   
   public CharSequence toColumnName(final STableMember column) {
@@ -833,6 +1242,17 @@ public class HelperExtensions {
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(enumx).toString());
+    }
+  }
+  
+  public boolean isNullableColumn(final STableMember column) {
+    if (column instanceof SColumn) {
+      return _isNullableColumn((SColumn)column);
+    } else if (column instanceof SJoinColumn) {
+      return _isNullableColumn((SJoinColumn)column);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(column).toString());
     }
   }
 }

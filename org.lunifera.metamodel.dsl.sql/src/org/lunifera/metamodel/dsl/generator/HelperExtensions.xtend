@@ -18,12 +18,14 @@ import org.lunifera.metamodel.dsl.sqlDSL.SDecimal
 import org.lunifera.metamodel.dsl.sqlDSL.SEnum
 import org.lunifera.metamodel.dsl.sqlDSL.SExtDeclaredSQLType
 import org.lunifera.metamodel.dsl.sqlDSL.SIndex
+import org.lunifera.metamodel.dsl.sqlDSL.SInlinedSQLType
 import org.lunifera.metamodel.dsl.sqlDSL.SJoinColumn
 import org.lunifera.metamodel.dsl.sqlDSL.SModel
 import org.lunifera.metamodel.dsl.sqlDSL.SSettings
 import org.lunifera.metamodel.dsl.sqlDSL.SSimpleTypes
 import org.lunifera.metamodel.dsl.sqlDSL.SString
 import org.lunifera.metamodel.dsl.sqlDSL.STable
+import java.lang.CharSequence
 
 class HelperExtensions {
 	
@@ -81,6 +83,196 @@ class HelperExtensions {
 			return "";
 		}
 		return table.name.toUpperCase
+	}
+	
+	def toJavaPackageString(STable table){
+		if(table.settings != null && table.settings.javapackage != null){
+			return table.settings.toJavaPackageString
+		} else {
+			val SModel model = table.eContainer as SModel
+			if(model == null){
+				return "";
+			}
+			return model.settings.toJavaPackageString
+		}
+	}
+	
+	def toJavaPackageString(SEnum xenum){
+		val SModel model = xenum.eContainer as SModel
+		if(model == null){
+			return "";
+		}
+		return model.settings.toJavaPackageString
+	}
+	
+	def toJavaPackageString(SSettings settings){
+		if(settings != null && settings.javapackage != null){
+			return settings.javapackage
+		}
+		return ""
+	}
+	
+	def toJavaEntityString(STable table){
+		if(table == null || table.entityname == null){
+			return "";
+		}
+		return table.entityname.toFirstUpper
+	}
+	
+	def toFQNJavaEntityString(STable table){
+		return table.toJavaPackageString + "." + table.toJavaEntityString
+	}
+	
+	def toJavaEnumString(SEnum xenum){
+		if(xenum == null || xenum.name == null){
+			return "";
+		}
+		return xenum.name.toLowerCase.toFirstUpper
+	}
+	
+	def toFQNJavaEnumString(SEnum xenum){
+		return xenum.toJavaPackageString + "." + xenum.toJavaEnumString
+	}
+	
+	def String toJavaType(SColumn column){
+		if(column.extType != null){
+			val SEnum type = column.extType as SEnum
+			return type.toFQNJavaEnumString
+		}else if(column.inlinedType != null){
+			val type = column.inlinedType
+			return type.toJavaType
+		}else if(column.simpleType != null){
+			val type = column.simpleType
+			return type.toJavaType
+		}
+		
+		return "MISSING"
+	}
+	
+	def String toFQNJavaType(SColumn column){
+		if(column.extType != null){
+			val SEnum type = column.extType as SEnum
+			return type.toFQNJavaEnumString
+		}else if(column.inlinedType != null){
+			val type = column.inlinedType
+			return type.toJavaType
+		}else if(column.simpleType != null){
+			val type = column.simpleType
+			return type.toJavaType
+		}
+		
+		return "MISSING"
+	}
+	
+	def String toJavaType(SInlinedSQLType type){
+		if(type instanceof SString){
+			return "String"
+		}else if(type instanceof SDecimal){
+			return "double"
+		}
+	}
+	
+	def String toJavaType(SSimpleTypes type){
+		switch(type){
+			case SSimpleTypes::BLOB:
+				return "byte[]" 
+			case SSimpleTypes::BOOLEAN:
+				return "boolean" 
+			case SSimpleTypes::COORDINATE:
+				return "double" 
+			case SSimpleTypes::CURRENCY:
+				return "double" 
+			case SSimpleTypes::DATE:
+				return "EDate" 
+			case SSimpleTypes::DATETIME:
+				return "EDate" 
+			case SSimpleTypes::FOTO:
+				return "byte[]" 
+			case SSimpleTypes::INT:
+				return "int" 
+			case SSimpleTypes::MEDIUM_INT:
+				return "int"
+			case SSimpleTypes::POINT:
+				return "point"
+			case SSimpleTypes::POLYGON:
+				return "polygon" 
+			case SSimpleTypes::SMALL_INT:
+				return "int" 
+			case SSimpleTypes::TIME:
+				return "EDate"
+			case SSimpleTypes::TINY_INT:
+				return "int" 
+		}
+	}
+	
+	def String toJavaPropertyName(SColumn column){
+		val props = column.props
+		if(props != null){
+			val String name = column.props.javacolumn
+			if(name.equals("type")){
+				return "^type"
+			}
+			return name
+		}else{
+			val String name = column.name.toLowerCase
+			if(name.equals("type")){
+				return "^type"
+			}
+			return name
+		}
+	}
+	
+	/**
+	 * Returns a annotations for the given column
+	 */
+	def dispatch CharSequence toAnnotations(SJoinColumn  joinColumn){
+		
+	}
+	
+	/**
+	 * Returns a annotations for the given column
+	 */
+	def dispatch CharSequence toAnnotations(STable table)'''
+		@DBSchema(schema="«table.toDBSchemaString»")
+		@DBTable(value="«table.name»")
+		@DBColPrefix(value="«table.prefix»")
+	'''
+	
+	/**
+	 * Returns a annotations for the given column
+	 */
+	def dispatch CharSequence toAnnotations(SColumn  column){
+		val StringBuilder b = new StringBuilder
+		if(column.extType != null){
+			// nothing to do
+		}else if(column.inlinedType != null){
+			if(column.inlinedType instanceof SString){
+				val SString inlined = column.inlinedType as SString
+				b.append('''@L_«inlined.value»''')
+			}else if(column.inlinedType instanceof SDecimal){
+				val SDecimal inlined = column.inlinedType as SDecimal
+				b.append('''@L_«inlined.value»''')
+			}
+		}else if(column.simpleType != null){
+			// nothing to do yet
+		}
+		
+		if(column.indexed){
+			b.append("\n")
+			b.append("@DB_INDEXED");
+		}
+		
+		if(!column.nullableColumn){
+			b.append("\n")
+			b.append("@NotNull");
+		}
+		
+		if(column.props != null && column.props.aes){
+			b.append("\n")
+			b.append("@AES_ENCRYPT");
+		}
+		
+		return b.toString
 	}
 	
 	def dispatch toColumnName(SColumn column)'''
@@ -271,7 +463,19 @@ class HelperExtensions {
 		table.toDBEngine == SDBEngine::INNODB
 	}
 	
+	def dispatch isNullableColumn(SColumn column){
+		if(column.props == null){
+			return false;
+		}
+		return column.props.nullable
+	}
 	
+	def dispatch isNullableColumn(SJoinColumn column){
+		if(column.props == null){
+			return false;
+		}
+		return column.props.nullable
+	}
 	
 	def containsJoinColumn(STable table){
 		table.columns.exists([it instanceof SJoinColumn]);

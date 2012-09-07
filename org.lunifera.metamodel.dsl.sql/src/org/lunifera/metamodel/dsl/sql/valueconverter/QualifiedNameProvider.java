@@ -12,12 +12,9 @@
 package org.lunifera.metamodel.dsl.sql.valueconverter;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.naming.IQualifiedNameConverter;
-import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.naming.SimpleNameProvider;
-import org.eclipse.xtext.xbase.scoping.XbaseQualifiedNameProvider;
 import org.lunifera.metamodel.dsl.generator.HelperExtensions;
 import org.lunifera.metamodel.dsl.sqlDSL.SEnum;
 import org.lunifera.metamodel.dsl.sqlDSL.SModel;
@@ -25,7 +22,6 @@ import org.lunifera.metamodel.dsl.sqlDSL.STable;
 
 import com.google.inject.Inject;
 
-@SuppressWarnings("restriction")
 public class QualifiedNameProvider extends SimpleNameProvider {
 
 	@Inject

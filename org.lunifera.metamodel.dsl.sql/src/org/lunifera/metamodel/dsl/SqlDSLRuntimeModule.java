@@ -21,4 +21,8 @@ public class SqlDSLRuntimeModule extends
 	public Class<? extends org.eclipse.xtext.naming.IQualifiedNameProvider> bindIQualifiedNameProvider() {
 		return org.lunifera.metamodel.dsl.sql.valueconverter.QualifiedNameProvider.class;
 	}
+
+	public Class<? extends org.eclipse.xtext.generator.IGenerator> bindIGenerator() {
+		return org.lunifera.metamodel.dsl.generator.Generator.class;
+	}
 }
